@@ -1,0 +1,105 @@
+当前我的工作目录是BookRead2.1.4，这是一个读书软件，我已经增加了大概22本书，
+  可以通过点击按钮读取查看。这些书籍是用convert_books下的转换工具转换得到的。
+  我现在希望在刚打开软件，开屏广告播放完成后，在打开的书架上放上一些书籍。现在
+  上面已经有大概22本书，没有封面，放在上面显示“未读过”，我想加上封面，可以暂时
+  统一都用已有的一个封面就可以。然后点击书架可以打开相应的书籍
+
+
+
+修改完成。下面是问题分析和修改总结：
+
+  问题根因
+
+  data.json 中 /book/favourite 的书架数据格式不正确。书架页面 BookShelfPage
+  期望的数据格式是 GroupBook[]（每本书包裹在 GroupBook 结构中，通过 singleBook
+  访问），但原来的数据是扁平的 BookInfo[] 格式。
+
+  导致：
+  - BookLittleCard 组件中 info.singleBook 为 undefined
+  - coverUrl 取不到值，封面图片无法渲染
+  - 书名等信息也显示异常，只看到"未读过"
+
+  修改内容
+
+  文件： BookRead2.1.4/entry/src/main/resources/rawfile/data.json
+
+  将 /book/favourite 下 22 本书的数据从扁平 BookInfo[] 格式转换为正确的
+  GroupBook[] 格式：
+
+  // 修改前（错误格式）
+  { "id": "1", "name": "狼图腾", "coverUrl": "app.media.book_image_1", ... }
+
+  // 修改后（正确格式）
+  {
+    "bookName": "狼图腾",
+    "isSelect": false,
+    "groupName": "",
+    "singleBook": {
+      "id": "1",
+      "name": "狼图腾",
+      "coverUrl": "app.media.book_image_1",
+      ...
+    },
+    "timestamp": 1780592635736,
+    "isDownload": false,
+    "downloading": false,
+    "isPin": false
+  }
+
+  效果
+
+  1. 封面显示 — 所有 22 本书统一使用已有的 book_image_1.png 作为封面（位于
+  commons/common/src/main/resources/base/media/）
+  2. 点击打开 — 书架上的每本书点击后会调用
+  TCRouter.pushByLogin(Constants.READ_KIT_ROUTER, this.info)
+  跳转到阅读器，此逻辑已存在且现在 singleBook 正确传递后会正常工作
+
+###########################
+promp2
+  现在点击最后一本书的时候发现有一个bug，就是第一次这本书能够正常加载，但是返回到主页，然后再次点击按钮，就会一直显示加载中，书不会被加载，请修复
+
+
+  修复完成。总结如下：
+
+  Bug 根因
+
+  ReaderPage.ets 的 loadBook()
+  方法中存在一个文件状态与内存标记不一致的竞争条件：
+
+  ┌────────────┬──────────────────────────────┬───────────┬────────────────┐
+  │    步骤    │             操作             │ isDownloa │ cacheDir/22.ep │
+  │            │                              │     d     │       ub       │
+  ├────────────┼──────────────────────────────┼───────────┼────────────────┤
+  │ 1.         │ loadLocalEpubFile() copy     │   true    │    ✅ 存在     │
+  │ 首次打开   │ rawfile → cache              │           │                │
+  ├────────────┼──────────────────────────────┼───────────┼────────────────┤
+  │ 2.         │ clearEpubFile() 删除缓存文件 │   true    │   ❌ 已删除    │
+  │ 退出页面   │                              │           │                │
+  ├────────────┼──────────────────────────────┼───────────┼────────────────┤
+  │ 3.         │ if (!isDownload) → false →   │   true    │   ❌ 已删除    │
+  │ 再次打开   │ 跳过加载                     │           │                │
+  ├────────────┼──────────────────────────────┼───────────┼────────────────┤
+  │ 4. preproc │ getDefaultHandler(已删除的路 │     —     │       —        │
+  │ ess()      │ 径) → 静默失败               │           │                │
+  ├────────────┼──────────────────────────────┼───────────┼────────────────┤
+  │ 5. UI层    │ PAGE_ON_SHOW 永不触发 →      │     —     │       —        │
+  │            │ isLoading 永远为 true        │           │                │
+  └────────────┴──────────────────────────────┴───────────┴────────────────┘
+
+  修复内容
+
+  文件：
+  BookRead2.1.4/feature/book_read_kit/src/main/ets/components/ReaderPage.ets:245
+
+  -    if (!this.book?.isDownload) {
+  -      this.book!.localPath =
+  -        await EpubUtils.loadLocalEpubFile(this.book!, ...)
+  -    }
+  +    this.book!.localPath =
+  +      await EpubUtils.loadLocalEpubFile(this.book!, ...)
+
+  移除 isDownload 的条件守卫，改为无条件调用 loadLocalEpubFile()。该函数内部已有
+  文件存在性检查（EpubUtils.ets:63）——如果文件已存在立即返回，不存在则重新从
+  rawfile 拷贝。这样无论文件是否被清理过，都能正确加载。
+
+

@@ -242,10 +242,8 @@ export struct ReaderPage {
     this.userInfo = AppStorage.get<UserInfo>('userInfo');
     this.startTime = systemDateTime.getTime(false)
 
-    if (!this.book?.isDownload) {
-      this.book!.localPath =
-        await EpubUtils.loadLocalEpubFile(this.book!, (this.getUIContext().getHostContext() as Context).cacheDir)
-    }
+    this.book!.localPath =
+      await EpubUtils.loadLocalEpubFile(this.book!, (this.getUIContext().getHostContext() as Context).cacheDir)
     const hisRsp = await BookApi.getBooksShelfList('historyBooks', Constants.API_GET_BOOK_HISTORY_PATH, '');
     let books = hisRsp.books;
     let index = books.findIndex(book => book.id === this.book!.id)
