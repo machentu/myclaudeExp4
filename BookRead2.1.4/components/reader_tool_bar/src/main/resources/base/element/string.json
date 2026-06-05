@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "agcit_huawei_book_read_reader_tool_bar",
+      "value": "1.0.4"
+    },
+    {
+      "name": "agcittype_huawei_book_read_reader_tool_bar",
+      "value": "serviceComponent"
+    },
+    {
+      "name": "agcitkid_huawei_book_read_reader_tool_bar",
+      "value": "agcit_huawei_book_read_base_common/1.0.4"
+    }
+  ]
+}

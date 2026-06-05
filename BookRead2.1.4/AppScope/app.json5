@@ -1,0 +1,12 @@
+{
+  "app": {
+// todo 修改应用包名
+    "bundleName": "ydts.1.xxxxxx",
+    "vendor": "example",
+    "versionCode": 1000000,
+    "versionName": "2.1.4",
+    "icon": "$media:layered_image",
+    "label": "$string:app_name",
+    "configuration": "$profile:configuration"
+  }
+}

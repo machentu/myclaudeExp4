@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "agcit_huawei_book_read_base_common",
+      "value": "1.0.0"
+    },
+    {
+      "name": "agcittype_huawei_book_read_base_common",
+      "value": "serviceComponent"
+    }
+  ]
+}

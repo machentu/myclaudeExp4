@@ -1,0 +1,14 @@
+{
+  "name": "book-converter",
+  "version": "1.0.0",
+  "description": "Convert txt/md files to epub format for BookRead app",
+  "main": "convert.js",
+  "scripts": {
+    "convert": "node convert.js"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "epub-gen": "^0.1.0",
+    "iconv-lite": "^0.6.3"
+  }
+}

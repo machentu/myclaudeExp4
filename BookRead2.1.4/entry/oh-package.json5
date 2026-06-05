@@ -1,0 +1,23 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "common": "file:../commons/common",
+    "book_home": "file:../feature/book_home",
+    "book_person": "file:../feature/book_person",
+    "book_shelf": "file:../feature/book_shelf",
+    "book_read_kit": "file:../feature/book_read_kit",
+    "book_sort": "file:../feature/book_sort",
+    "base_common": "file:../components/base_common",
+    "reader_tool_bar": "file:../components/reader_tool_bar",
+    "swiper_card": "file:../components/swiper_card",
+    "aggregated_payment": "file:../components/aggregated_payment",
+    "custom_push": "file:../components/custom_push",
+    "aggregated_share": "file:../components/aggregated_share"
+  }
+}
+

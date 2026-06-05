@@ -1,0 +1,23 @@
+{
+  "name": "book_person",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "common": "file:../../commons/common",
+    "base_common": "file:../../components/base_common",
+    "swiper_card": "file:../../components/swiper_card",
+    "aggregated_payment": "file:../../components/aggregated_payment",
+    "incentive_ad": "file:../../components/incentive_ad",
+    "custom_push": "file:../../components/custom_push",
+    "membership": "file:../../components/membership",
+    "book_home": "file:../book_home",
+    "book_shelf": "file:../book_shelf",
+    "aggregated_ads": "file:../../components/aggregated_ads",
+    "module_privacy_agreement": "file:../../components/module_privacy_agreement",
+    "dial_panel": "file:../../components/dial_panel",
+    "customer_service_chat": "file:../../components/customer_service_chat"
+  }
+}

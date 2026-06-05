@@ -1,0 +1,16 @@
+<svg width="12.000000" height="12.000000" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <metadata>
+    <agcit_code>agcit_huawei_book_read</agcit_code>
+  </metadata>
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip321_10961">
+			<rect id="ic_public_right_arrow-右箭头" width="12.000000" height="12.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip321_10961)">
+		<path id="path4 (边框)" d="M3.15 10.51C2.95 10.71 2.94 11.02 3.14 11.22C3.33 11.42 3.64 11.42 3.84 11.23L8.84 6.35C9.08 6.12 9.09 5.88 8.85 5.65L3.84 0.76C3.64 0.57 3.33 0.57 3.14 0.77C2.94 0.97 2.95 1.28 3.15 1.48L7.78 6L3.15 10.51Z" fill="#000000" fill-opacity="0.600000" fill-rule="evenodd"/>
+	</g>
+</svg>

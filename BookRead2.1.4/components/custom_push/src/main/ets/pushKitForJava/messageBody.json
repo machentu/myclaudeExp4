@@ -1,0 +1,24 @@
+{
+  "payload": {
+    "notification": {
+      "category": "EXPRESS",
+      "title": "普通通知标题",
+      "body": "普通通知内容",
+      "badge": {
+        "addNum": 1
+      },
+      "clickAction": {
+        "actionType": 1,
+        "action": "com.test.action",
+        "data": {
+          "pushContent": "亲爱的用户您好~2025.06.26 24:00:00-02:00进行安全升级，部分评价功能将无法使用，给您带来不便万分抱歉！感谢您的理解和支持！",
+          "time": "2小时前"
+        }
+      },
+      "foregroundShow": true
+    }
+  },
+  "target": {
+    "token": ["MAM1LgSht70EpjIAstS3TAAAAGQAAAAAAAOVEk8bQkAJt-**********************-eJNCHSThpTAvmJpIw-nlCfB_QskU-kBcaUAr_wF9gqY"]
+  }
+}

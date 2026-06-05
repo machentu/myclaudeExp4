@@ -1,0 +1,11 @@
+{
+  "name": "incentive_ad",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "base_common": "file:../base_common"
+  }
+}

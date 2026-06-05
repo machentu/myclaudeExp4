@@ -1,0 +1,18 @@
+<svg width="48.000000" height="28.000002" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <metadata>
+    <agcit_code>agcit_huawei_book_read_reader_tool_bar</agcit_code>
+  </metadata>
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip247_19049">
+			<rect id="icon_字体减" rx="14.000000" width="48.000000" height="28.000000" transform="translate(0.000000 0.000002)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="icon_字体减" rx="14.000000" width="48.000000" height="28.000000" transform="translate(0.000000 0.000002)" fill="#FFFFFF" fill-opacity="0.100000"/>
+	<g clip-path="url(#clip247_19049)">
+		<rect id="画板 14110" width="16.000000" height="16.000000" transform="translate(16.000000 6.000002)" fill="#FFFFFF" fill-opacity="0"/>
+		<path id="矢量 74" d="M27 19.73L25.1 19.73L23.8 16.51L18.95 16.51L17.74 19.73L16 19.73L20.7 8L22.1 8L27 19.73ZM29 11L29 12.5C29 12.77 29.22 13 29.5 13C29.77 13 30 12.77 30 12.5L30 11L31.5 11C31.77 11 32 10.77 32 10.5C32 10.22 31.77 10 31.5 10L30 10L30 8.5C30 8.22 29.77 8 29.5 8C29.22 8 29 8.22 29 8.5L29 10L27.5 10C27.22 10 27 10.22 27 10.5C27 10.77 27.22 11 27.5 11L29 11ZM21.32 10.3L19.53 15L23.21 15L21.32 10.3Z" fill="#FFFFFF" fill-opacity="0.898039" fill-rule="evenodd"/>
+	</g>
+</svg>

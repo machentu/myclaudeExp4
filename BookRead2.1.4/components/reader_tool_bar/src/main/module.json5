@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "reader_tool_bar",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

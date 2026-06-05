@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "book_sort",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "2in1"
+    ]
+  }
+}

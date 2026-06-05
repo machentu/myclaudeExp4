@@ -1,0 +1,20 @@
+{
+  "color": [
+    {
+      "name": "tab_color_default",
+      "value": "#99FFFFFF"
+    },
+    {
+      "name": "sign_card_top",
+      "value": "#36000000"
+    },
+    {
+      "name": "sign_card_bottom",
+      "value": "#0D000000"
+    },
+    {
+      "name": "linear_transparent",
+      "value": "#00000000"
+    }
+  ]
+}

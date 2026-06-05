@@ -1,0 +1,784 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "阅读听书"
+    },
+    {
+      "name": "app_description",
+      "value": "阅读听书详细描述"
+    },
+    {
+      "name": "book_home",
+      "value": "首页"
+    },
+    {
+      "name": "person",
+      "value": "我的"
+    },
+    {
+      "name": "book_shelf",
+      "value": "书架"
+    },
+    {
+      "name": "no_relative",
+      "value": "登录/注册"
+    },
+    {
+      "name": "disassociate",
+      "value": "解除关联"
+    },
+    {
+      "name": "associate_account",
+      "value": "关联账号"
+    },
+    {
+      "name": "loginOut",
+      "value": "退出登录"
+    },
+    {
+      "name": "book_list",
+      "value": "书籍列表"
+    },
+    {
+      "name": "searchHistory",
+      "value": "历史搜索"
+    },
+    {
+      "name": "noSearchResult",
+      "value": "暂无搜索结果"
+    },
+    {
+      "name": "searchResult",
+      "value": "搜索结果"
+    },
+    {
+      "name": "hotSearch",
+      "value": "热门搜索"
+    },
+    {
+      "name": "clearHistory",
+      "value": "清空"
+    },
+    {
+      "name": "history",
+      "value": "浏览历史"
+    },
+    {
+      "name": "library",
+      "value": "图书馆"
+    },
+    {
+      "name": "borrow_card",
+      "value": "借阅证"
+    },
+    {
+      "name": "read",
+      "value": "阅读"
+    },
+    {
+      "name": "borrow_detail",
+      "value": "借阅记录"
+    },
+    {
+      "name": "settings",
+      "value": "设置"
+    },
+    {
+      "name": "person_setting",
+      "value": "个人设置"
+    },
+    {
+      "name": "issue_and_feedback",
+      "value": "问题与反馈"
+    },
+    {
+      "name": "about",
+      "value": "关于"
+    },
+    {
+      "name": "privacy",
+      "value": "隐私声明"
+    },
+    {
+      "name": "user_agreement",
+      "value": "用户协议"
+    },
+    {
+      "name": "privacy_content",
+      "value": "《阅读听书隐私政策》\n欢迎您使用我们的服务，您的信任对我们很重要，我们将严格遵守法律法规要求的安全保护措施，保护您的个人信息安全可控。本隐私政策解释了服务的信息、数据收集和使用行为，您一旦访问本网站或使用提供的相关服务，则表明您已同意本隐私政策的内容。\n\n一、个人信息收集\n必要信息：通常情况下，您无须提供您的个人信息即可访问本网站的部分公开内容。但当您参与以下活动时，为了完成相关服务，我们可能会收集必要的个人信息：\n预约参观：收集姓名、联系方式（电话或电子邮件）、身份证号码等，以便确认您的预约信息和进行安全检查。\n参与讲座、活动或课程：除基本的联系信息外，可能还会收集您的兴趣领域、学历等信息，以便为您提供更贴合需求的服务。\n申请成为志愿者：收集姓名、国籍、所在城市、学历、兴趣方向、相关工作经验等信息，用于评估您是否适合志愿者岗位。\n网上调查：根据调查内容，可能会收集您的意见、建议以及一些与调查主题相关的个人情况。\n同意方式：当需要您提供个人信息时，会以明确、易懂的方式征求您的同意，您可以选择提供或拒绝。若您拒绝提供必要信息，可能无法正常使用相关服务。\n\n二、个人信息使用\n内部使用：您提供的个人信息将仅在内部使用和共享，使用目的仅限于以下方面：\n处理您的预约、申请等请求，为您提供相应的服务。\n分析用户需求和行为，以便不断优化服务内容和质量。\n与您沟通相关的服务信息、活动通知等。\n非共享原则：除非出于您自己的意愿、法律强制性规定或为了保护本店及公众的合法权益，不会将您的个人信息提供给本公司之外的任何第三方。\n\n三、法律性公开\n您已理解，根据法律强制性规定，本网站可能需要公开您的个人信息而无须获得您的预先同意并对此不负任何责任。\n\n四、本隐私政策的修改\n本隐私政策的修改权和解释权属于我司。我司会在页面上公布隐私政策的更新内容，若您继续使用提供的服务，则视为您同意接受修改后的隐私政策。\n\n五、联系方式\n如果您有任何疑问和建议，可以通过页面上的联系方式与我司联系，我们将尽最大的努力去解决。"
+    },
+    {
+      "name": "user_agreement_content",
+      "value": "当你使用阅读听书APP时，我们会在获得或确保设备第三方获取你的授权同意后，以及其他符合法律法规的情形下共享对应信息。 \n你可以通过本清单相关信息了解第三方设备会如何处理你的个人信息。我们也会保障你的个人信息安全。"
+    },
+    {
+      "name": "returned_flag",
+      "value": " 前归还"
+    },
+    {
+      "name": "avatar",
+      "value": "头像"
+    },
+    {
+      "name": "nick_name",
+      "value": "昵称"
+    },
+    {
+      "name": "birthday",
+      "value": "生日"
+    },
+    {
+      "name": "telephone",
+      "value": "电话"
+    },
+    {
+      "name": "borrow_book_flag",
+      "value": "扫一扫立即借书"
+    },
+    {
+      "name": "borrow_card_expire",
+      "value": "借阅证有效期："
+    },
+    {
+      "name": "borrow_info",
+      "value": "借阅信息"
+    },
+    {
+      "name": "borrow_time",
+      "value": "借阅时间"
+    },
+    {
+      "name": "borrow_deadline",
+      "value": "借阅期限"
+    },
+    {
+      "name": "borrow_return_time",
+      "value": "归还时间"
+    },
+    {
+      "name": "borrow_count",
+      "value": "借阅数量"
+    },
+    {
+      "name": "borrow_returned",
+      "value": "已归还"
+    },
+    {
+      "name": "borrowing",
+      "value": "待归还"
+    },
+    {
+      "name": "borrow_overdue",
+      "value": "逾期"
+    },
+    {
+      "name": "author",
+      "value": "作者"
+    },
+    {
+      "name": "borrow_flag_system",
+      "value": "图书馆借阅制度"
+    },
+    {
+      "name": "borrow_flag",
+      "value": "1、本人持身份证可办理借书证，凭借书证（卡）借书。\n 2、客户端需完成线上实名认证可申请网络借阅证。\n 3、借书证限本人使用，每次可借1-5本图书，借期不超过 7天。到期未看完者，须办理续借手续。若不能及时归还，逾期缴滞留金1.00 元/册.天。\n 4、读者要爱护图书，不得污损、撕毁、批注和丢失，如有上述情况应按制度赔偿。对于违章的读者，在未办妥有关赔偿手续前，暂停其借阅权利。\n 5、借书证限本人或专人使用，应妥善保管，如发生代借、冒借等现象，概由领证人负责。借书证和借书卡丢失，应立即挂失。\n 6、书刊遗失，尽量购买原版本图书赔偿，否则以书刊价格的1～20倍赔偿。"
+    },
+    {
+      "name": "borrow_book_info_flag",
+      "value": "借阅目录"
+    },
+    {
+      "name": "more",
+      "value": "更多"
+    },
+    {
+      "name": "free",
+      "value": "免费"
+    },
+    {
+      "name": "member",
+      "value": "vip"
+    },
+    {
+      "name": "paid",
+      "value": "付费"
+    },
+    {
+      "name": "more_and_more",
+      "value": "更多推荐"
+    },
+    {
+      "name": "recommend",
+      "value": "推荐"
+    },
+    {
+      "name": "rating",
+      "value": "评分"
+    },
+    {
+      "name": "popular",
+      "value": "人气"
+    },
+    {
+      "name": "publishing_house",
+      "value": "华为出版社"
+    },
+    {
+      "name": "rating_point",
+      "value": "分"
+    },
+    {
+      "name": "ten_thousand_words",
+      "value": "万字"
+    },
+    {
+      "name": "ten_thousand",
+      "value": "万"
+    },
+    {
+      "name": "start_reading",
+      "value": "<< 向左滑开始阅读"
+    },
+    {
+      "name": "all_words",
+      "value": "全部"
+    },
+    {
+      "name": "read_background_color",
+      "value": "背景"
+    },
+    {
+      "name": "reading_with_swiper",
+      "value": "翻页阅读"
+    },
+    {
+      "name": "reading_with_single",
+      "value": "单手阅读"
+    },
+    {
+      "name": "listening_book",
+      "value": "听书"
+    },
+    {
+      "name": "reading_is_perfect",
+      "value": "阅读让生活更美好!"
+    },
+    {
+      "name": "go_and_go_home",
+      "value": "逛逛书城"
+    },
+    {
+      "name": "minute",
+      "value": "分钟"
+    },
+    {
+      "name": "catalog",
+      "value": "目录"
+    },
+    {
+      "name": "add_shelf_success",
+      "value": "添加书架成功"
+    },
+    {
+      "name": "del_shelf_success",
+      "value": "移除成功"
+    },
+    {
+      "name": "popular_book",
+      "value": "人气好书"
+    },
+    {
+      "name": "more_popular_book",
+      "value": "专区图书"
+    },
+    {
+      "name": "please",
+      "value": "请在"
+    },
+    {
+      "name": "remaining",
+      "value": "剩余"
+    },
+    {
+      "name": "overdue",
+      "value": "逾期"
+    },
+    {
+      "name": "account_disassociate",
+      "value": "账号解除关联"
+    },
+    {
+      "name": "q_account_disassociate",
+      "value": "请确认是否账号解除关联？"
+    },
+    {
+      "name": "right",
+      "value": "确定"
+    },
+    {
+      "name": "select_all",
+      "value": "全选"
+    },
+    {
+      "name": "delete",
+      "value": "删除"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "search_placeholder",
+      "value": "搜索书名或作者"
+    },
+    {
+      "name": "phone_number",
+      "value": "a11xxxx1111"
+    },
+    {
+      "name": "delete_book_flag",
+      "value": "是否删除此书籍"
+    },
+    {
+      "name": "q_delete_book_flag",
+      "value": "请确认是否删除此书籍?"
+    },
+    {
+      "name": "delete_book_success",
+      "value": "删除成功"
+    },
+    {
+      "name": "un_select_book_tip",
+      "value": "请选中删除书籍"
+    },
+    {
+      "name": "today_read",
+      "value": "今日阅读"
+    },
+    {
+      "name": "today_listen",
+      "value": "今日听书"
+    },
+    {
+      "name": "checked_in",
+      "value": "已签到"
+    },
+    {
+      "name": "day",
+      "value": "天"
+    },
+    {
+      "name": "go_earn_more_coins",
+      "value": "去赚更多金币 "
+    },
+    {
+      "name": "no_login_out",
+      "value": "没有登录"
+    },
+    {
+      "name": "ask_for_login_out",
+      "value": "退出登录"
+    },
+    {
+      "name": "ask_for_login_out_again",
+      "value": "是否确定退出登录？"
+    },
+    {
+      "name": "agreement_and_login_out",
+      "value": "确定"
+    },
+    {
+      "name": "modify_nickname",
+      "value": "修改昵称"
+    },
+    {
+      "name": "modify_telephone",
+      "value": "修改电话"
+    },
+    {
+      "name": "modify_success",
+      "value": "修改成功"
+    },
+    {
+      "name": "vip_off",
+      "value": "未开通"
+    },
+    {
+      "name": "common_services",
+      "value": "常用服务"
+    },
+    {
+      "name": "reading_history",
+      "value": "阅读记录"
+    },
+    {
+      "name": "my_download",
+      "value": "我的下载"
+    },
+    {
+      "name": "read_status_read",
+      "value": "已读"
+    },
+    {
+      "name": "read_status_unread",
+      "value": "未读"
+    },
+    {
+      "name": "delete_confirmation_message",
+      "value": "是否删除%1$d条记录？"
+    },
+    {
+      "name": "book_downloaded_count",
+      "value": "已下载%1$d本"
+    },
+    {
+      "name": "book_total_count",
+      "value": "共%1$d本"
+    },
+    {
+      "name": "book_read_to",
+      "value": "读至"
+    },
+    {
+      "name": "no_introduction",
+      "value": "暂无简介"
+    },
+    {
+      "name": "recent_seven_days",
+      "value": "最近七天"
+    },
+    {
+      "name": "balance_deduction_remaining_payment",
+      "value": "抵扣余额还需支付"
+    },
+    {
+      "name": "product_amount",
+      "value": "商品金额"
+    },
+    {
+      "name": "read_coin",
+      "value": "%1$d阅读币"
+    },
+    {
+      "name": "voucher_coupon",
+      "value": "%1$d抵扣券"
+    },
+    {
+      "name": "balance_deduction",
+      "value": "余额抵扣"
+    },
+    {
+      "name": "purchase_book_unlimited_reading",
+      "value": "购买本书 长期畅读"
+    },
+    {
+      "name": "membership_promo_message",
+      "value": "%1$d元开通会员免费读"
+    },
+    {
+      "name": "my_evaluation",
+      "value": "我的评价"
+    },
+    {
+      "name": "reading_preference",
+      "value": "阅读偏好设置"
+    },
+    {
+      "name": "contact",
+      "value": "联系客服"
+    },
+    {
+      "name": "daily_recommendation",
+      "value": "今日力荐"
+    },
+    {
+      "name": "recommend_for_you",
+      "value": "猜你喜欢"
+    },
+    {
+      "name": "boys_channel",
+      "value": "男生频道"
+    },
+    {
+      "name": "girls_channel",
+      "value": "女生频道"
+    },
+    {
+      "name": "children_literature",
+      "value": "少儿文学"
+    },
+    {
+      "name": "science_nature",
+      "value": "科学自然"
+    },
+    {
+      "name": "poetry_prose",
+      "value": "诗词歌赋"
+    },
+    {
+      "name": "masterpiece_historical",
+      "value": "史学巨作"
+    },
+    {
+      "name": "literary_classics",
+      "value": "文学经典"
+    },
+    {
+      "name": "revolutionary_spirit",
+      "value": "革命精神"
+    },
+    {
+      "name": "free_channel",
+      "value": "免费"
+    },
+    {
+      "name": "bookshelf",
+      "value": "书架"
+    },
+    {
+      "name": "book_case",
+      "value": "书城"
+    },
+    {
+      "name": "book_sort",
+      "value": "分类"
+    },
+    {
+      "name": "activity_center",
+      "value": "活动中心"
+    },
+    {
+      "name": "activity_description",
+      "value": "精彩活动等你来"
+    },
+    {
+      "name": "welfare_description",
+      "value": "做任务领福利"
+    },
+    {
+      "name": "member_center",
+      "value": "会员中心"
+    },
+    {
+      "name": "vip_member",
+      "value": "VIP会员"
+    },
+    {
+      "name": "no_member",
+      "value": "未开通"
+    },
+    {
+      "name": "open_member",
+      "value": "开通会员"
+    },
+    {
+      "name": "member_privileges",
+      "value": "会员权益"
+    },
+    {
+      "name": "member_packages",
+      "value": "会员套餐"
+    },
+    {
+      "name": "enjoy_more_services",
+      "value": "开通会员享受购书折扣"
+    },
+    {
+      "name": "no_ads",
+      "value": "免广告"
+    },
+    {
+      "name": "no_ads_desc",
+      "value": "所有去除所有书籍页面广告"
+    },
+    {
+      "name": "priority_consultation",
+      "value": "优先咨询"
+    },
+    {
+      "name": "priority_consultation_desc",
+      "value": "开通私信功能"
+    },
+    {
+      "name": "exclusive_service",
+      "value": "专属客服"
+    },
+    {
+      "name": "exclusive_service_desc",
+      "value": "专属于您的私人客服"
+    },
+    {
+      "name": "member_agreement",
+      "value": "《会员服务协议》"
+    },
+    {
+      "name": "agree_member_agreement",
+      "value": "开通前请阅读并同意"
+    },
+    {
+      "name": "open_now",
+      "value": "立即开通"
+    },
+    {
+      "name": "lifetime_member",
+      "value": "终身会员"
+    },
+    {
+      "name": "lifetime_privileges",
+      "value": "终身VIP权益"
+    },
+    {
+      "name": "agree_member_agreement_tip",
+      "value": "请勾选会员服务协议"
+    },
+    {
+      "name": "payment_success",
+      "value": "支付成功"
+    },
+    {
+      "name": "not_completed_reading",
+      "value": "未完成阅读"
+    },
+    {
+      "name": "sample_review_1",
+      "value": "非常精彩的一本书，情节紧凑，人物刻画深入，读起来很有代入感，强烈推荐！"
+    },
+    {
+      "name": "sample_review_2",
+      "value": "作者的文笔很棒，故事发展很有逻辑性，每个章节都有惊喜，是值得收藏的好书。"
+    },
+    {
+      "name": "sample_review_3",
+      "value": "这本书让我重新思考了很多问题，内容深刻且富有哲理，是一本难得的好书。"
+    },
+    {
+      "name": "wonderful_book_reviews",
+      "value": "精彩书评"
+    },
+    {
+      "name": "write_review",
+      "value": "写评论"
+    },
+    {
+      "name": "wonderful_review_1",
+      "value": "这本书的故事情节非常引人入胜，作者的文笔细腻，人物刻画生动，让人爱不释手。强烈推荐给喜欢这个类型的朋友们！"
+    },
+    {
+      "name": "wonderful_review_2",
+      "value": "读完这本书让我受益匪浅，作者对人性的描写很到位，每个角色都有自己的特色，是一本值得反复阅读的好书。"
+    },
+    {
+      "name": "go_reading",
+      "value": "去阅读"
+    },
+    {
+      "name": "all",
+      "value": "全部"
+    },
+    {
+      "name": "latest",
+      "value": "最新"
+    },
+    {
+      "name": "finished_reading",
+      "value": "已读完"
+    },
+    {
+      "name": "welfare_center",
+      "value": "福利中心"
+    },
+    {
+      "name": "download",
+      "value": "下载"
+    },
+    {
+      "name": "rename",
+      "value": "重命名"
+    },
+    {
+      "name": "delete_group",
+      "value": "删除分组"
+    },
+    {
+      "name": "disband_group",
+      "value": "解散分组"
+    },
+    {
+      "name": "pin",
+      "value": "置顶"
+    },
+    {
+      "name": "not_pin",
+      "value": "取消置顶"
+    },
+    {
+      "name": "share",
+      "value": "分享"
+    },
+    {
+      "name": "change_group",
+      "value": "移至分组"
+    },
+    {
+      "name": "book_like",
+      "value": "猜你喜欢"
+    },
+    {
+      "name": "go_book_shop",
+      "value": "去书城"
+    },
+    {
+      "name": "new_group",
+      "value": "新建分组"
+    },
+    {
+      "name": "manage_book",
+      "value": "管理书籍"
+    },
+    {
+      "name": "ask_group_name",
+      "value": "修改组名"
+    },
+    {
+      "name": "ask_delete_group",
+      "value": "是否解散此分组"
+    },
+    {
+      "name": "deleteGroupContent",
+      "value": "解散分组后，组内书籍不会被删除，将自动移入书架。"
+    },
+    {
+      "name": "no_finished_reading",
+      "value": "未读完"
+    },
+    {
+      "name": "more_book_reviews",
+      "value": "更多评论"
+    },
+    {
+      "name": "briefly",
+      "value": "简介"
+    },
+    {
+      "name": "no_briefly",
+      "value": "暂无简介"
+    },
+    {
+      "name": "no_classify",
+      "value": "未分类"
+    },
+    {
+      "name": "no_completed",
+      "value": "连载中"
+    },
+    {
+      "name": "completed",
+      "value": "已完结"
+    },
+    {
+      "name": "agcit_huawei_book_read",
+      "value": "2.1.4"
+    }
+  ]
+}

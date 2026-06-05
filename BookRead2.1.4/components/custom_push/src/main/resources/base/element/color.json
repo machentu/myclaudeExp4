@@ -1,0 +1,16 @@
+{
+  "color": [
+    {
+      "name": "time_gray",
+      "value": "#99000000"
+    },
+    {
+      "name": "message_content_font_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "pure_white",
+      "value": "#FFFFFF"
+    }
+  ]
+}

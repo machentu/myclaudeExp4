@@ -1,0 +1,14 @@
+{
+  "name": "book_shelf",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "common": "file:../../commons/common",
+    "book_home": "file:../book_home",
+    "base_common": "file:../../components/base_common",
+    "book_read_kit": "file:../book_read_kit"
+  }
+}

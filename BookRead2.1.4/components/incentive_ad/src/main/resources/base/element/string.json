@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "app_name",
+      "value": "阅读听书"
+    },
+    {
+      "name": "agcit_huawei_book_read_incentive_ad",
+      "value": "1.0.3"
+    },
+    {
+      "name": "agcittype_huawei_book_read_incentive_ad",
+      "value": "serviceComponent"
+    },
+    {
+      "name": "agcitkid_huawei_book_read_incentive_ad",
+      "value": "agcit_huawei_book_read_base_common/1.0.3"
+    }
+  ]
+}

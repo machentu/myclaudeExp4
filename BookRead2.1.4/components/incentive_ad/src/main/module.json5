@@ -1,0 +1,22 @@
+{
+  "module": {
+    "name": "incentive_ad",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.APP_TRACKING_CONSENT",
+        "reason": "$string:app_name",
+        "usedScene": {
+          "abilities": [
+            "FormAbility"
+          ],
+          "when": "inuse"
+        }
+      }
+    ]
+  }
+}

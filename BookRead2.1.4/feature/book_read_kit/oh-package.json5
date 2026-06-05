@@ -1,0 +1,14 @@
+{
+  "name": "book_read_kit",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "common": "file:../../commons/common",
+    "reader_tool_bar": "file:../../components/reader_tool_bar",
+    "base_common": "file:../../components/base_common",
+    "aggregated_share": "file:../../components/aggregated_share"
+  }
+}

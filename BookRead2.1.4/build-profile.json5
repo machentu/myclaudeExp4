@@ -1,0 +1,142 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\ASUS\\.ohos\\config\\default_BookRead2.1.4_aDg6dvCCpvKBwUM_31eY-qLoD0IHSiu1E7PMzZ5dlAY=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B47EB63F66A37D35B2F1014835413EB6E4F3FE275267810DC686953CA7C1DBBDDC5916CB56FCA43",
+          "profile": "C:\\Users\\ASUS\\.ohos\\config\\default_BookRead2.1.4_aDg6dvCCpvKBwUM_31eY-qLoD0IHSiu1E7PMzZ5dlAY=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\ASUS\\.ohos\\config\\default_BookRead2.1.4_aDg6dvCCpvKBwUM_31eY-qLoD0IHSiu1E7PMzZ5dlAY=.p12",
+          "storePassword": "0000001B27CF92AD23B93E8C47DDF8C3E7EFAF8E0112A8CF41504CA0C70B6B423D83FB5EE7F9FD580552DF"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "6.0.2(22)",
+        "compatibleSdkVersion": "6.0.0(20)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          },
+          "externalNativeOptions": {
+            "abiFilters": [
+              "arm64-v8a",
+              "x86_64"
+            ]
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "common",
+      "srcPath": "./commons/common"
+    },
+    {
+      "name": "book_home",
+      "srcPath": "./feature/book_home"
+    },
+    {
+      "name": "book_person",
+      "srcPath": "./feature/book_person"
+    },
+    {
+      "name": "book_shelf",
+      "srcPath": "./feature/book_shelf"
+    },
+    {
+      "name": "book_read_kit",
+      "srcPath": "./feature/book_read_kit"
+    },
+    {
+      "name": "book_sort",
+      "srcPath": "./feature/book_sort"
+    },
+    {
+      "name": "swiper_card",
+      "srcPath": "./components/swiper_card"
+    },
+    {
+      "name": "reader_tool_bar",
+      "srcPath": "./components/reader_tool_bar"
+    },
+    {
+      "name": "base_common",
+      "srcPath": "./components/base_common"
+    },
+    {
+      "name": "aggregated_payment",
+      "srcPath": "./components/aggregated_payment"
+    },
+    {
+      "name": "custom_push",
+      "srcPath": "./components/custom_push"
+    },
+    {
+      "name": "incentive_ad",
+      "srcPath": "./components/incentive_ad"
+    },
+    {
+      "name": "membership",
+      "srcPath": "./components/membership"
+    },
+    {
+      "name": "aggregated_share",
+      "srcPath": "./components/aggregated_share"
+    },
+    {
+      "name": "aggregated_ads",
+      "srcPath": "./components/aggregated_ads"
+    },
+    {
+      "name": "module_ui_base",
+      "srcPath": "./components/module_ui_base"
+    },
+    {
+      "name": "module_privacy_agreement",
+      "srcPath": "./components/module_privacy_agreement"
+    },
+    {
+      "name": "dial_panel",
+      "srcPath": "./components/dial_panel"
+    },
+    {
+      "name": "image_preview",
+      "srcPath": "./components/image_preview"
+    },
+    {
+      "name": "customer_service_chat",
+      "srcPath": "./components/customer_service_chat"
+    }
+  ]
+}

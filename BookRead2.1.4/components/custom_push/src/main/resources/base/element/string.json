@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "system_message_content",
+      "value": "亲爱的用户您好~2025.06.26 24:00:00-02:00进行安全升级，部分评价功能将无法使用，给您带来不便万分抱歉！感谢您的理解和支持！"
+    },
+    {
+      "name": "agcit_huawei_book_read_custom_push",
+      "value": "1.0.3"
+    },
+    {
+      "name": "agcittype_huawei_book_read_custom_push",
+      "value": "serviceComponent"
+    }
+  ]
+}

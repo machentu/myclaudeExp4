@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "custom_push",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

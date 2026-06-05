@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "swiper_card",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

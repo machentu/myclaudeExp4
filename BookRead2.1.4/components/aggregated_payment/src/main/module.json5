@@ -1,0 +1,12 @@
+{
+  "module": {
+    "name": "aggregated_payment",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "2in1",
+      "wearable"
+    ]
+  }
+}

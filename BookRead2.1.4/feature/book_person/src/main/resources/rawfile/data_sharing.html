@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三方共享信息清单</title>
+    <style>
+        :root {
+          --sharing-bg-color: #f5f5f5;
+          --sharing-content-bg: #fff;
+          --card-color: #ffffff;
+          --sharing-font-color: #333;
+          --sharing-effective-color: #888;
+        }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --sharing-bg-color: #e5e5e5;
+            --sharing-content-bg: #000;
+            --card-color: #191919;
+            --sharing-font-color: #fff;
+            --sharing-effective-color: #eee;
+          }
+        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: "HarmonyOS Sans", "Helvetica Neue", Arial, sans-serif;
+        background: var(--sharing-bg-color);
+        color: var(--sharing-font-color);
+        line-height: 1.6;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    header {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    h1 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        color: var(--sharing-font-color);
+    }
+    .effective-time {
+        font-size: 13px;
+        color: var(--sharing-effective-color);
+        font-weight: bold;
+        margin: 5px 0;
+        display: block;
+        text-align: center;
+    }
+    .content {
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: var(--sharing-content-bg);
+        border-radius: 4px;
+    }
+    .footer {
+        text-align: center;
+        font-size: 13px;
+        color: #777;
+        margin-top: 10px;
+        padding-top: 5px;
+        border-top: 1px solid #eee;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>第三方共享信息清单</h1>
+        <span class="effective-time">生效时间：2024-08-13 12:00:00</span>
+    </header>
+    <main class="content">
+        <p>我们在引入合作伙伴之前会严格进行隐私安全尽职调查，并通过合同约束要求合作伙伴采取严格的措施来保护您的个人数据。在满足新的服务需求及业务功能变更时，我们可能会调整我们的合作伙伴，并及时在本说明中向您公开说明最新情况。请注意，共享信息合作伙伴具体使用情况请仔细阅读合作伙伴的隐私政策。目前本应用涉及共享信息合作伙伴列表如下：</p>
+        <p style="margin-top: 10px;">请注意，合作方的代码可能因为其版本升级、策略调整等原因导致数据处理类型存在一定变化，请以其公示的官方说明为准。</p>
+        <p style="margin-top: 10px;">第三方公司名称：XXXX有限公司
+
+            产品/类型：XX
+
+            涉及个人信息：设备标识符（IMEI、MEID、IMSI、huawei ID、硬件序列号/Serial、ICCID、OAID）、设备MAC地址、IP 地址、WLAN接入点（如SSID、BSSID)、Wifi列表、网络信息、设备信息、软件列表
+
+            收集方式：SDK自行采集
+
+            第三方个人信息处理规范：
+            *****.****.***
+        </p>
+    </main>
+</div>
+</body>
+</html>
