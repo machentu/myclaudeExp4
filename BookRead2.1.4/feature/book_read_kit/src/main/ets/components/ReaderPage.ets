@@ -17,6 +17,7 @@ import {
   EpubUtils,
   GlobalContext,
   ImmersiveListener,
+  ReadProgressPersist,
   ReadSet,
   TCRouter,
   WindowUtils
@@ -117,11 +118,9 @@ export struct ReaderPage {
     if (p) {
       this.book = p;
       ReviewDataUtil.setCurrentBookInfo(this.book);
-      // let context = GlobalContext.getContext();
-      // let resourceDir = context.resourceDir
-      // let fileName: string = (this.book.coverUrl as string).split('.').pop()!
-      // let bookResourceDir = resourceDir + '/' + fileName + '.png';
       ImmersiveListener.immersiveListening(this.book, '')
+      // 进程重启后 AppStorage 为空，在 build() 之前恢复持久化进度，这样封面卡不会闪现
+      this.restoreProgressFromPersist();
     }
     this.onWindowsAppear()
   }
@@ -252,6 +251,19 @@ export struct ReaderPage {
     }
     books.unshift(this.book!);
     AppStorage.set('historyBooks', books);
+  }
+
+  private restoreProgressFromPersist(): void {
+    if (!this.book?.id) {
+      return;
+    }
+    if (AppStorage.has(this.book.id)) {
+      return;
+    }
+    const saved = ReadProgressPersist.loadProgress(this.book.id);
+    if (saved?.resourceIndex !== undefined) {
+      AppStorage.setOrCreate(this.book.id, saved);
+    }
   }
 
   private async preprocess() {
@@ -472,6 +484,15 @@ export struct ReaderPage {
       // 删除缓存中的书籍
       EpubUtils.clearEpubFile(this.book!, (this.getUIContext().getHostContext() as Context).cacheDir, 'cache')
       AppStorage.setOrCreate(this.book?.id, this.pageData)
+      // 持久化阅读进度，确保进程重启后仍能恢复
+      if (this.pageData && this.book?.id) {
+        ReadProgressPersist.saveProgress(
+          this.book.id,
+          this.book.readProgress ?? '未读过',
+          this.pageData.resourceIndex,
+          this.pageData.startDomPos || ''
+        );
+      }
       this.readSet.readerSetting = this.readerSetting
       this.endTime = systemDateTime.getTime(false)
       this.userInfo!.totalReading += Math.ceil((this.endTime - this.startTime) / 60000)

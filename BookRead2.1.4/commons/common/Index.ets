@@ -60,6 +60,8 @@ export { MinorsProtectionUtils } from './src/main/ets/utils/minorsProtectionUtil
 
 export { WantUtils } from './src/main/ets/utils/WantUtils'
 
+export { ReadProgressPersist } from './src/main/ets/utils/ReadProgressPersist'
+
 export { ImmersiveListener } from './src/main/ets/listener/ImmersiveListener'
 
 export { AppLinkingRouter } from './src/main/ets/model/AppLinkingModel'

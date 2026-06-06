@@ -5,6 +5,7 @@ import { BookInfo, GroupBook, rankListInfo } from '../model/Book';
 import { UserInfo } from 'base_common';
 import App from '@system.app';
 import { BookCategory } from '../model/BookSortInfo';
+import { ReadProgressPersist } from '../utils/ReadProgressPersist';
 
 export interface GetBookApiRsp {
   books: Array<BookInfo>
@@ -103,6 +104,7 @@ export class BookApi {
     if (!books) {
       let rsp = await BookApi.INVOKE.get<GetBookGroupRsp>(bookListPath)
       books = rsp.books
+      ReadProgressPersist.applyProgressToBooks(books);
       AppStorage.set(bookListType, books)
     }
     return { books: books }

@@ -103,3 +103,127 @@ promp2
   rawfile 拷贝。这样无论文件是否被清理过，都能正确加载。
 
 
+3. 使用开源 TTS 引擎（适合开发者）
+如果你希望完全免费且支持私有化部署，可以集成开源的 TTS 方案：
+Edge-TTS：通过逆向微软 Edge 浏览器的 TTS 接口获取高质量语音，免费且效果极佳（很多开源听书软件都在用）。
+Piper / Coqui TTS / VITS：支持本地离线运行的轻量级神经网络语音合成模型。
+优点：无版权风险，免费，可高度定制。
+缺点：需要一定的后端开发能力，本地运行对设备算力有一定要求。
+
+
+tts-fastspeech2-baker-ch  65M
+
+https://github.com/index-tts/index-tts
+
+https://github.com/PaddlePaddle/PaddleSpeech
+
+
+
+
+
+现在代码有个问题，当我在软件打开之后，我读书的进度位置是保留下来了，但是当我这个软件进程关闭之后，重新打开软件，所有的书籍读取进度都没有了。全部变为未读过。应该任何时候我书架的书都应该保留进度。请修复。
+
+
+修复完成。下面是问题分析和修改总结：
+
+  根因
+
+  AppStorage 是 HarmonyOS
+  的内存级键值存储，进程关闭后数据全部丢失。阅读进度的保存和恢复只依赖
+  AppStorage：
+
+  ┌────────────┬───────────────────────────────────┬──────────────┬──────────┐
+  │    时机    │               操作                │     存储     │ 持久化？ │
+  ├────────────┼───────────────────────────────────┼──────────────┼──────────┤
+  │ 阅读翻页   │ onPageDataChange() →              │ 修改对象引用 │    ❌    │
+  │            │ book.readProgress = '已读xx%'     │              │          │
+  ├────────────┼───────────────────────────────────┼──────────────┼──────────┤
+  │ 退出阅读器 │ AppStorage.setOrCreate(book.id,   │ 内存         │    ❌    │
+  │            │ pageData)                         │              │          │
+  ├────────────┼───────────────────────────────────┼──────────────┼──────────┤
+  │ 书架加载   │ AppStorage.get('favBooks') →      │ 内存         │    ❌    │
+  │            │ 命中则返回                        │              │          │
+  ├────────────┼───────────────────────────────────┼──────────────┼──────────┤
+  │ 进程重启   │ AppStorage 清空 → 从 data.json    │ —            │    ❌    │
+  │            │ 加载 → 全是 "未读过"              │              │          │
+  └────────────┴───────────────────────────────────┴──────────────┴──────────┘
+
+  修改内容（4 个文件）
+
+  1. 新建 commons/common/src/main/ets/utils/ReadProgressPersist.ets
+
+  持久化工具类，通过文件 IO 将每本书的阅读进度保存到沙箱
+  files/read_progress.json：
+
+  saveProgress(bookId, readProgress, resourceIndex, startDomPos)
+  loadProgress(bookId) → { readProgress, resourceIndex, startDomPos } | null
+  applyProgressToBooks(favBooks) → 遍历恢复
+
+  2. BookApi.ets — 加载时恢复进度
+
+    books = rsp.books
+  + ReadProgressPersist.applyProgressToBooks(books);
+    AppStorage.set(bookListType, books)
+
+  3. ReaderPage.ets — 退出时保存 + 进入时恢复
+
+    // preprocess(): AppStorage 为空时从持久化恢复
+  + const saved = ReadProgressPersist.loadProgress(this.book!.id);
+  + if (saved?.resourceIndex !== undefined) { this.pageData = ... }
+
+    // onWillHide(): 同时写入持久化
+  + ReadProgressPersist.saveProgress(bookId, readProgress, resourceIndex,
+  startDomPos);
+
+  4. commons/common/Index.ets — 导出新工具类
+
+  效果
+
+  - 会话内：行为不变，AppStorage 保证即时读写
+  - 进程重启后：从 files/read_progress.json 恢复进度 → 书架显示 "已读xx%" →
+  打开书籍跳转到上次位置
+
+
+
+
+  所有文件已检查完毕。代码中不再有未定义类型的对象字面量：
+
+  - ReaderPage.ets:275 — 改用 new Object() as Record<string, Object> +
+  属性赋值，不再用裸 { }
+  - ReadProgressPersist.ets:27/39 — 同样是 new Object() as Record<string,
+  SavedProgress>
+  - ReadProgressPersist.ets:60 — { readProgress, resourceIndex, startDomPos }
+  匹配本地声明的 SavedProgress 接口，合法
+
+  可以重新编译试试。
+
+已修复 — 加了一级 as unknown 中间转换，这是 ArkTS
+  编译器错误信息里明确建议的做法。
+
+  Clean — no more raw object literals or any/unknown casts. The approach is now:
+
+  1. loadBook() → restoreProgressFromPersist() → 从文件读进度 →
+  AppStorage.setOrCreate(bookId, saved)
+  2. preprocess() → AppStorage.has(bookId) → 自然命中（无需修改此处的代码）
+  3. onWillHide() → AppStorage.setOrCreate() +
+  ReadProgressPersist.saveProgress() 双写
+
+  AppStorage.setOrCreate 接受
+  ESObject，不会有严格类型检查问题。可以重新编译试试。
+
+  清理完毕。现在的时序是：
+
+  aboutToAppear()                     ← restoreProgressFromPersist()
+  在这里把进度恢复到 AppStorage
+    └── book = params
+    └── restoreProgressFromPersist()  // ← 同步，在 build() 之前执行
+  build()                             ← 此时 AppStorage.has(bookId) === true →
+  封面卡被跳过
+    └── Swiper( index: 0 = [跳过], index: 1 = 阅读器 )
+  onWillShow()
+    └── loadBook()
+    └── preprocess()
+         └── AppStorage.has(bookId) → true → pageData 被恢复 → 跳到上次阅读位置
+
+
+
