@@ -1,0 +1,32 @@
+import os
+from easydict import EasyDict as edict
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+def abs_path(*parts):
+    return os.path.abspath(os.path.join(PROJECT_ROOT, *parts))
+
+config = edict()
+config.gpu_index = '-1'
+
+config.path_fixed_pbmodel = abs_path('quantinv_outputs/example/fixed_example_pb_after_transed_for_step3.pb')
+config.path_intermediate_pbmodel = abs_path('quantinv_outputs/example/fixed_example_pb_before_transed_for_step2.pb')
+config.path_float_minmaxtxt = abs_path('quantinv_outputs/example/floatminmax_txt')
+
+config.net_w = 64
+config.net_h = 64
+config.net_c = 3
+
+config.path_pbmodel = abs_path('examples_use/example/float_example_pb_for_step1.pb')
+config.input_var = 127.5
+config.input_mean = 127.5
+config.output_names = ['conv6/Relu']
+
+config.test_image = abs_path('runtime_inputs/example_images/example_pic.jpg')
+config.image_file_folder = abs_path('runtime_inputs/example_images')
+
+config.caffe = False
+config.exceed_stack_conflict_bytes = 0
+config.type = 0
+config.whether_soft_tile = True
+config.platform = 'CH2'
