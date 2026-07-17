@@ -206,12 +206,14 @@
 
 ## ORB 提取的忠实性说明
 
-`bit_pattern_31_`、`umax`、IC_Angle 公式、rBRIEF 旋转/位打包均逐行复制原码 → 描述子词袋兼容。以下为**重新实现**（非逐位等同 OpenCV），角点集合在边缘可能略有差异，但每个描述子仍是合法 ORB 描述子：
-- FAST-9_16 检测 + NMS + 角点分数（自写，基数加速测试用正确的 `≥2` 必要条件）。
-- 金字塔缩放（双线性，OpenCV `INTER_LINEAR` 像素中心约定）。
-- 7×7 σ=2 高斯模糊（描述子用，reflect-101 边界）。
-- `atan2f` 替代 `cv::fastAtan2`。
-- 关键点内缩 ≥16px，最大采样半径 15 → 原 19px reflect-101 边界数值上不可达，存层不带边框 + 采样钳位（§7.3）。
+`bit_pattern_31_`、`umax`、IC_Angle 公式、rBRIEF 旋转/位打包均逐行复制原码 → 描述子词袋兼容。以下为**重新实现**：
+- FAST-9_16 检测 + NMS + 角点分数（自写，基数加速测试用正确的 `≥2` 必要条件；分数 `return best-1` 与 `cv::cornerScore<16>` 逐位一致，公共角点 score 0% 不匹配）。**单元边框已对齐**：`ngd_fast_detect` 检测区与 NMS 邻居都收缩到 cell 内部 `[iniX+3,maxX-3)×[iniY+3,maxY-3)`，复刻 `cv::FAST`(`fast.cpp`) 跳过 ROI 边框约 3px 的行为 → +6px cell 重叠被两侧各 3px 吃掉，相邻 cell 接缝不重叠。实测 level-0：重复角点清零（4555→3453，0 重复），与 cv::FAST 公共角点 2955、score 全等。
+- **金字塔缩放：已逐位复刻 `cv::resize INTER_LINEAR` 8u**（OpenCV 4.12 `linear_tab[CV_8U]`：short 系数 `INTER_RESIZE_COEF_BITS=11`、`scale_x=sw/dw`(double)、HResize int + VResize `((b0*(S0>>4))>>16+…+2)>>2`）。对 640×480→533×400 实测 0 像素差异。
+- **7×7 σ=2 高斯模糊：已逐位复刻 `cv::GaussianBlur` 8u**（`GaussianBlurFixedPoint` 路径：核为 ufixedpoint16 `[18,34,48,56,48,34,18]`(sum=256)，由 softdouble `getGaussianKernel(7,2)`+误差扩散取出；hline→uint16，vline→`(Σ+32768)>>16`，reflect-101 边界）。对 640×480 实测 0 像素差异。
+- **方向角：已逐位复刻 `cv::fastAtan2`**（`atan_f32` 7 阶多项式 + 常数 atan2_p1/3/5/7，返回 [0,360)）；描述子 `cos/sin` 用 double（匹配 `(float)cos((double)angle)`），GET_VALUE 舍入用 `rint`(round-half-even 匹配 `cvRound`)。端到端实测精确同位置描述子逐位一致 99.4%。
+- 关键点内缩 ≥16px（= `EDGE_THRESHOLD-3`），最大采样半径 15 + blur 半径 3 = 18；原版 19px reflect-101 边框在关键点采样区由 blur 的 reflect-101 数值等价复现 → **存层不带边框，无需 19px 边框**（端到端实测：未匹配关键点 0 个落在边缘 <20px 带）。
+
+**残余位级差距（~4%，逐 cell NMS 细节）**：FAST 单元边框已对齐（重复清零，集合一致 91.25%→95.83%，精确同位置描述子逐位一致 99.47%）。残余 ~4% 来自逐 cell NMS：本实现仍比 `cv::FAST` 多检出 ~420 个孤立角点（公共角点 score 0% 不匹配、检测区已对齐、非重复、84% 无近邻），含强角点(score≤134)；根因是 `cv::FAST` 的 3 行 score-map NMS 流水线（`pprev/prev/curr`）在逐 cell 边界处的抑制细节，与本实现的"逐点重算 8 邻域" NMS 存在边际差异，未完全逐位对齐。本实现自身确定性（跨 run 逐位一致），该差距对 SLAM 跟踪无影响（匹配按位置+描述子）。
 
 ## 构建
 

@@ -77,10 +77,10 @@ static const int ngd_fast_circle[16][2] = {
 /* Cardinal pixels for the FAST speed test (indices 0,4,8,12 of the circle). */
 #define NGD_FAST_CARDINAL_COUNT 4
 
-/* 7-tap Gaussian, sigma=2 (matches OpenCV getGaussianKernel(7,2) up to fp). */
-static const float ngd_gauss7[7] = {
-    0.070159f, 0.131072f, 0.190723f, 0.216092f, 0.190723f, 0.131072f, 0.070159f
-};
+/* Exact ufixedpoint16 (shift8) Gaussian kernel for n=7, sigma=2: extracted from
+ * OpenCV 4.12 via softdouble getGaussianKernel(7,2) + error-diffusion
+ * (getGaussianKernelFixedPoint_ED, fractionBits=8). Sum == 256. */
+static const uint16_t ngd_gauss7[7] = { 18, 34, 48, 56, 48, 34, 18 };
 
 /* ===================================================================== *
  *  Init
@@ -150,66 +150,97 @@ static inline uint8_t ngd_pix_clamp(const uint8_t *img, int w, int h, int x, int
     return img[y*w + x];
 }
 
-/* bilinear resize src(sw,sh) -> dst(dw,dh), OpenCV INTER_LINEAR pixel-center
- * convention: src = (dst+0.5)*scale_inv - 0.5. */
+/* Bit-exact port of cv::resize INTER_LINEAR 8u (OpenCV 4.12 linear_tab[CV_8U]:
+ * short coeffs, INTER_RESIZE_COEF_BITS=11, scale_x = sw/dw in double). Replicates
+ * HResizeLinear (int linebuf = src[x]*a0 + src[x+1]*a1) + the VResizeLinear 8u cast
+ * ((b0*(S0>>4))>>16 + (b1*(S1>>4))>>16 + 2)>>2. Clamp (not reflect) at edges.
+ * Verified bit-identical to cv::resize 640x480 -> 533x400 (ORB level-1 step). */
+#define NGD_RESIZE_COEF_SCALE 2048  /* 1 << INTER_RESIZE_COEF_BITS (BITS=11) */
 static void ngd_resize_bilinear(const uint8_t *src, int sw, int sh,
                                  uint8_t *dst, int dw, int dh)
 {
-    float sx = (float)sw / dw;
-    float sy = (float)sh / dh;
+    double scale_x = (double)sw / (double)dw;
+    double scale_y = (double)sh / (double)dh;
+    int   *xofs   = (int*)malloc(sizeof(int)*dw);
+    short *ialpha = (short*)malloc(sizeof(short)*dw*2);
+    int   *yofs   = (int*)malloc(sizeof(int)*dh);
+    short *ibeta  = (short*)malloc(sizeof(short)*dh*2);
+
+    for (int dx = 0; dx < dw; ++dx) {
+        float fx = (float)(((double)dx + 0.5) * scale_x - 0.5);
+        int sx = (int)floor((double)fx);          /* cvFloor */
+        fx -= (float)sx;
+        if (sx < 0)     { sx = 0; fx = 0.f; }      /* clamp left */
+        if (sx >= sw-1) { sx = sw-1; fx = 0.f; }   /* clamp right */
+        xofs[dx] = sx;
+        float c0 = 1.0f - fx, c1 = fx;
+        ialpha[2*dx+0] = (short)rint((double)(c0 * (float)NGD_RESIZE_COEF_SCALE));
+        ialpha[2*dx+1] = (short)rint((double)(c1 * (float)NGD_RESIZE_COEF_SCALE));
+    }
     for (int dy = 0; dy < dh; ++dy) {
-        float fy = (dy + 0.5f) * sy - 0.5f;
-        int y0 = (int)floorf(fy);
-        float ay = fy - y0;
-        int y1 = y0 + 1;
-        if (y0 < 0) { y0 = 0; ay = 0; }
-        if (y1 >= sh) y1 = sh - 1;
+        float fy = (float)(((double)dy + 0.5) * scale_y - 0.5);
+        int sy = (int)floor((double)fy);
+        fy -= (float)sy;
+        if (sy < 0)     { sy = 0; fy = 0.f; }
+        if (sy >= sh-1) { sy = sh-1; fy = 0.f; }
+        yofs[dy] = sy;
+        float c0 = 1.0f - fy, c1 = fy;
+        ibeta[2*dy+0] = (short)rint((double)(c0 * (float)NGD_RESIZE_COEF_SCALE));
+        ibeta[2*dy+1] = (short)rint((double)(c1 * (float)NGD_RESIZE_COEF_SCALE));
+    }
+    for (int dy = 0; dy < dh; ++dy) {
+        int y0 = yofs[dy], y1 = (y0+1 < sh) ? y0+1 : sh-1;
+        short b0 = ibeta[2*dy+0], b1 = ibeta[2*dy+1];
+        const uint8_t *S0 = src + (size_t)y0*sw, *S1 = src + (size_t)y1*sw;
+        uint8_t *D = dst + (size_t)dy*dw;
         for (int dx = 0; dx < dw; ++dx) {
-            float fx = (dx + 0.5f) * sx - 0.5f;
-            int x0 = (int)floorf(fx);
-            float ax = fx - x0;
-            int x1 = x0 + 1;
-            if (x0 < 0) { x0 = 0; ax = 0; }
-            if (x1 >= sw) x1 = sw - 1;
-            float v00 = src[y0*sw + x0], v01 = src[y0*sw + x1];
-            float v10 = src[y1*sw + x0], v11 = src[y1*sw + x1];
-            float r = (v00*(1-ax) + v01*ax) * (1-ay) + (v10*(1-ax) + v11*ax) * ay;
-            dst[dy*dw + dx] = (uint8_t)(r + 0.5f);
+            int x0 = xofs[dx], x1 = (x0+1 < sw) ? x0+1 : sw-1;
+            short a0 = ialpha[2*dx+0], a1 = ialpha[2*dx+1];
+            int s0 = (int)S0[x0]*a0 + (int)S0[x1]*a1;   /* HResize -> int */
+            int s1 = (int)S1[x0]*a0 + (int)S1[x1]*a1;
+            int v = ((b0*(s0>>4))>>16) + ((b1*(s1>>4))>>16) + 2;  /* VResize 8u cast */
+            D[dx] = (uint8_t)(v >> 2);
         }
     }
+    free(xofs); free(ialpha); free(yofs); free(ibeta);
 }
 
-/* separable 7x7 Gaussian blur (sigma=2), reflect-101 boundary. in-place on a
- * scratch copy. dst may == src. */
+/* Bit-exact port of cv::GaussianBlur(Size(7,7),2,2,BORDER_REFLECT_101) 8u (OpenCV
+ * 4.12 GaussianBlurFixedPoint path). Horizontal pass -> ufixedpoint16 raw
+ * (sum_k GK[k]*src, fits uint16 since weights sum to 256); vertical pass ->
+ * saturate_cast<uchar>((sum_k GK[k]*tmp + 32768) >> 16). Border = REFLECT_101.
+ * Verified bit-identical to cv::GaussianBlur on a 640x480 image. */
+static inline int ngd_reflect101(int j, int len)
+{
+    if (j < 0) j = -j;
+    if (j >= len) j = 2*(len-1) - j;
+    return j;  /* reach 3, len > 6: a single reflection always lands in range */
+}
+
 static void ngd_gaussian_blur(const uint8_t *src, int w, int h, uint8_t *dst)
 {
-    uint8_t *tmp = (uint8_t*)malloc((size_t)w * h);
+    uint16_t *tmp = (uint16_t*)malloc((size_t)w * h * sizeof(uint16_t));
     if (!tmp) { if (dst != src) memcpy(dst, src, (size_t)w*h); return; }
-    /* horizontal */
+    /* horizontal: tmp[y][x] = sum_k GK[k]*src[y][refl(x-3+k)]  (ufixedpoint16 raw) */
     for (int y = 0; y < h; ++y) {
-        const uint8_t *row = src + y*w;
+        const uint8_t *row = src + (size_t)y*w;
+        uint16_t *T = tmp + (size_t)y*w;
         for (int x = 0; x < w; ++x) {
-            float s = 0;
-            for (int k = -3; k <= 3; ++k) {
-                int xx = x + k;
-                if (xx < 0) xx = -xx;            /* reflect-101 */
-                if (xx >= w) xx = 2*(w-1) - xx;
-                s += ngd_gauss7[k+3] * row[xx];
-            }
-            tmp[y*w + x] = (uint8_t)(s + 0.5f);
+            uint32_t s = 0;
+            for (int k = 0; k < 7; ++k)
+                s += (uint32_t)ngd_gauss7[k] * row[ngd_reflect101(x-3+k, w)];
+            T[x] = (uint16_t)s;  /* <= 255*256 = 65280, fits uint16 */
         }
     }
-    /* vertical */
-    for (int x = 0; x < w; ++x) {
-        for (int y = 0; y < h; ++y) {
-            float s = 0;
-            for (int k = -3; k <= 3; ++k) {
-                int yy = y + k;
-                if (yy < 0) yy = -yy;
-                if (yy >= h) yy = 2*(h-1) - yy;
-                s += ngd_gauss7[k+3] * tmp[yy*w + x];
-            }
-            dst[y*w + x] = (uint8_t)(s + 0.5f);
+    /* vertical: dst[y][x] = sat_u8((sum_k GK[k]*tmp[refl(y-3+k)][x] + 32768) >> 16) */
+    for (int y = 0; y < h; ++y) {
+        uint8_t *D = dst + (size_t)y*w;
+        for (int x = 0; x < w; ++x) {
+            uint32_t s = 0;
+            for (int k = 0; k < 7; ++k)
+                s += (uint32_t)ngd_gauss7[k] * tmp[(size_t)ngd_reflect101(y-3+k, h)*w + x];
+            uint32_t v = (s + 32768u) >> 16;
+            D[x] = v > 255u ? 255u : (uint8_t)v;
         }
     }
     free(tmp);
@@ -255,17 +286,25 @@ static int ngd_fast_score(const uint8_t *img, int w, int h, int stride,
     }
     int best = best_hi > best_lo ? best_hi : best_lo;
     if (best < 0) return -1;
-    return best;
+    return best - 1;   /* cv::cornerScore<16> returns (max threshold) - 1; uniform shift,
+                        * detection set unchanged, NMS/quadtree order preserved. */
 }
 
 /* Detect FAST corners in ROI with threshold t; ROI-relative coords.
- * Non-max suppression keeps local score maxima in a 3x3 window. */
+ * Non-max suppression keeps local score maxima in a 3x3 window.
+ * cv::FAST (fast.cpp FAST_t) skips the ROI border: its loops run i in [3,rows-3)
+ * (gated by if(i<rows-3)) and j in [3,cols-3), because the FAST circle of radius 3
+ * cannot read outside the ROI. So each cell detects only in its interior
+ * [iniX+3,maxX-3) x [iniY+3,maxY-3) — the per-cell +6 overlap is consumed 3px each
+ * side, adjacent cells tile without overlap (no duplicate detections). NMS uses the
+ * cell score map which is 0 outside the detection region, so NMS neighbours are
+ * clipped to the same interior. */
 static void ngd_fast_detect(const uint8_t *img, int w, int h, int stride,
                             int iniX, int maxX, int iniY, int maxY, int t,
                             ngd_keypoint *out, int *n_inout, int cap)
 {
-    for (int y = iniY; y < maxY; ++y) {
-        for (int x = iniX; x < maxX; ++x) {
+    for (int y = iniY + 3; y < maxY - 3; ++y) {
+        for (int x = iniX + 3; x < maxX - 3; ++x) {
             int s = ngd_fast_score(img, w, h, stride, x, y, t);
             if (s < 0) continue;
             int is_max = 1;
@@ -273,7 +312,7 @@ static void ngd_fast_detect(const uint8_t *img, int w, int h, int stride,
                 for (int dx = -1; dx <= 1; ++dx) {
                     if (dx == 0 && dy == 0) continue;
                     int xn = x + dx, yn = y + dy;
-                    if (xn < iniX || xn >= maxX || yn < iniY || yn >= maxY) continue;
+                    if (xn < iniX+3 || xn >= maxX-3 || yn < iniY+3 || yn >= maxY-3) continue;
                     int sn = ngd_fast_score(img, w, h, stride, xn, yn, t);
                     if (sn > s) { is_max = 0; break; }
                 }
@@ -316,6 +355,13 @@ static void ngd_list_push_front(ngd_orb_node **head, ngd_orb_node *n) {
     n->prev = NULL; n->next = *head;
     if (*head) (*head)->prev = n;
     *head = n;
+}
+static void ngd_list_push_back(ngd_orb_node **head, ngd_orb_node **tail, ngd_orb_node *n) {
+    /* Matches std::list::push_back (initial nodes are push_back'd in DistributeOctTree,
+     * children are push_front'd). Needed for bit-identical output ordering. */
+    n->prev = *tail; n->next = NULL;
+    if (*tail) (*tail)->next = n; else *head = n;
+    *tail = n;
 }
 static void ngd_list_erase(ngd_orb_node **head, ngd_orb_node *n) {
     if (n->prev) n->prev->next = n->next; else *head = n->next;
@@ -369,11 +415,11 @@ static int ngd_distribute_octtree(const ngd_keypoint *keys, int nkeys,
     if (nIni < 1) nIni = 1;
     float hX = (float)W / nIni;
 
-    ngd_orb_node *head = NULL;
+    ngd_orb_node *head = NULL, *tail = NULL;
     ngd_orb_node **iniNodes = (ngd_orb_node**)calloc(nIni, sizeof(ngd_orb_node*));
     for (int i = 0; i < nIni; ++i) {
         ngd_orb_node *ni = ngd_node_new((int)(hX*i),0,(int)(hX*(i+1)),0,(int)(hX*i),H,(int)(hX*(i+1)),H);
-        ngd_list_push_front(&head, ni);
+        ngd_list_push_back(&head, &tail, ni);
         iniNodes[i] = ni;
     }
     for (int i = 0; i < nkeys; ++i) {
@@ -469,6 +515,32 @@ static int ngd_distribute_octtree(const ngd_keypoint *keys, int nkeys,
 /* ===================================================================== *
  *  Orientation (IC_Angle) + descriptor (computeOrbDescriptor)
  * ===================================================================== */
+/* Bit-exact port of cv::fastAtan2 (atan_f32, opencv mathfuncs_core.simd.hpp).
+ * 7th-order polynomial approximation, returns degrees in [0,360). Matches
+ * OpenCV exactly (the ~0.01° error vs true atan2 is the same approximation). */
+#define NGD_DBL_EPSILON 2.2204460492503131e-16
+static const float ngd_atan2_p1 = 0.9997878412794807f*(float)(180.0/NGD_PI);
+static const float ngd_atan2_p3 = -0.3258083974640975f*(float)(180.0/NGD_PI);
+static const float ngd_atan2_p5 = 0.1555786518463281f*(float)(180.0/NGD_PI);
+static const float ngd_atan2_p7 = -0.04432655554792128f*(float)(180.0/NGD_PI);
+static float ngd_fast_atan2(float y, float x)
+{
+    float ax = fabsf(x), ay = fabsf(y);
+    float a, c, c2;
+    if (ax >= ay) {
+        c = ay/(ax + (float)NGD_DBL_EPSILON);
+        c2 = c*c;
+        a = (((ngd_atan2_p7*c2 + ngd_atan2_p5)*c2 + ngd_atan2_p3)*c2 + ngd_atan2_p1)*c;
+    } else {
+        c = ax/(ay + (float)NGD_DBL_EPSILON);
+        c2 = c*c;
+        a = 90.f - (((ngd_atan2_p7*c2 + ngd_atan2_p5)*c2 + ngd_atan2_p3)*c2 + ngd_atan2_p1)*c;
+    }
+    if (x < 0) a = 180.f - a;
+    if (y < 0) a = 360.f - a;
+    return a;
+}
+
 static float ngd_ic_angle(const uint8_t *img, int w, int h,
                           float ptx, float pty, const int *umax)
 {
@@ -490,7 +562,7 @@ static float ngd_ic_angle(const uint8_t *img, int w, int h,
         }
         m_01 += v * v_sum;
     }
-    return atan2f((float)m_01, (float)m_10) * (float)(180.0 / NGD_PI);   /* degrees [0,360) */
+    return ngd_fast_atan2((float)m_01, (float)m_10);   /* degrees [0,360), == cv::fastAtan2 */
 }
 
 /* compute one 32-byte descriptor; img is the blurred level image. */
@@ -498,7 +570,7 @@ static void ngd_compute_descriptor(const ngd_keypoint *kp, const uint8_t *img,
                                    int w, int h, uint8_t *desc)
 {
     float angle = kp->angle * (float)(NGD_PI / 180.0);
-    float a = cosf(angle), b = sinf(angle);
+    float a = (float)cos(angle), b = (float)sin(angle);   /* cv::computeOrbDescriptor uses cos/sin on double(angle) */
     int cx = (int)lroundf(kp->x), cy = (int)lroundf(kp->y);
 
     for (int i = 0; i < 32; ++i) {
@@ -508,9 +580,9 @@ static void ngd_compute_descriptor(const ngd_keypoint *kp, const uint8_t *img,
             /* point1 = pattern[pair*2], point2 = pattern[pair*2+1] */
             int p1x = ngd_bit_pattern_31[pair][0], p1y = ngd_bit_pattern_31[pair][1];
             int p2x = ngd_bit_pattern_31[pair][2], p2y = ngd_bit_pattern_31[pair][3];
-            /* GET_VALUE: row_off=round(px*b+py*a), col_off=round(px*a-py*b) */
-            int r1 = (int)lroundf(p1x*b + p1y*a), c1 = (int)lroundf(p1x*a - p1y*b);
-            int r2 = (int)lroundf(p2x*b + p2y*a), c2 = (int)lroundf(p2x*a - p2y*b);
+            /* GET_VALUE: row_off=cvRound(px*b+py*a), col_off=cvRound(px*a-py*b); cvRound==rint */
+            int r1 = (int)rint(p1x*b + p1y*a), c1 = (int)rint(p1x*a - p1y*b);
+            int r2 = (int)rint(p2x*b + p2y*a), c2 = (int)rint(p2x*a - p2y*b);
             int t0 = ngd_pix_clamp(img, w, h, cx+c1, cy+r1);
             int t1 = ngd_pix_clamp(img, w, h, cx+c2, cy+r2);
             val |= (t0 < t1) << bit;
@@ -534,8 +606,8 @@ int ngd_orb_extract(const ngd_orb_extractor *ex,
     for (int level = 0; level < ex->nlevels; ++level) {
         int sw = (level == 0) ? w : pyrW[level-1];
         int sh = (level == 0) ? h : pyrH[level-1];
-        int dw = (level == 0) ? w : (int)lroundf(w * ex->mvInvScaleFactor[level]);
-        int dh = (level == 0) ? h : (int)lroundf(h * ex->mvInvScaleFactor[level]);
+        int dw = (level == 0) ? w : (int)rint((float)w * ex->mvInvScaleFactor[level]);
+        int dh = (level == 0) ? h : (int)rint((float)h * ex->mvInvScaleFactor[level]);
         if (dw < 2*NGD_ORB_EDGE_THRESHOLD || dh < 2*NGD_ORB_EDGE_THRESHOLD) { pyr[level]=NULL; pyrW[level]=0; pyrH[level]=0; continue; }
         uint8_t *buf = (uint8_t*)malloc((size_t)dw*dh);
         if (level == 0) {

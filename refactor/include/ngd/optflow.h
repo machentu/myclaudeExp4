@@ -47,8 +47,9 @@ typedef struct {
                         * Set to 0 to disable (tracks all points). */
 } ngd_lk_params;
 
-/* Default parameter sets matching the two original call-sites. */
-#define NGD_LK_DEFAULT_TRACKING { 9, 3, 50, 0.001f, 0.0f, 0.0f}  /* tighter convergence for best ATE */
+/* Default parameter sets matching the two original call-sites (cv::calcOpticalFlowPyrLK
+ * defaults: winSize 21, maxLevel 3, termCrit COUNT+EPS 30/0.01). */
+#define NGD_LK_DEFAULT_TRACKING {21, 3, 30, 0.01f, 0.0f, 0.0f}  /* aligned to original */
 #define NGD_LK_DEFAULT_MASK      {21, 3, 30, 0.01f,  0.0f, 0.0f}
 
 /* ---- Core: pyramidal Lucas-Kanade ---- */
