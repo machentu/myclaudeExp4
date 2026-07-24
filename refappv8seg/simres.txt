@@ -1,0 +1,49 @@
+system: vocabulary loaded (1082074 nodes, 971815 words)
+system: Yolov8SegDetector loaded (../models/yolov8n-seg-320x448.onnx)
+system: viewer on (NGD_VIEWER=0 to disable)
+-------
+Start processing sequence ... 827 images
+frame 50  state=1  KFs=7 MPs=626  maskYolo=92558  OF=1
+frame 100  state=1  KFs=8 MPs=701  maskYolo=88750  OF=1
+frame 150  state=1  KFs=13 MPs=809  maskYolo=45268  OF=1
+frame 200  state=1  KFs=24 MPs=1172  maskYolo=36953  OF=1
+frame 250  state=1  KFs=28 MPs=1270  maskYolo=0  OF=1
+frame 300  state=1  KFs=31 MPs=1347  maskYolo=0  OF=1
+frame 350  state=1  KFs=33 MPs=1349  maskYolo=2103  OF=1
+frame 400  state=1  KFs=40 MPs=1713  maskYolo=62781  OF=1
+frame 450  state=1  KFs=43 MPs=1891  maskYolo=17906  OF=1
+frame 500  state=1  KFs=43 MPs=1891  maskYolo=46001  OF=1
+frame 550  state=1  KFs=44 MPs=1870  maskYolo=71199  OF=1
+frame 600  state=1  KFs=45 MPs=2021  maskYolo=96818  OF=1
+frame 650  state=1  KFs=46 MPs=2033  maskYolo=72538  OF=1
+frame 700  state=1  KFs=48 MPs=1917  maskYolo=80799  OF=1
+frame 750  state=1  KFs=50 MPs=2093  maskYolo=94809  OF=1
+frame 800  state=1  KFs=52 MPs=2100  maskYolo=89854  OF=1
+system: trajectory saved to CameraTrajectory.txt (827 frames)
+system: keyframe trajectory saved to KeyFrameTrajectory.txt (52 KFs)
+system: pose covariance saved to PoseCovariance.txt (827/827 frames valid)
+-------
+median tracking time: 0.0546 s
+mean tracking time: 0.1023 s
+tracked 827/827 frames
+------- stage timing (frames=827, KFs created=60, sum=84178 ms) -------
+stage         total(ms)  per-frm(ms)      calls    share
+yolo            37969.6       45.912        827    45.1%
+mask                0.0        0.000          0     0.0%
+of               1992.2        2.409        824     2.4%
+orb             33723.8       40.778        185    40.1%
+track             646.4        0.782        185     0.8%
+lm               3492.4        4.223         60     4.1%
+lc                  0.9        0.001         60     0.0%
+view             6353.2        7.682        827     7.5%
+sum             84178.5      101.788
+(per-frm = total/nFrames, amortized across all frames; lm/lc run only on created-KF frames, track/orb on KF-branch frames)
+------- YOLOv8-seg detect() breakdown (calls=827, sum=37719.1 ms) -------
+stage           total(ms)   per-call(ms)    share
+preprocess          722.5          0.874     1.9%
+forward           35424.3         42.835    93.9%
+decode             1363.0          1.648     3.6%
+postproc            209.3          0.253     0.6%
+(per-call = total/calls; share = fraction of detect() time.)
+
+
