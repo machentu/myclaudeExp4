@@ -350,7 +350,7 @@ static int lk_level_f(const float *prev, int pw, int ph,
         *dx += ddx;
         *dy += ddy;
 
-        if (fabsf(ddx) < epsilon && fabsf(ddy) < epsilon)
+        if (sqrtf(ddx*ddx + ddy*ddy) < epsilon)
             break;
     }
     return 1;
@@ -535,7 +535,7 @@ static int lk_level_u8(const uint8_t *prev, int pw, int ph, int pstride,
         float ddx = (Gyy*(-bx) - Gxy*(-by)) / det;
         float ddy = (Gxx*(-by) - Gxy*(-bx)) / det;
         *dx += ddx; *dy += ddy;
-        if (fabsf(ddx) < epsilon && fabsf(ddy) < epsilon) break;
+        if (sqrtf(ddx*ddx + ddy*ddy) < epsilon) break;
     }
     return 1;
 }

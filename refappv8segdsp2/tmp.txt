@@ -1,0 +1,22 @@
+/tools/xtensa/XtDevTools/install/tools/RI-2022.10-linux/XtensaTools/bin/xt-run --xtensa-core=fy01_202210 --xtensa-system=/tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/config --xtensa-params= --console /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/HelloWorld
+test_dsp_orb
+after image created
+after ngd_orb_init
+cycle: 547140029
+cycle: 318862381
+ngd_orb_extract (refactor): 784 keypoints
+dsp_orb_extract (DSP/VP6):  791 keypoints
+begin
+----
+ref keypoints matched to DSP keypoints:
+  exact match  (pos≤1px, angle≤0.5°, desc=0): 674 / 784  (86.0%)
+  pos-only     (pos≤1px, angle/desc differ): 28 / 784  (3.6%)
+  no-nearby    (>2px apart):                  82 / 784  (10.5%)
+  avg Hamming (nearest pair): 5.72 / 256
+----
+DSP keypoints matched to ref keypoints:
+  exact match  (pos≤1px, angle≤0.5°, desc=0): 674 / 791  (85.2%)
+  pos-only     (pos≤1px, angle/desc differ): 20 / 791  (2.5%)
+  no-nearby    (>2px apart):                  97 / 791  (12.3%)
+WARN: match rate 86.0% (acceptable; NMS cell boundaries)
+done

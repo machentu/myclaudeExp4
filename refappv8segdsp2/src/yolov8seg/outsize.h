@@ -1,0 +1,35 @@
+
+#ifndef FILE_OUT_SIZE_DEFINITION_HEADER_H
+#define FILE_OUT_SIZE_DEFINITION_HEADER_H
+
+
+//#define NUM_KPTS 17
+//#define SIZE_KPTS (NUM_KPTS*3) //51
+//#define SIZE_ONE_OUTPUT ((SIZE_KPTS) + 6) //57
+
+#define SIZE_MASK 32
+#define SIZE_ONE_OUTPUT ((SIZE_MASK) + 6)
+
+#define MAX_DET 10 //100
+
+#define MAX_OUT_SIZE ((SIZE_ONE_OUTPUT)*(MAX_DET))
+
+//#define INPUT_WIDTH 640
+//#define INPUT_HEIGHT 640
+
+//#define INPUT_WIDTH 640
+//#define INPUT_HEIGHT 384 
+
+//#define INPUT_WIDTH 512
+//#define INPUT_HEIGHT 256
+
+#define INPUT_WIDTH 448
+#define INPUT_HEIGHT 320 
+
+
+#define MASK_WIDTH ((INPUT_WIDTH)/4)
+#define MASK_HEIGHT ((INPUT_HEIGHT)/4)
+#define ONE_MASK_SIZE (MASK_WIDTH)*(MASK_HEIGHT)
+//#define MAX_MASK_SIZE (ONE_MASK_SIZE)*(MAX_DET)
+
+#endif
