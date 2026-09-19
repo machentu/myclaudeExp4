@@ -9,7 +9,7 @@ git commit -m "orb slam c code"
 git push -u origin myslam
 
 
-password = ""
+input passwd
 
 ##
 常用命令有哪些
