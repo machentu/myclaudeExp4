@@ -1,0 +1,55 @@
+sudo apt update
+sudo apt install curl -y
+curl --version
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+uv --version
+
+uv python dir
+$HOME/.cache/uv
+cp Python-3.6.8.tar.xz  $HOME/.cache/uv
+
+uv python list
+
+uv python install 3.12
+
+# 在当前目录创建名为 .venv 的虚拟环境（使用系统默认 Python）
+uv venv
+
+# 使用指定 Python 版本创建虚拟环境
+uv venv --python 3.12
+
+source .venv/bin/activate
+python -V
+
+uv pip install pip???? need first add pip for current enviroment!!!!!!!!!!
+
+
+xz -d Python-3.6.8.tar.xz
+tar xvf xxx.tar
+
+#sudo apt install build-essential libssl-dev zlib1g-dev libffi-dev
+sudo apt-get install build-essential libffi-dev libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+apt-get install make
+apt-get install build-essential
+ 
+apt install -y zlib1g-dev zlibc
+
+
+./configure
+make
+make install
+
+alias python=python3
+echo "alias python=python3" >> ~/.bashrc
+source ~/.bashrc
+
+
+python3 -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+python3 -m pip --trusted-host pypi.python.org install PyExecJS
+python3 -m pip --trusted-host pypi.python.org install PyExecJS -i https://pypi.tuna.tsinghua.edu.cn/simple/
+
+python3 -m pip install easydict numpy matplotlib opencv-python tensorflow==1.13.1

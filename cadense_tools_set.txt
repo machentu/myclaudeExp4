@@ -1,0 +1,21 @@
+1.
+First, obtain the Xtensa Tools bundle
+XtensaTools_<version>_win32.tgz.
+or
+XtensaTools_<version>_linux.tgz.
+Note: This bundle may be downloaded by someone with Xtensa Xplorer as de-
+scribed in Section 3.6.
+The default download location for Xtensa Tools is as shown in Figure D–46:
+<install_dir>/XtDevTools/downloads/<version>/tools
+2.
+Copy this file into a convenient directory.
+3.
+Install the configuration-independent Xtensa Tools by simply unpacking the down-
+loaded file.
+For instance, on Linux, extract the file using the following command:
+gtar xzf XtensaTools_<version>_linux.tgz
+The tools extract into the subdirectory:
+<version>/XtensaTools/<xtensa_tools_root>
+This completes the installation of the configuration independent tools. Note that you can-
+not use the tools until the configuration-specific tools are also installed.
+

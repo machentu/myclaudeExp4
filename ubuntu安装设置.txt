@@ -1,0 +1,384 @@
+
+  安装完成后，为了防止虚拟机频繁休眠或电源不足，请进入 Ubuntu 系统设置：
+1. 屏幕亮度与锁定：
+1. 打开“设置” (Settings) -> “电源” (Power) -> “屏幕保护” (Screen Blank)。
+2. 将屏幕保护时间设置为“从不” (Never)，防止因无人操作导致虚拟机掉线。
+2. 自动挂起：
+1. 在“电源”设置中，将“自动挂起” (Automatic Suspend) 功能关闭 (Off)。
+3. 电源性能模式：
+1. Ubuntu 22.04 采用了 GNOME 电源配置文件。如果追求高性能，可以在“电源”中选择“性能”模式，适用于编译代码等任务。
+
+三、 关键设置（安装完成后）安装 VMware Tools：这是确保图形界面流畅、共享文件夹和剪贴板同步的关键。在 VMware 菜单栏选择“虚拟机” -> “安装 VMware Tools”。若未自动运行，打开 Ubuntu 终端输入：sudo apt-get install open-vm-tools-desktop。设置共享文件夹：虚拟机设置 -> 选项 -> 共享文件夹 -> 总是启用。在“文件夹”处添加 Windows 中的路径。按照这些步骤，您可以在 VMware 中稳定运行 Ubuntu 22.04
+
+
+############################
+
+pyenv安装
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+sudo apt install git vim net-tools
+sudo apt-get install libffi-dev
+
+
+
+curl https://pyenv.run | bash
+
+curl https://pyenv.run | bash
+# 或
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+# 如果需要使用 pyenv-virtualenv，请添加下行
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+## 刷新配置
+#source ~/.bashrc
+
+or simple env
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+pyenv init -
+
+$HOME/.pyenv/bin/pyenv init -
+
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/pyenvuse.sh
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/pyenvuse.sh
+echo 'eval "$(pyenv init -)"' >> ~/pyenvuse.sh
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/pyenvuse.sh
+#source ~/pyenvuse.sh
+
+# 查看可用版本（确认3.13.2存在）
+pyenv install --list | grep 3.6.8
+
+# 执行安装（耗时约15-30分钟）
+
+cp /mnt/hgfs/franktu/Python-3.6.8.tar.xz ~/.pyenv/cache/
+
+sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
+
+
+my_nna_docker.tar
+https://pan.baidu.com/s/1mosMMTHamPsI1S8O2NKEDQ?pwd=3214
+
+#######################################
+sudo apt install gcc-10 g++-10
+
+ 设置优先级 100，高于默认的 gcc 11
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 50 --slave /usr/bin/g++ g++ /usr/bin/g++-11
+
+sudo update-alternatives --config gcc 并选择对应编号
+pip install --upgrade pip setuptools wheel
+
+
+CC=gcc-10 pyenv install <version>
+pyenv install --patch 3.6.15 < <(curl -sSL https://github.com)
+pyenv install 3.6.8
+
+pyenv global 3.6.8
+
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+pip install protobuf==3.6.1
+pip install numpy==1.16
+pip install tensorflow==1.13.1
+
+
+pipi install matplotlib easydict opencv-python
+
+pip freeze > requirements.txt
+
+
+############################3
+
+nfs
+sudo apt install nfs-kernel-server
+#sudo apt install nfs-common
+sudo mkdir /var/nfs/general -p
+sudo chown nobody:nogroup /var/nfs/general
+sudo chmod -R 777 /var/nfs/general/
+sudo vi /etc/exports
+/var/nfs/general 169.254.154.0/24(rw,sync,no_subtree_check,no_root_squash)
+
+sudo systemctl status nfs-server
+
+sudo exportfs -arv
+
+sudo systemctl restart nfs-kernel-server
+####if problem when some new start, run this again
+
+
+client:
+sudo mount 169.254.154.21:/var/nfs/general /mnt
+
+sudo umount /mnt
+
+
+
+
+1. 加载输入输出y数据
+   1200x1600
+   tftpboot 0x45800000 input1200x1600.yuv;
+   tftpboot 0x45c00000 output1200x1600.yuv;
+   
+   400x400
+   tftpboot 0x45800000 input400x400.yuv;
+	tftpboot 0x45c00000 output400x400.yuv;
+	
+2. 加载模型文件
+   	tftpboot 0x83b00000 sram-83b0-warp1200x1600-sgbm-v1.4.4.bin
+	
+  tftpboot 0x83b00000 sram-83b0-sgbm-fixface-small.bin
+  tftpboot 0x83b00000 sram-83b0-sgbm-fixface-big.bin
+  tftpboot 0x83b00000 sram-83b0-sgbm-fixface-big-part.bin
+3. 加载测试程序并运行
+   tftpboot 0x40000000 vdsp_test.bin;go 0x40000000
+   
+4. 程序跑起来后输入回车，出现 msh />  
+   	输入测试命令:
+	1200x1600: vdsp_test 2 0x83b00000
+	400x400: vdsp_test 3 0x83b00000
+
+vdsp_test 1 0x83b00000
+
+----------------------------------
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+vi /etc/apt/sources.list
+deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
+# deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
+# deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
+# 预发布软件源，不建议启用
+# deb http://mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse
+# deb-src http://mirrors.163.com/ubuntu/ focal-proposed main restricted universe multiverse
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt install terminator
+sudo apt install net-tools
+sudo apt install vim
+
+apt-get install build-essential module-assistant
+
+#wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+#sudo snap install sublime-text
+
+sudo dpkg -i sublime....deb
+
+
+
+###############################
+codex cli
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+nvm install nodejs
+nvm use node
+
+npm install -g @openai/codex
+
+
+npm install -g @openai/codex@latest
+
+
+
+config.toml
+model_provider = "OpenAI"
+model = "gpt-5.4"
+review_model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+disable_response_storage = true
+network_access = "enabled"
+windows_wsl_setup_acknowledged = true
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+
+[model_providers.OpenAI]
+name = "OpenAI"
+base_url = "https://xuseny.online"
+wire_api = "responses"
+requires_openai_auth = true
+
+
+
+auto.json
+{
+  "OPENAI_API_KEY": "sk-8e9fc0986d4e03d2a6e016179c2e6285b5e1e4ba9f0dfd9660f590216d8bdc49"
+}
+
+########################
+deepseek v4
+
+sk-96b770cebddd4b4bb0d1cb4c2dbc55f6
+
+##########################
+chrome
+
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+sudo apt update
+
+sudo apt install google-chrome-stable
+
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+
+#################tftp
+1）安装tftp相关软件   (需要超级权限,可以同时安装：apt-get install tftpd tftp xinetd)
+
+2）建立配置文件
+
+            在/etc/xinetd.d/下建立一个配置文件tftp 命令：sudo vi /etc/xinetd.d/tftp
+
+           内容如下：
+
+service tftp   
+{   
+    socket_type = dgram   
+    protocol = udp   
+    wait = yes   
+    user = root   
+    server = /usr/sbin/in.tftpd   
+    server_args = -s /home/liang/tftp   
+    disable = no   
+    per_source = 11   
+    cps = 100 2   
+    flags = IPv4   
+} 
+             server_args = -s /home/liang/tftp 中的 /home/liang/tftp就是上传文件与下载文件的路径位置(自定义)
+
+
+3）创建tftp服务文件目录(不需超级权限)
+
+        mkdir /home/liang/tftp                 (创建/home/liang/tftp目录，上面设置的文件传输文件)
+
+        chmod 777 /home/liang/tftp         (这里设置权限为777，防止因为权限不足造成文件传输异常)
+
+4）重新启动tftp服务
+
+  sudo /etc/init.d/xinetd restart       (重启tftp服务器)
+
+
+5）查看tftp是否启动成功
+
+     sudo netstat -a | grep tftp      --查看是否启动成功，可以看到udp 0 0 *:tftp *:*
+
+
+6）设置开发板IP    (根据实验环境配置，例子所在环境在局域网，此IP可用)
+
+        开发板连接网线
+
+7）在开发板上下载虚拟机中Ubuntu的文件
+
+        在开发板上输入命令：tftp 192.168.21.118 -g -r xxx         
+
+             192.168.21.118：服务器IP地址(虚拟机Ubuntu的IP)
+
+             xxx：要下载的文件名
+
+
+specify init . --ai claude
+
+specify init
+
+sudo cp ~/Downloads/localhost2_2026-04-21.lic /usr/local/flexlm/licenses/license.dat
+
+
+##################
+deepseek v4
+
+sk-96b770cebddd4b4bb0d1cb4c2dbc55f6
+
+
+
+####################
+while :; do
+    cat PROMPT.md | claude-code --continue
+done
+
+
+cat PROMPT.md | claude /loop 2m 
+
+
+
+/goal 
+
+
+############最小化窗口
+alt+space
+
+
+########################
+虚拟机经常无反应，通常是由内存分配过载、物理机与虚拟机环境冲突或后台进程锁定导致的。针对最常用的 VMware 和 VirtualBox 等工具，你可以按以下步骤进行排查和修复：
+
+关闭内存页面修整：在 VMware 的“虚拟机设置”>“选项”>“高级”中，勾选 “禁用内存页面修整”，防止物理机因内存不足而强制虚拟机的内存写入硬盘。
+
+删除 .lck 锁定文件：如果虚拟机报错或打不开，进入虚拟机文件所在的文件夹，找到 .lck 后缀的文件夹并将其删除，然后重启软件。
+
+关闭 Hyper-V 冲突：Windows 自带的虚拟化功能（Hyper-V）可能会导致 VMware 卡死。进入控制面板的“程序和功能”>“启用或关闭 Windows 功能”，取消勾选 Hyper-V 并重启电脑。
+
+以管理员身份运行：右键点击 VMware 快捷方式，选择“属性”>“兼容性”>勾选 “以管理员身份运行此程序”，避免权限不足引起的假死。
+
+修改音频/设备配置：有时物理机的声卡或打印机驱动会与虚拟机冲突。可尝试在设置中先移除“打印机”等外设，或在虚拟机设置中将音频设备的“连接”选项从“连接时打开电源”改为取消勾选。
+
+
+###nfs 切换地址
+sudo vi /etc/netplan/01-network-manager-all.yaml 
+sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
+sudo netplan try    # 尝试应用，若配置错误会自动回滚
+# 或者直接应用
+sudo netplan apply
+
+sudo vi /etc/exports
+/home/frank/nfs 10.0.56.0/24(rw,sync,no_subtree_check,no_root_squash)
+
+sudo exportfs -rv
+sudo systemctl status nfs-server
+
+
+ipconfig | findstr /i "ipv4 以太网 无线"
+Ethernet adapter 以太网 5:
+   IPv4 Address. . . . . . . . . . . : 192.168.96.1
+Ethernet adapter 以太网 3:
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1
+   IPv4 Address. . . . . . . . . . . : 192.168.153.1
+   IPv4 Address. . . . . . . . . . . : 192.168.237.1
+   IPv4 Address. . . . . . . . . . . : 10.0.56.63
+
+按下 Ctrl + Shift + Esc 打开 任务管理器
+性能=网卡
+拔插一下连接开发板的网线
+
+
+###
+
+repo init -u "ssh://frank.tu@git106.fullhan.com:29418/manifest" --repo-url="ssh://frank.tu@git106.fullhan.com:29418/repo" --no-repo-verify -b FY01
+
+repo sync
+
+repo start --all FY01
+
+
+
+
+###
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --set show_channel_urls yes
+
+
+# 使用 --override-channels 参数，只使用后面指定的频道
+conda create -n py27 python=2.7 --override-channels -c defaults

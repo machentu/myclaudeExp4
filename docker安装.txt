@@ -1,0 +1,121 @@
+
+docker 安装
+sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)
+
+
+sudo apt update
+sudo apt upgrade
+sudo apt full-upgrade
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+sudo systemctl status docker
+
+sudo systemctl start docker
+
+使 Docker 服务在每次重启时自动启动：
+sudo systemctl enable docker
+
+sudo docker version
+
+sudo docker run hello-world
+
+
+##########################################################
+docker commit 制作镜像步骤：
+
+docker run -it <基础镜像> /bin/bash
+
+在容器内进行修改：
+
+exit
+
+
+docker commit -m "提交信息" -a "作者" <容器ID或名称> <新镜像名称>:<标签>
+
+常用参数：
+-m: 提交的描述信息。
+-a: 指定镜像作者。 
+
+注意事项与对比：
+不推荐用于生产： docker commit 制作的镜像不可复现，且难以维护，应优先使用 Dockerfile` 构建。
+对比 build： docker commit 是手动修改后封装，docker build 是通过脚本自动化生成，更适合版本控制。 
+
+# 假设有一个容器ID为 a1b2c3d4e5f6
+docker commit -m "install nginx" -a "user" a1b2c3d4e5f6 my-nginx:v1
+
+docker save -o <保存的文件名>.tar <镜像名>:<标签>
+
+
+进入正在运行的镜像
+docker exec -it <容器ID或名称> /bin/bash 
+
+###########################
+实际运行
+docker load -i {}
+docker run -it --rm --net=host --privileged -v ./:/project  {id} /bin/bash
+
+docker run -it --rm --net=host --privileged -v $(pwd):/project  nna_toolchain:latest /bin/bash
+########################
+use cuda
+https://pytorch.org/get-started/previous-versions/
+
+# CUDA 12.4
+conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 pytorch-cuda=12.4 -c pytorch -c nvidia
+
+
+# CUDA 12.1
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+# CUDA 12.4
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+
+
+#docker start <id>
+#docker exec -it <container_name_or_id> bash
+docker ps -a
+
+
+
+##################
+docker run -it --net=host --privileged --device /dev --name tytvm -v  /home/frank/workspace/tianxuan/TyTVM_NNP3xx_prebuilt_v1.0.41:/DEngine/tytvm -v /home/frank/workspace/tianxuan/TyAssist_v1.8.5/tyassist:/DEngine/tyassist -v /home/frank/workspace/tianxuan/myProject/minicpm:/DEngine/projects -v /home:/home -w /DEngine/tytvm 113.100.143.90:8091/dengine/tytvm:v0.36 /bin/bash 
+
+
+###gpu::: --gpus all 
+docker run --gpus all -it --net=host --privileged --device /dev --name tytvm -v  /home/frank/workspace/tianxuan/TyTVM_NNP3xx_prebuilt_v1.0.41:/DEngine/tytvm -v /home/frank/workspace/tianxuan/TyAssist_v1.8.5/tyassist:/DEngine/tyassist -v /home/frank/workspace/tianxuan/myProject/minicpm:/DEngine/projects -v /home:/home -w /DEngine/tytvm 113.100.143.90:8091/dengine/tytvm:v0.36 /bin/bash
+
+
+#another name and -p parameter for端口changed
+docker run -it --net=host --privileged --device /dev --name tytvmslam -p 8081:80 -v  /home/frank/workspace/tianxuan/TyTVM_NNP3xx_prebuilt_v1.0.41:/DEngine/tytvm -v /home/frank/workspace/tianxuan/TyAssist_v1.8.5/tyassist:/DEngine/tyassist -v /home/frank/workspace/tianxuan/myProject/minicpm:/DEngine/projects -v /home:/home -w /DEngine/tytvm 113.100.143.90:8091/dengine/tytvm:v0.36 /bin/bash
+
+
+cd /DEngine/tytvm
+source env_nnp310.sh
+
+export HOME=/home/frank
+#ln -s /home/frank /root
+/home/frank/.nvm/versions/node/v26.2.0/bin/claude
+
+
+不要.pyenv目录了
+source ~/.bashrc
+
+update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+update-alternatives --install /usr/bin/python python /usr/bin/python3 2
+update-alternatives --config python
+
+
+cd /DEngine/projects/
+
+
+python2 2.7.18
+python3 3.8.10
+
+
