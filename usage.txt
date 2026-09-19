@@ -1,0 +1,29 @@
+git clone https://github.com/machentu/myclaudeExp4
+
+git checkout -b  myslam
+
+git add .
+
+git commit -m "orb slam c code"
+
+git push -u origin myslam
+
+
+password = ""
+
+##
+常用命令有哪些
+‌切换到指定分支‌：输入 git checkout 分支名 或 git switch 分支名。
+‌查看当前分支‌：输入 git branch，当前分支前会有星号标记 。
+‌创建并切换‌：输入 git checkout -b 新分支名，可同时完成创建和切换 。‌‌‌
+
+###换行符警告
+# 仅对当前项目生效
+git config core.autocrlf false
+
+# 对电脑上的所有 Git 项目生效
+git config --global core.autocrlf false
+
+方案二：只关闭警告提示（保持转换功能）如果你希望 Git 继续在后台进行转换，但不想再看到这个烦人的警告，可以单独关闭警告通知。运行以下命令：
+bash
+git config --global core.safecrlf false
