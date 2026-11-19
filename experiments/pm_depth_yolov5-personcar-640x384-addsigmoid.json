@@ -1,0 +1,52 @@
+[
+  {
+    "tag": "yolov5-personcar-640x384-addsigmoid",
+    "pm_depth": 1024,
+    "ok": true,
+    "wall_s": 385.7,
+    "model_hex_len": 1490,
+    "l2ld_json": true,
+    "cycles": 4460569,
+    "cosine": 0.852762
+  },
+  {
+    "tag": "yolov5-personcar-640x384-addsigmoid",
+    "pm_depth": 2048,
+    "ok": false,
+    "wall_s": 227.3,
+    "model_hex_len": 3538,
+    "l2ld_json": true,
+    "cycles": 29,
+    "cosine": 0.852762,
+    "err_tail": [
+      "    sim_out = run_iss_wrapper(in_list, out_shape, d, work_dir=d, target=sub)",
+      "  File \"/DEngine/projects/TyTVM_NNP3xx_src_v1.0.41/tytvm_src_pkg/deepeye/python/deepeye/iss_nnp3xx/iss.py\", line 1719, in run_iss_wrapper",
+      "    run_iss(params_iss, num_1_per_task_done=True, \\",
+      "  File \"/DEngine/projects/TyTVM_NNP3xx_src_v1.0.41/tytvm_src_pkg/deepeye/python/deepeye/iss_nnp3xx/iss.py\", line 687, in run_iss",
+      "    dout_list = run_iss_simu(params_iss, target)",
+      "  File \"/DEngine/projects/TyTVM_NNP3xx_src_v1.0.41/tytvm_src_pkg/deepeye/python/deepeye/iss_nnp3xx/iss.py\", line 868, in run_iss_simu",
+      "    assert os.system(iss_path + '/' + target + '_iss' + ' iss_scr > log_iss') == 0, \"iss error.\"",
+      "AssertionError: iss error."
+    ]
+  },
+  {
+    "tag": "yolov5-personcar-640x384-addsigmoid",
+    "pm_depth": 4096,
+    "ok": false,
+    "wall_s": 225.2,
+    "model_hex_len": 7536,
+    "l2ld_json": true,
+    "cycles": 29,
+    "cosine": 0.852762,
+    "err_tail": [
+      "    sim_out = run_iss_wrapper(in_list, out_shape, d, work_dir=d, target=sub)",
+      "  File \"/DEngine/projects/TyTVM_NNP3xx_src_v1.0.41/tytvm_src_pkg/deepeye/python/deepeye/iss_nnp3xx/iss.py\", line 1719, in run_iss_wrapper",
+      "    run_iss(params_iss, num_1_per_task_done=True, \\",
+      "  File \"/DEngine/projects/TyTVM_NNP3xx_src_v1.0.41/tytvm_src_pkg/deepeye/python/deepeye/iss_nnp3xx/iss.py\", line 687, in run_iss",
+      "    dout_list = run_iss_simu(params_iss, target)",
+      "  File \"/DEngine/projects/TyTVM_NNP3xx_src_v1.0.41/tytvm_src_pkg/deepeye/python/deepeye/iss_nnp3xx/iss.py\", line 868, in run_iss_simu",
+      "    assert os.system(iss_path + '/' + target + '_iss' + ' iss_scr > log_iss') == 0, \"iss error.\"",
+      "AssertionError: iss error."
+    ]
+  }
+]
