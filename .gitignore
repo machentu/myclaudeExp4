@@ -1,0 +1,6 @@
+# 运行时产物(可由流水线完整再生,勿入库)
+work/
+__pycache__/
+*.pyc
+.pytest_cache/
+nohup.out
