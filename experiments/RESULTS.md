@@ -18,6 +18,44 @@
 yolov8n-seg 在 ir6 规范化 + gs 禁用后全链通过;osnet 的 channel-attention(sigmoid 密集)
 数值发散最大(0.812),进一步佐证"发散集中在 LUT 化的非线性层"。
 
+## 实验 4:v61 eodma 描述符超限修复(✅ 成功,2026-11-19)
+
+**问题**:v61(双目 800×1280,950 节点)编译通过但汇编器拒绝:
+`eodma_ext_dist loop_num=9600 > 8191`(loop_num 字段 13 位,全家族约束)。
+病灶在 `fused_transpose_5`:strided-scatter 输出(每 2B 元素按 640B 步长散写,
+q_width=2 + data_extract=1,源于 v61 的 47 个 strided_slice)。
+
+**修复**(改厂商汇编器,备份 .orig_npu_pipeline):汇编前文本后处理,把
+`index=0 单级干活、index=1..3 空转(loop=1)` 的超限描述符拆两级嵌套
+(9600→96×100,type1 dist=内块尺寸,与 nnp300.py 既有模板语义一致),ext/dm 侧联动。
+
+**三轮迭代教训**(每轮都是工具链结构的实锤):
+1. 每芯片汇编器是 6000+ 行**完整拷贝**而非薄封装 → 9 个变体(nnp3020..318p + 两个基类)全部打补丁
+2. 模型代码经 cpp `#include` 展开,报错行号在展开产物 → 补丁扫描命令行文件所在目录全部 .asm
+3. 同文件多组描述符 → 顺序配对算法(逐行扫,index=0 记住、紧邻 index=1 评估)
+
+**验证**:离线(现成 asm_work 重汇编 ASSEMBLE_OK,8 处拆分)+ 链内
+(ass-patch 六处生效,net.bin 3.6MB 代码/3.1MB 权重/**56.9MB DDR 中间缓冲**/双输入,
+s7 结构解析通过)。s8 ISS 仿真待内存空闲时补跑(与逐层诊断并跑时疑似 OOM)。
+
+**硬件设计含义**:DMA 4 级地址生成器的每级 13 位 loop_num 是输出图尺寸的硬约束
+(8191×stride 覆盖范围);描述符规划器必须支持嵌套分解——当前工具链缺失这一层,
+本补丁即该缺失层的最小实现。
+
+## 实验 5:osnet 精度(0.812)归因(进行中)
+
+已排除/确认:
+- **LUT 洗清嫌疑**:NU_LUT_EN=0 后 cosine 逐位不变(0.811564),编译图确有变化
+  (fused_func 哈希不同)但数值路径不变
+- 假设:逐层复合舍入(osnet 数百层,fp16 scale/24bit 累加误差线性累积)
+- 厂商逐层工具 `dump_func_output`/SubfunctionRunner 的 sim 侧走 **SDK 模拟器
+  (内网下载)**,本容器不可达 → 逐层数值比对被阻(第一个计算层即抛
+  "Please config SDK related environment variable")
+- **下一步(已明确)**:用 linker/get_lg_addr.py + up_iss_scr.py 在整模型 ISS 脚本里
+  注入逐层 `save ddr`(golden.py 的逐层 golden 路径,不依赖 SDK),CPU 侧逐层参考
+  用 eval_relay 跑 fused_func —— 形态判定:线性下降=复合舍入(位宽设计依据),
+  骤降=特定算子缺陷
+
 ## 实验 0b:PM 深度不是独立旋钮(l2ld 展开耦合,exp_pm_depth.py)
 
 | pm_depth | l2ld 触发 | 模型代码(hex 行) | ISS |

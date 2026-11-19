@@ -53,7 +53,14 @@ def run(ctx: Ctx = None) -> Ctx:
         tvm.build_config = patched_build_config
         import deepeye.build_module.build_module as _bm
         _bm.tvm.build_config = patched_build_config
-        graph, lib, params = build_relay(func, target=sub, debug=True, work_dir=d)
+        # NPUP_OPT_CFG='{"NU_LUT_EN":0,...}' → build_relay(**opt) → Environment 属性
+        # (可用项见 make.py opt_keys:NU_LUT_EN/W_COMPRESS_EN/ELTWISE_MUL_EN/...)
+        opt = {}
+        if os.environ.get("NPUP_OPT_CFG"):
+            import json as _json
+            opt = _json.loads(os.environ["NPUP_OPT_CFG"])
+            print(f"  opt_cfg = {opt}")
+        graph, lib, params = build_relay(func, target=sub, debug=True, work_dir=d, **opt)
     finally:
         _bm.tvm.build_config = real_build_config
         tvm.build_config = real_build_config
