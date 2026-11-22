@@ -144,3 +144,173 @@ codegen 路径没有做此分解——属工具链对大图 eodma 的缺陷;对�
 1. PM 换页量化:yolov5(718 行模型代码已超 nnp318p PM?目前 718<1024 未触发;v61 双目 950 节点大概率触发 hex_l2ld)——对比 s8 的 link_info `model_hex_len` 与 PM 深度 1024;
 2. 拿到厂商各芯片 ISS 后重跑跨 PE 对比;
 3. 用 `dump_or_profile_on_asic.py` 的 MAC 利用率公式,把各模型 cycles 换算成利用率排行,定位 DMA/配置开销占比(小模型 3654 cycles 中理想计算只占 ~1/24)。
+
+---
+
+# 第二轮实验(2026-11-20/21)
+
+## 实验 6:v61 s8 补跑完成 —— cycles 到手,数值全错
+
+| 项 | 值 |
+|---|---|
+| ISS 实测 cycles | **84,228,510** |
+| 编译期估算 | 276,214,940 → 估算/实测 **3.28×**(落在实验 0 的 2.3-4.1× 带内) |
+| cosine(ISS,CPU) | **0.051** —— 范围接近(ISS[-539,269.5] vs CPU[-505,235.75])但空间结构全乱 |
+| 耗时 | s4 级联 28min + s8(linker+ISS) ~2h15m |
+
+输出取证(iss_output_0.npy vs cpu_output_0.npy):
+- 非行置换:逐行最佳匹配 cos 仅 0.42(mean 0.16),行映射恒等率 0.5%
+- 非 96×100 块转置(0.050→0.016 更差);列方向 cos 0.65-0.82(列结构部分保留)
+- eodma 拆分补丁数学复核**等价**:ext 96×640B+100×61440B(=96×640✓)、dm 96×2B+100×192B,
+  与单级 9600 地址集/序一致;dm 窗口 19200B=9600×2B✓;配对指令 r5=2 是元素大小(vu 家族
+  segment 语义,对照 vu_abs.py:322)非 loop 派生,文本补丁未留陈旧常数
+- **补丁本身排除嫌疑 → 逐层注入定位首个发散层(进行中)**。注意:9600 非法描述符出自厂商
+  codegen 本身,该散写路径厂商从未执行过,不排除上游还有潜伏缺陷
+
+## 实验 7:逐层归因工具打通(零 SDK,实验 5 "下一步"落地)
+
+`experiments/osnet_iss_layerwise.py`(通用化:环境变量 NPUP_LAYERWISE_TAG 指定模型):
+- **注入**:get_lg_bp_from_lst 扫 gp lst 的 `mov mbox3.s3 r2`(0e184068) imm16 变化沿→断点表;
+  复刻 up_iss_scr.py:27-53 厂商契约(跳过全局第 1 断点、第 k+2 断点处 save lg k 即"晚一层"),
+  在每条 `load ppm ...lib_bb_gpN_cpp.lst` 锚点后插 b/c/dis b/save ddr128 四连 → iss_scr_layerwise;
+  与共存的原生 `b 0x1f8`(bb_ctrl L2LD 循环)断点系统无冲突(gp 内断点必先于下一次 0x1f8 命中)
+- **地址**:lg_info.json offset + queue_cfg.json mid 基址(0x1d0000000,与 iss_glob 一致);
+  末层 out_buf 的 offset 在 offset_for_one_buf 嵌套字段;byte_size 规则照抄 get_lg_addr.py:99-126
+- **CPU 参考**:SubfunctionRunner(run_sim=False) 纯 LLVM eval_relay 逐层(零 SDK;
+  osnet 819 项输入 99s、mcv3 52s——远比预估 10-30min 快);返回序契约=dump_func_output:397-442
+  (前 len(params) 项输入回显,其后按 graph tvm_op 节点序,多输出为 list)
+- **对齐**:func_name 出现序队列 ↔ graph debug_name;rank 差异 squeeze 容忍(relay 与 NPU 元数据
+  允许差冗余 1 维,如 (1,1,512,1) vs (1,512,1))
+- **开销**:osnet 172 断点+save 的 ISS 仅 240s(基线 ~200s)——断点代价可忽略
+- **契约坑(实测)**:多输出模型外层 Tuple 会混进 cpu_outs(mcv3 110=1+107+1,需过滤);
+  厂商自己的 run_function_fused.py:498 调 get_lg_bp_from_lst 少传 nnp_name 参数(别走该入口);
+  params 必须在 s8 前快照(weight_second_handle 就地改写 conv2d_transpose 权重,golden.py:318)
+
+**对照验证(方法可信度)**:mcv3 86 层全部 ≥0.999987(median 1.000000,最低层=其整模型基线)。
+该对照用 11-18 旧 s8 产物 × 11-21 重建 CPU 参考 → **s2/s4 跨 3 天确定性实证**。
+mid_buf 无交织:from_iss_dump 裸 row-major+16B 行内字节反转即正确(co_split 反交织只属于
+eodma_raw 输出抓取格式,iss.py:957-1056)。
+
+## 实验 8:osnet 0.812 逐层结果 —— "复合舍入"出局,两个真实发散点
+
+173 lg:median 0.9386,**首 conv(lg0)即 0.746**,此后 0.45~0.99 振荡无单调下降;
+3 个 sigmoid 注意力门 [1,64,1,1] 精确 1.000000(饱和吸收上游差异);
+末层 lg171 逐层值 0.8116 = 整模型基线 0.811564(方法自洽交叉验证)。
+
+- **复合舍入假设出局**(应 ~1.0 起步缓慢单调下降,与"首层即发散+振荡"矛盾)
+- **硬件缺陷①:lg143 `fused_nn_instance_norm_8` NPU 侧产生 64 个 float16 NaN(CPU 侧 0 个)**
+  —— fp16 除法/溢出路径缺陷,NaN 下游传播(被 clip/relu 吸收但信息已毁)
+- **发散②:lg0 int8 conv 输出 NPU[-110,105]/211 级 vs CPU[-128,127]/247 级,拟合斜率 0.61,
+  精确相等仅 2%,分段 cos 均匀低(0.29-0.96)** —— 而 mcv3 首个 int8 conv 逐位 1.0,
+  非 conv 路径通病;特征指向 requantize scale/输入量化路径差异(osnet 输入是 float RGB,
+  mcv3 是 uint8 NV12)
+- 已排除:save 时序(无半写特征)、空间排布置换(置换/通道分块/NHWC/16B 交织全试过无提升)、
+  量化参数漂移(确定性实证)
+- 下一步:lg0 微实验(抽 Conv_0 fused func,对比 NPU/CPU 两侧输入量化与 requant 参数)
+
+## 实验 9:v010 host 节点 —— 整图 ISS 路径的结构性边界(工具链结论第 6 条)
+
+v010(context-gate board NV12 768×448,195 tvm_op)含 **6 个 device=1 host 侧节点**:
+4×`__copy` + 2×`fused_subtract`(NV12 board 预处理),图中段形成
+NPU cast→copy→host subtract→copy→NPU cast 的**设备往返链**。
+原版语义 = 3 个 NPU block + ARM wrapper.c 交替执行(s6 三次 LTO=三块,net.bin/s7 正常);
+编译期估算 37,652,313 cycles(三次重建逐位一致)。
+
+s8 整图路径两连崩与修复(本地研究版):
+1. `KeyError '__copy_kernel0'`→`'fused_subtract_5_kernel0'`(lto.py:644):host 节点无 NPU kernel
+   标签。根因:nnp_func_names 对无 dedsp 图返回**空列表** → generate_nodes 的 `len(func_names)>0`
+   过滤失效 → host 节点直通 func_lib。**已修**:s8 按 device==nnp300.device_type 显式构造
+   func_names(对齐 net_bin 分块语义,stages/s8_sim.py)
+2. `ddr_manage.py:1343 assert len(in_bb)>0`:输入经 host 链才达 NPU bb,整图 ddr_manage 假设
+   "输入直接进 NPU" —— **结构性不适用,非单点 bug**;且即使打通,ISS 不执行 host subtract,
+   数值必错(原版靠 ARM+QEMU 交替,SDK 路径)
+3. 决策待定:A. 多块 ISS 桥接(块间 numpy 执行 host op,最忠实,工作量大)/ B. 图手术挪
+   subtract 进 NPU(改研究对象语义)/ C. 归档为 s6-only 模型
+
+## 实验 10:whisper encoder —— 工具链能力边界是 erf/GELU(结论第 7 条)
+
+whisper-small encoder(纯 transformer:MatMul×96、LayerNorm 分解式 ReduceMean/Pow/Div、
+**零卷积**,1423 节点,固定形状 [1,80,3000]→[1,1500,768],ir7/opset14):
+- s0/s1/s2/s3 **全过**(前端+量化对 transformer 无障碍;ir7→6 自动降级正常)
+- s4 FusionS:**MatMul→ATOMIC_CONV 映射成功**(NPU 以 1×1 conv 吃矩阵乘),804 原子 op 被消化
+  (RESHAPE/CONV/BIASADD/VU_ELTWISE/CAST/ANONYMOUS),tile 搜索正常启动
+- **10 个 ATOMIC_ANONYMOUS 全部落在 GELU 子图**(`%18=erf→reshape→multiply→round` 链,
+  encoder 每层一个,Scope 19/62/88/94...)
+- 死点:`deepeye_fusion_stitching.cc:2362 Check failed: node_2_subgraph... OP not recognized`
+- **结论:融合引擎的算子边界卡在 erf**;默认开启的 LUT(NU_LUT_EN=1)也未收录 erf
+- 出路(未验证):①改用 tanh 近似 GELU 的导出版 ②s3 前图手术 erf→LUT 化算子
+  ③研究厂商 LUT 注册机制补 erf 条目。decoder(KV cache+动态形状+Shape/Gather)未试,
+  预期边界更靠前
+
+## 环境/工程修复(第二轮)
+
+| 项 | 内容 |
+|---|---|
+| **ARM 工具链固化** | net_bin_helper.py:202 硬依赖 ARM_C_COMPILER/ARM_CXX_FLAGS/ARM_LD(s6/s8 缺了必崩);厂商 cross_toolchain_setup.sh 的 nnp318p 段指向容器内不存在的 external_toolchain/arm-fhv512c-…-b2 → 实测选定 /opt/molchipv500-armgcc-uclibc(前缀 arm-mol-linux-uclibcgnueabihf- 与厂商 nnp318 段一致,真实 lib.o+wrapper.o 链接验证通过),已写入 env.sh;**TVM_HOME 不要设**(设了触发 arm_multi_thread/*.cc 编译分支,预编译树无 C++ 源码) |
+| TIR dump 散落归档 | 根目录 10766 个 *_ir.cc(18MB,11-19 实验期 dump 漏到 cwd;索引 13063-23679 与 osnet s4_build 的 0-13062 连续)→ work/_stray_tir_dump_20261119/;现行 s4 已 chdir 阶段目录,不再复发;.gitignore 已加 *_ir.cc |
+| s8 device 过滤 | 见实验 9,stages/s8_sim.py |
+| 逐层脚本 | 见实验 7,任意模型可用(NPUP_LAYERWISE_TAG) |
+
+## 第二轮后的下一步
+
+1. v61 逐层归因(进行中,~3h):定位 cosine 0.05 的首个发散层,验证 eodma 拆分 vs 上游 codegen 潜伏缺陷
+2. osnet lg0 微实验:Conv_0 fused func 的输入量化/requant 参数 NPU vs CPU 对比
+3. v010 A/B/C 决策(等用户拍板)
+4. whisper:确认 ANONYMOUS=erf 后,试 tanh-GELU 导出版过 s4
+5. RESULTS 第一轮"下一步"仍有效(PM 换页 profile 固件路径、跨芯片 ISS、MAC 利用率换算)
+
+---
+
+## 实验 11:osnet/v61 数值谜团破案 —— s8 输入 dtype 喂送 bug(重大本地 bug,2026-11-22)
+
+**根因**:s8_sim.py 把 s0 的 float32 推理数据直喂 run_iss_wrapper,而量化图的输入
+placeholder 是 uint8。原版 golden.py:624 有 `[data.astype(in_dtype) for data in ...]`
+(签名默认 in_dtype='uint8'),**我们的 s8 抄 run_on_nnp 模式时漏了这一步**。
+NPU 按 model_mem_info 的 `model_input_buf_size`(osnet=0x6000=24576B)只读
+float32 字节流(98304B)的前 1/4 —— IEEE754 指数/尾数字节被当 uint8 像素,
+NPU 全程计算"确定性伪图像"。首 kernel eidma `data_format=3`(8bit)证实硬件按 uint8 读。
+
+**修复**(stages/s8_sim.py):按 graph.json null 节点的 dltype 对 infer 输入 astype
+(float→uint8 = C 截断,与 CPU 侧 TVM 绑定语义一致),带 cast 日志。
+
+**修复后 osnet 逐层终审(全新一致性跑)**:
+| 区段 | 修复前 | 修复后 |
+|---|---|---|
+| lg0(首 conv) | 0.7461 | **1.000000** |
+| lg0~142 | median 0.94,最低 0.45 | **158/171 层 ≥0.99,median 0.9992** |
+| lg143 InstanceNorm_335 | 64 个 fp16 NaN | **仍 64 个 NaN(真实输入下复现)** |
+| lg144~166(NaN 下游) | — | 0.71~0.98(relu 链扩散,部分恢复) |
+| lg167 GAP~末层 | — | 0.84→0.75(GAP 混入全通道) |
+| 整模型 cosine | 0.8116 | **0.8140(仍被 NaN 层锁死)** |
+
+**osnet 0.812 最终归因(两个独立 bug 叠加)**:
+1. 从犯(本地,已修):输入喂送 bug 制造 lg0-142 全线假发散(0.5~0.9),掩盖真信号
+2. **主犯(硬件缺陷,实锤)**:NPU InstanceNorm 对零方差输入无保护 → NaN。
+   成因链:注意力门控使 2 个通道(184/323)fp16 下溢全零 → var=0 →
+   CPU 模拟 `(0-0)/sqrt(0+eps)=0`,NPU 硬件 rsqrt(0)→inf→NaN(64 个)→
+   污染下游 29 层 → GAP 混合后 embedding 损毁 → 0.814。
+   **硬件设计建议:IN 的 rsqrt 前对 var 做 max(var,eps) 钳位,或输出 NaN flush。**
+   注:此为数据依赖缺陷,真实图像输入同样可触发(relu 死亡通道→IN 零方差)。
+
+**连带影响**:
+- **v61 cosine 0.051 同因**(图输入 left/right=uint8,s0 产 float32,NPU 读 1MB/4MB
+  float 前缀当图像)——**eodma 96×100 拆分补丁被洗清嫌疑**;v61 s8 修复版重跑中,
+  预期 cosine 大幅回升,84.2M cycles 与 3.28× 估算比仍有效(与输入数据无关)
+- 历史结果有效性:mcv3/yolov5/yolov8n-pose/seg/tiny(原生 uint8 输入)不受影响,全部有效;
+  osnet 0.812 与 v61 0.051 两个"精度结论"作废,以修复版为准
+- 输入舍入(trunc vs round)探针结论修正:0.81→0.85 的变化是垃圾字节模式改变的副产物,
+  非独立因素;修复后输入两侧逐位一致,舍入问题消失
+
+## 实验 10 补充:GELU 单算子探针(2026-11-22)
+
+三个 8 节点以下微型网直测 s4(方法:最小复现):
+| 探针 | FusionS | s4 结果 |
+|---|---|---|
+| X→Erf→Y | ATOMIC_ANONYMOUS | ❌ stitching CHECK 失败(与 whisper 同死点) |
+| X→Tanh→Y | ATOMIC_ANONYMOUS | ✅ **通过**,Total Cycles 40512 |
+| MatMul+Erf GELU | — | ❌ s2 量化即崩:`batch_matmul.py realize → KeyError 'scale'` |
+
+- **erf 钉死为 whisper 的边界算子**;ANONYMOUS ≠ 必然失败——tanh 同为 ANONYMOUS
+  但有 LUT 兜底路径,erf 没有 → **出路①(tanh-GELU 重导出/图手术)可行性实证**
+- 顺带发现量化框架 bug:常量权重作 batch_matmul 第二操作数时 realize 阶段
+  `output_config` 缺 'scale'(realize.py:94)——whisper 真实图权重走 nn.dense 未触发

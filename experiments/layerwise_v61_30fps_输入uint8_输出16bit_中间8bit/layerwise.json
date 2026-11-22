@@ -1,0 +1,5190 @@
+{
+ "rows": [
+  {
+   "lg": 0,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__6",
+   "debug_name": "/wrapped/backbone/block0/block0.0/block0.0.0/conv_pw/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    400,
+    640
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 1,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__5",
+   "debug_name": "/wrapped/backbone/block1/block1.0/block1.0.0/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    24,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 2,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__3",
+   "debug_name": "/wrapped/backbone/block1/block1.0/block1.0.1/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    24,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 3,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__4",
+   "debug_name": "/wrapped/backbone/block2/block2.0/block2.0.0/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    100,
+    160
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 4,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__2",
+   "debug_name": "/wrapped/backbone/block2/block2.0/block2.0.1/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    100,
+    160
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 5,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__2",
+   "debug_name": "/wrapped/backbone/block2/block2.0/block2.0.2/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    100,
+    160
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 6,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__3",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.0/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 7,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__1",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.1/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 8,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__1",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.2/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 9,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.3/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 10,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.3/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 11,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__1",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.0/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 12,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271_",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.1/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 13,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361_",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.2/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 14,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_1",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.2/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 15,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447_",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.0/act2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    320,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 16,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_1",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.0/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 17,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_1",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/act1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 18,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/act2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 19,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 20,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/residual_add/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 21,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_1",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.2/act1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 22,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.2/act2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 23,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.2/conv_pwl/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 24,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_nn_con_12420431773548984648_",
+   "debug_name": "/wrapped/backbone/proj32/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 25,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_r_651909823879230585__1",
+   "debug_name": "/wrapped/backbone/deconv32_16/conv1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    50,
+    80
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 26,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_relu_nn_rel_1511957327998836142_",
+   "debug_name": "/wrapped/backbone/proj16/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 27,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_710404353587830373__1",
+   "debug_name": "/wrapped/backbone/deconv32_16/conv2/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 28,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_r_651909823879230585_",
+   "debug_name": "/wrapped/backbone/deconv16_8/conv1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    100,
+    160
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 29,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_relu_nn_rel_1511957327998836142__1",
+   "debug_name": "/wrapped/backbone/proj8/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    100,
+    160
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 30,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_710404353587830373_",
+   "debug_name": "/wrapped/backbone/deconv16_8/conv2/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    24,
+    100,
+    160
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 31,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_8678020658364111581_",
+   "debug_name": "/wrapped/cost_agg/feature_att_up_8/Sigmoid",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 32,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_8678020658364111581__1",
+   "debug_name": "/wrapped/cost_agg/feature_att_up_16/Sigmoid",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 33,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_8678020658364111581__2",
+   "debug_name": "/wrapped/cost_agg/feature_att_32/Sigmoid",
+   "dtype": "float16",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 34,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_8678020658364111581__1",
+   "debug_name": "/wrapped/cost_agg/feature_att_16/Sigmoid",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 35,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_8678020658364111581_",
+   "debug_name": "/wrapped/cost_agg/feature_att_8/Sigmoid",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 36,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_r_651909823879230585__2",
+   "debug_name": "/wrapped/backbone/deconv8_4/conv1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 37,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_relu_nn_rel_1511957327998836142__2",
+   "debug_name": "/wrapped/backbone/proj4/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 38,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_9433013518782518170_",
+   "debug_name": "/wrapped/backbone/conv4/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 39,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16475908594998717153_",
+   "debug_name": "/wrapped/match_refine/pw/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 40,
+   "out": 0,
+   "func_name": "fused_multiply_85",
+   "debug_name": "fused_multiply_85",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 41,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_2244920559644437088_",
+   "debug_name": "/wrapped/backbone/block1/block1.0/block1.0.0/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    24,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 42,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__3",
+   "debug_name": "/wrapped/backbone/block1/block1.0/block1.0.1/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    24,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 43,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__4",
+   "debug_name": "/wrapped/backbone/block2/block2.0/block2.0.0/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    100,
+    160
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 44,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__2",
+   "debug_name": "/wrapped/backbone/block2/block2.0/block2.0.1/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    100,
+    160
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 45,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271__2",
+   "debug_name": "/wrapped/backbone/block2/block2.0/block2.0.2/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    100,
+    160
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 46,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__3",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.0/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 47,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.1/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 48,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.1/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 49,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.2/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 50,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.2/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 51,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.3/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 52,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_2",
+   "debug_name": "/wrapped/backbone/block3/block3.0/block3.0.3/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 53,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361__1",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.0/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 54,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_11554094081691041271_",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.1/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 55,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361_",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.2/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 56,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_1",
+   "debug_name": "/wrapped/backbone/block3/block3.1/block3.1.2/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 57,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447_",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.0/act2_1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    320,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 58,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_1",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.0/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 59,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_1",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/act1_1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 60,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/act2_1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 61,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 62,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.1/residual_add_1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 63,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_1",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.2/act1_1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 64,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.2/act2_1/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    544,
+    25,
+    40
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 65,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/backbone/block4/block4.0/block4.0.2/conv_pwl_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 66,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_nn_con_12420431773548984648_",
+   "debug_name": "/wrapped/backbone/proj32_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    25,
+    40
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 67,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_r_651909823879230585__1",
+   "debug_name": "/wrapped/backbone/deconv32_16/conv1_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 68,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_relu_nn_rel_1511957327998836142_",
+   "debug_name": "/wrapped/backbone/proj16_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    50,
+    80
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 69,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_710404353587830373__1",
+   "debug_name": "/wrapped/backbone/deconv32_16/conv2_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    50,
+    80
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 70,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_r_651909823879230585_",
+   "debug_name": "/wrapped/backbone/deconv16_8/conv1_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    100,
+    160
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 71,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_relu_nn_rel_1511957327998836142__1",
+   "debug_name": "/wrapped/backbone/proj8_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    100,
+    160
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 72,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_710404353587830373_",
+   "debug_name": "/wrapped/backbone/deconv16_8/conv2_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    24,
+    100,
+    160
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 73,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_r_651909823879230585__2",
+   "debug_name": "/wrapped/backbone/deconv8_4/conv1_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 74,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_leaky_relu_nn_rel_1511957327998836142__2",
+   "debug_name": "/wrapped/backbone/proj4_1/LeakyRelu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 75,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_4554115505635825336_",
+   "debug_name": "/wrapped/match_refine/pw_1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 76,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_86",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 77,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_84",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 78,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_8",
+   "debug_name": "/wrapped/matcher/product_op/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999769933555436
+  },
+  {
+   "lg": 79,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_1",
+   "debug_name": "/wrapped/matcher/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999881089399519
+  },
+  {
+   "lg": 80,
+   "out": 0,
+   "func_name": "fused_nn_pad_2",
+   "debug_name": "/wrapped/matcher/Pad",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    367
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 81,
+   "out": 0,
+   "func_name": "fused_strided_slice_97",
+   "debug_name": "/wrapped/matcher/Slice_2",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 82,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_861",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 83,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_841",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 84,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_9",
+   "debug_name": "/wrapped/matcher/product_op_1/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999747071220401
+  },
+  {
+   "lg": 85,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_2",
+   "debug_name": "/wrapped/matcher/Conv_1",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999852908499828
+  },
+  {
+   "lg": 86,
+   "out": 0,
+   "func_name": "fused_strided_slice_98",
+   "debug_name": "/wrapped/matcher/Slice_4",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 87,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_862",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 88,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_842",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 89,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_10",
+   "debug_name": "/wrapped/matcher/product_op_2/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999862772493527
+  },
+  {
+   "lg": 90,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_3",
+   "debug_name": "/wrapped/matcher/Conv_2",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999888823494306
+  },
+  {
+   "lg": 91,
+   "out": 0,
+   "func_name": "fused_strided_slice_99",
+   "debug_name": "/wrapped/matcher/Slice_6",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 92,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_863",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 93,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_843",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 94,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_11",
+   "debug_name": "/wrapped/matcher/product_op_3/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999435420135143
+  },
+  {
+   "lg": 95,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_4",
+   "debug_name": "/wrapped/matcher/Conv_3",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999380373519314
+  },
+  {
+   "lg": 96,
+   "out": 0,
+   "func_name": "fused_strided_slice_100",
+   "debug_name": "/wrapped/matcher/Slice_8",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 97,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_864",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 98,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_844",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 99,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_12",
+   "debug_name": "/wrapped/matcher/product_op_4/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999923555986356
+  },
+  {
+   "lg": 100,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_5",
+   "debug_name": "/wrapped/matcher/Conv_4",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999914335958228
+  },
+  {
+   "lg": 101,
+   "out": 0,
+   "func_name": "fused_strided_slice_101",
+   "debug_name": "/wrapped/matcher/Slice_10",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 102,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_865",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 103,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_845",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 104,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_13",
+   "debug_name": "/wrapped/matcher/product_op_5/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999909103789026
+  },
+  {
+   "lg": 105,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_6",
+   "debug_name": "/wrapped/matcher/Conv_5",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999906905678171
+  },
+  {
+   "lg": 106,
+   "out": 0,
+   "func_name": "fused_strided_slice_102",
+   "debug_name": "/wrapped/matcher/Slice_12",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 107,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_866",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 108,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_846",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 109,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_14",
+   "debug_name": "/wrapped/matcher/product_op_6/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999930403935322
+  },
+  {
+   "lg": 110,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_7",
+   "debug_name": "/wrapped/matcher/Conv_6",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999938528680764
+  },
+  {
+   "lg": 111,
+   "out": 0,
+   "func_name": "fused_strided_slice_103",
+   "debug_name": "/wrapped/matcher/Slice_14",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 112,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_867",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 113,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_847",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 114,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_15",
+   "debug_name": "/wrapped/matcher/product_op_7/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.999992006458342
+  },
+  {
+   "lg": 115,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_8",
+   "debug_name": "/wrapped/matcher/Conv_7",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999876519151037
+  },
+  {
+   "lg": 116,
+   "out": 0,
+   "func_name": "fused_strided_slice_104",
+   "debug_name": "/wrapped/matcher/Slice_16",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 117,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_868",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 118,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_848",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 119,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_16",
+   "debug_name": "/wrapped/matcher/product_op_8/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9998156157814623
+  },
+  {
+   "lg": 120,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_9",
+   "debug_name": "/wrapped/matcher/Conv_8",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9997883857970593
+  },
+  {
+   "lg": 121,
+   "out": 0,
+   "func_name": "fused_strided_slice_105",
+   "debug_name": "/wrapped/matcher/Slice_18",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 122,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_869",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 123,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_849",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 124,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_17",
+   "debug_name": "/wrapped/matcher/product_op_9/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.999987812576929
+  },
+  {
+   "lg": 125,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_10",
+   "debug_name": "/wrapped/matcher/Conv_9",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999850571373848
+  },
+  {
+   "lg": 126,
+   "out": 0,
+   "func_name": "fused_strided_slice_106",
+   "debug_name": "/wrapped/matcher/Slice_20",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 127,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8610",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 128,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8410",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 129,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_18",
+   "debug_name": "/wrapped/matcher/product_op_10/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999973107107897
+  },
+  {
+   "lg": 130,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_11",
+   "debug_name": "/wrapped/matcher/Conv_10",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999946385992526
+  },
+  {
+   "lg": 131,
+   "out": 0,
+   "func_name": "fused_strided_slice_107",
+   "debug_name": "/wrapped/matcher/Slice_22",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 132,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8611",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 133,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8411",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 134,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_19",
+   "debug_name": "/wrapped/matcher/product_op_11/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999922596255226
+  },
+  {
+   "lg": 135,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_12",
+   "debug_name": "/wrapped/matcher/Conv_11",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999859090875293
+  },
+  {
+   "lg": 136,
+   "out": 0,
+   "func_name": "fused_strided_slice_108",
+   "debug_name": "/wrapped/matcher/Slice_24",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 137,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8612",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 138,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8412",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 139,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_20",
+   "debug_name": "/wrapped/matcher/product_op_12/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999854889916893
+  },
+  {
+   "lg": 140,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_13",
+   "debug_name": "/wrapped/matcher/Conv_12",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999791869164978
+  },
+  {
+   "lg": 141,
+   "out": 0,
+   "func_name": "fused_strided_slice_109",
+   "debug_name": "/wrapped/matcher/Slice_26",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 142,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8613",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 143,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8413",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 144,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_21",
+   "debug_name": "/wrapped/matcher/product_op_13/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999956690139205
+  },
+  {
+   "lg": 145,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_14",
+   "debug_name": "/wrapped/matcher/Conv_13",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999930714043315
+  },
+  {
+   "lg": 146,
+   "out": 0,
+   "func_name": "fused_strided_slice_110",
+   "debug_name": "/wrapped/matcher/Slice_28",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 147,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8614",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 148,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8414",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 149,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_22",
+   "debug_name": "/wrapped/matcher/product_op_14/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.999991600426363
+  },
+  {
+   "lg": 150,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_15",
+   "debug_name": "/wrapped/matcher/Conv_14",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999841161442511
+  },
+  {
+   "lg": 151,
+   "out": 0,
+   "func_name": "fused_strided_slice_111",
+   "debug_name": "/wrapped/matcher/Slice_30",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 152,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8615",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 153,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8415",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 154,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_23",
+   "debug_name": "/wrapped/matcher/product_op_15/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999941668102896
+  },
+  {
+   "lg": 155,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_16",
+   "debug_name": "/wrapped/matcher/Conv_15",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999902389106657
+  },
+  {
+   "lg": 156,
+   "out": 0,
+   "func_name": "fused_strided_slice_112",
+   "debug_name": "/wrapped/matcher/Slice_32",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 157,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8616",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 158,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8416",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 159,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_24",
+   "debug_name": "/wrapped/matcher/product_op_16/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999763303311903
+  },
+  {
+   "lg": 160,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_17",
+   "debug_name": "/wrapped/matcher/Conv_16",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999663734117787
+  },
+  {
+   "lg": 161,
+   "out": 0,
+   "func_name": "fused_strided_slice_113",
+   "debug_name": "/wrapped/matcher/Slice_34",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 162,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8617",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 163,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8417",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 164,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_25",
+   "debug_name": "/wrapped/matcher/product_op_17/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999912428412523
+  },
+  {
+   "lg": 165,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_18",
+   "debug_name": "/wrapped/matcher/Conv_17",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999880620507386
+  },
+  {
+   "lg": 166,
+   "out": 0,
+   "func_name": "fused_strided_slice_114",
+   "debug_name": "/wrapped/matcher/Slice_36",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 167,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8618",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 168,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8418",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 169,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_26",
+   "debug_name": "/wrapped/matcher/product_op_18/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999879220883894
+  },
+  {
+   "lg": 170,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_19",
+   "debug_name": "/wrapped/matcher/Conv_18",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999811434266064
+  },
+  {
+   "lg": 171,
+   "out": 0,
+   "func_name": "fused_strided_slice_115",
+   "debug_name": "/wrapped/matcher/Slice_38",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 172,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8619",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 173,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8419",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 174,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_27",
+   "debug_name": "/wrapped/matcher/product_op_19/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999936606982389
+  },
+  {
+   "lg": 175,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_20",
+   "debug_name": "/wrapped/matcher/Conv_19",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999929594403543
+  },
+  {
+   "lg": 176,
+   "out": 0,
+   "func_name": "fused_strided_slice_116",
+   "debug_name": "/wrapped/matcher/Slice_40",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 177,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8620",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 178,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8420",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 179,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_28",
+   "debug_name": "/wrapped/matcher/product_op_20/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999936717179752
+  },
+  {
+   "lg": 180,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_21",
+   "debug_name": "/wrapped/matcher/Conv_20",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999903713121214
+  },
+  {
+   "lg": 181,
+   "out": 0,
+   "func_name": "fused_strided_slice_117",
+   "debug_name": "/wrapped/matcher/Slice_42",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 182,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8621",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 183,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8421",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 184,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_29",
+   "debug_name": "/wrapped/matcher/product_op_21/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999919118994229
+  },
+  {
+   "lg": 185,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_22",
+   "debug_name": "/wrapped/matcher/Conv_21",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999867034916993
+  },
+  {
+   "lg": 186,
+   "out": 0,
+   "func_name": "fused_strided_slice_118",
+   "debug_name": "/wrapped/matcher/Slice_44",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 187,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8622",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 188,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8422",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 189,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_30",
+   "debug_name": "/wrapped/matcher/product_op_22/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999851955027566
+  },
+  {
+   "lg": 190,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_23",
+   "debug_name": "/wrapped/matcher/Conv_22",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999794947284195
+  },
+  {
+   "lg": 191,
+   "out": 0,
+   "func_name": "fused_strided_slice_119",
+   "debug_name": "/wrapped/matcher/Slice_46",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 192,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8623",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 193,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8423",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 194,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_31",
+   "debug_name": "/wrapped/matcher/product_op_23/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999917261881547
+  },
+  {
+   "lg": 195,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_24",
+   "debug_name": "/wrapped/matcher/Conv_23",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999892376729888
+  },
+  {
+   "lg": 196,
+   "out": 0,
+   "func_name": "fused_strided_slice_120",
+   "debug_name": "/wrapped/matcher/Slice_48",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 197,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8624",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 198,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8424",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 199,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_32",
+   "debug_name": "/wrapped/matcher/product_op_24/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999948221061898
+  },
+  {
+   "lg": 200,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_25",
+   "debug_name": "/wrapped/matcher/Conv_24",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999924585389357
+  },
+  {
+   "lg": 201,
+   "out": 0,
+   "func_name": "fused_strided_slice_121",
+   "debug_name": "/wrapped/matcher/Slice_50",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 202,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8625",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 203,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8425",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 204,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_33",
+   "debug_name": "/wrapped/matcher/product_op_25/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999910291601455
+  },
+  {
+   "lg": 205,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_26",
+   "debug_name": "/wrapped/matcher/Conv_25",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999869349361202
+  },
+  {
+   "lg": 206,
+   "out": 0,
+   "func_name": "fused_strided_slice_122",
+   "debug_name": "/wrapped/matcher/Slice_52",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 207,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8626",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 208,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8426",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 209,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_34",
+   "debug_name": "/wrapped/matcher/product_op_26/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999896247919705
+  },
+  {
+   "lg": 210,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_27",
+   "debug_name": "/wrapped/matcher/Conv_26",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999817078835057
+  },
+  {
+   "lg": 211,
+   "out": 0,
+   "func_name": "fused_strided_slice_123",
+   "debug_name": "/wrapped/matcher/Slice_54",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 212,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8627",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 213,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8427",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 214,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_35",
+   "debug_name": "/wrapped/matcher/product_op_27/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999911602655723
+  },
+  {
+   "lg": 215,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_28",
+   "debug_name": "/wrapped/matcher/Conv_27",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999841459601775
+  },
+  {
+   "lg": 216,
+   "out": 0,
+   "func_name": "fused_strided_slice_124",
+   "debug_name": "/wrapped/matcher/Slice_56",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 217,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8628",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 218,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8428",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 219,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_36",
+   "debug_name": "/wrapped/matcher/product_op_28/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999906806969913
+  },
+  {
+   "lg": 220,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_29",
+   "debug_name": "/wrapped/matcher/Conv_28",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999906641523236
+  },
+  {
+   "lg": 221,
+   "out": 0,
+   "func_name": "fused_strided_slice_125",
+   "debug_name": "/wrapped/matcher/Slice_58",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 222,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8629",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 223,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8429",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 224,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_24",
+   "debug_name": "/wrapped/matcher/product_op_29/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999765597278278
+  },
+  {
+   "lg": 225,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_30",
+   "debug_name": "/wrapped/matcher/Conv_29",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999631789021118
+  },
+  {
+   "lg": 226,
+   "out": 0,
+   "func_name": "fused_strided_slice_126",
+   "debug_name": "/wrapped/matcher/Slice_60",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 227,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8630",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 228,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8430",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 229,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_37",
+   "debug_name": "/wrapped/matcher/product_op_30/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999901402491397
+  },
+  {
+   "lg": 230,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_31",
+   "debug_name": "/wrapped/matcher/Conv_30",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999843536858108
+  },
+  {
+   "lg": 231,
+   "out": 0,
+   "func_name": "fused_strided_slice_127",
+   "debug_name": "/wrapped/matcher/Slice_62",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 232,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8631",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 233,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8431",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 234,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_38",
+   "debug_name": "/wrapped/matcher/product_op_31/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999858823945189
+  },
+  {
+   "lg": 235,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_32",
+   "debug_name": "/wrapped/matcher/Conv_31",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999694481396793
+  },
+  {
+   "lg": 236,
+   "out": 0,
+   "func_name": "fused_strided_slice_128",
+   "debug_name": "/wrapped/matcher/Slice_64",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 237,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8632",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 238,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8432",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 239,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_35",
+   "debug_name": "/wrapped/matcher/product_op_32/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999920461819377
+  },
+  {
+   "lg": 240,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_33",
+   "debug_name": "/wrapped/matcher/Conv_32",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999865798772511
+  },
+  {
+   "lg": 241,
+   "out": 0,
+   "func_name": "fused_strided_slice_129",
+   "debug_name": "/wrapped/matcher/Slice_66",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 242,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8633",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 243,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8433",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 244,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_39",
+   "debug_name": "/wrapped/matcher/product_op_33/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999953491847998
+  },
+  {
+   "lg": 245,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_34",
+   "debug_name": "/wrapped/matcher/Conv_33",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999895191138533
+  },
+  {
+   "lg": 246,
+   "out": 0,
+   "func_name": "fused_strided_slice_130",
+   "debug_name": "/wrapped/matcher/Slice_68",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 247,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8634",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 248,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8434",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 249,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_37",
+   "debug_name": "/wrapped/matcher/product_op_34/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999901340065112
+  },
+  {
+   "lg": 250,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_35",
+   "debug_name": "/wrapped/matcher/Conv_34",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999877354316091
+  },
+  {
+   "lg": 251,
+   "out": 0,
+   "func_name": "fused_strided_slice_131",
+   "debug_name": "/wrapped/matcher/Slice_70",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 252,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8635",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 253,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8435",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 254,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_23",
+   "debug_name": "/wrapped/matcher/product_op_35/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.999992095107933
+  },
+  {
+   "lg": 255,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_36",
+   "debug_name": "/wrapped/matcher/Conv_35",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999849307553749
+  },
+  {
+   "lg": 256,
+   "out": 0,
+   "func_name": "fused_strided_slice_132",
+   "debug_name": "/wrapped/matcher/Slice_72",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 257,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8636",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 258,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8436",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 259,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_40",
+   "debug_name": "/wrapped/matcher/product_op_36/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999925447296859
+  },
+  {
+   "lg": 260,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_37",
+   "debug_name": "/wrapped/matcher/Conv_36",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999894009206355
+  },
+  {
+   "lg": 261,
+   "out": 0,
+   "func_name": "fused_strided_slice_133",
+   "debug_name": "/wrapped/matcher/Slice_74",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 262,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8637",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 263,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8437",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 264,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_41",
+   "debug_name": "/wrapped/matcher/product_op_37/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999922359763364
+  },
+  {
+   "lg": 265,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_38",
+   "debug_name": "/wrapped/matcher/Conv_37",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999877808590193
+  },
+  {
+   "lg": 266,
+   "out": 0,
+   "func_name": "fused_strided_slice_134",
+   "debug_name": "/wrapped/matcher/Slice_76",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 267,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8638",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 268,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8438",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 269,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_42",
+   "debug_name": "/wrapped/matcher/product_op_38/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.999979336201005
+  },
+  {
+   "lg": 270,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_39",
+   "debug_name": "/wrapped/matcher/Conv_38",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999641726355487
+  },
+  {
+   "lg": 271,
+   "out": 0,
+   "func_name": "fused_strided_slice_135",
+   "debug_name": "/wrapped/matcher/Slice_78",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 272,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8639",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 273,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8439",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 274,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_43",
+   "debug_name": "/wrapped/matcher/product_op_39/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999865632067056
+  },
+  {
+   "lg": 275,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_40",
+   "debug_name": "/wrapped/matcher/Conv_39",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999768831982717
+  },
+  {
+   "lg": 276,
+   "out": 0,
+   "func_name": "fused_strided_slice_136",
+   "debug_name": "/wrapped/matcher/Slice_80",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 277,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8640",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 278,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8440",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 279,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_44",
+   "debug_name": "/wrapped/matcher/product_op_40/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999904053711507
+  },
+  {
+   "lg": 280,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_41",
+   "debug_name": "/wrapped/matcher/Conv_40",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999837156899511
+  },
+  {
+   "lg": 281,
+   "out": 0,
+   "func_name": "fused_strided_slice_137",
+   "debug_name": "/wrapped/matcher/Slice_82",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 282,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8641",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 283,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8441",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 284,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_45",
+   "debug_name": "/wrapped/matcher/product_op_41/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999881275738425
+  },
+  {
+   "lg": 285,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_42",
+   "debug_name": "/wrapped/matcher/Conv_41",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999827879366106
+  },
+  {
+   "lg": 286,
+   "out": 0,
+   "func_name": "fused_strided_slice_138",
+   "debug_name": "/wrapped/matcher/Slice_84",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 287,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8642",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 288,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8442",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 289,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_46",
+   "debug_name": "/wrapped/matcher/product_op_42/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999954456686678
+  },
+  {
+   "lg": 290,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_43",
+   "debug_name": "/wrapped/matcher/Conv_42",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999905991465993
+  },
+  {
+   "lg": 291,
+   "out": 0,
+   "func_name": "fused_strided_slice_139",
+   "debug_name": "/wrapped/matcher/Slice_86",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 292,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8643",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 293,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8443",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 294,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_47",
+   "debug_name": "/wrapped/matcher/product_op_43/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999950740550261
+  },
+  {
+   "lg": 295,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_44",
+   "debug_name": "/wrapped/matcher/Conv_43",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999896796658949
+  },
+  {
+   "lg": 296,
+   "out": 0,
+   "func_name": "fused_strided_slice_140",
+   "debug_name": "/wrapped/matcher/Slice_88",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 297,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8644",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 298,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8444",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 299,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_48",
+   "debug_name": "/wrapped/matcher/product_op_44/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999763189872354
+  },
+  {
+   "lg": 300,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_45",
+   "debug_name": "/wrapped/matcher/Conv_44",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999599388516394
+  },
+  {
+   "lg": 301,
+   "out": 0,
+   "func_name": "fused_strided_slice_141",
+   "debug_name": "/wrapped/matcher/Slice_90",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 302,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8645",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 303,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8445",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 304,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_49",
+   "debug_name": "/wrapped/matcher/product_op_45/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999886976841608
+  },
+  {
+   "lg": 305,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_46",
+   "debug_name": "/wrapped/matcher/Conv_45",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999793027343585
+  },
+  {
+   "lg": 306,
+   "out": 0,
+   "func_name": "fused_strided_slice_142",
+   "debug_name": "/wrapped/matcher/Slice_92",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 307,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8646",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 308,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8446",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 309,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_50",
+   "debug_name": "/wrapped/matcher/product_op_46/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999946034602537
+  },
+  {
+   "lg": 310,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_47",
+   "debug_name": "/wrapped/matcher/Conv_46",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999906155330438
+  },
+  {
+   "lg": 311,
+   "out": 0,
+   "func_name": "fused_strided_slice_143",
+   "debug_name": "/wrapped/matcher/Slice_94",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 312,
+   "out": 0,
+   "func_name": "fused_multiply_86",
+   "debug_name": "fused_multiply_8647",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 313,
+   "out": 0,
+   "func_name": "fused_multiply_84",
+   "debug_name": "fused_multiply_8447",
+   "dtype": "float16",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 314,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_37",
+   "debug_name": "/wrapped/matcher/product_op_47/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.9999902999233836
+  },
+  {
+   "lg": 315,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_48",
+   "debug_name": "/wrapped/matcher/Conv_47",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    200,
+    320
+   ],
+   "cosine": 0.9999890280730406
+  },
+  {
+   "lg": 316,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_9",
+   "debug_name": "/wrapped/cost_agg/conv1/conv1.0/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.99977971122331
+  },
+  {
+   "lg": 317,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_8",
+   "debug_name": "/wrapped/cost_agg/conv1/conv1.1/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.9996005255879635
+  },
+  {
+   "lg": 318,
+   "out": 0,
+   "func_name": "fused_multiply_79",
+   "debug_name": "fused_multiply_79",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.9995231451431624
+  },
+  {
+   "lg": 319,
+   "out": 0,
+   "func_name": "fused_multiply_78",
+   "debug_name": "fused_multiply_78",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.9995144947986909
+  },
+  {
+   "lg": 320,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_7",
+   "debug_name": "/wrapped/cost_agg/feature_att_8/gate_mul/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.9990587292766111
+  },
+  {
+   "lg": 321,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_7",
+   "debug_name": "/wrapped/cost_agg/conv2/conv2.0/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9963226232508058
+  },
+  {
+   "lg": 322,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_3",
+   "debug_name": "/wrapped/cost_agg/conv2/conv2.1/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9866997214074903
+  },
+  {
+   "lg": 323,
+   "out": 0,
+   "func_name": "fused_multiply_81",
+   "debug_name": "fused_multiply_81",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9949089182497441
+  },
+  {
+   "lg": 324,
+   "out": 0,
+   "func_name": "fused_multiply_80",
+   "debug_name": "fused_multiply_80",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9956687627506814
+  },
+  {
+   "lg": 325,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_6",
+   "debug_name": "/wrapped/cost_agg/feature_att_16/gate_mul/Mul",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9928226595595104
+  },
+  {
+   "lg": 326,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_6",
+   "debug_name": "/wrapped/cost_agg/conv3/conv3.0/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.9736563857575324
+  },
+  {
+   "lg": 327,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_5",
+   "debug_name": "/wrapped/cost_agg/conv3/conv3.1/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.8018774301190709
+  },
+  {
+   "lg": 328,
+   "out": 0,
+   "func_name": "fused_multiply_83",
+   "debug_name": "fused_multiply_83",
+   "dtype": "float16",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.9620196911366744
+  },
+  {
+   "lg": 329,
+   "out": 0,
+   "func_name": "fused_multiply_82",
+   "debug_name": "/wrapped/cost_agg/feature_att_32/gate_mul/Mul",
+   "dtype": "float16",
+   "shape": [
+    1,
+    160,
+    25,
+    40
+   ],
+   "cosine": 0.9685075980985988
+  },
+  {
+   "lg": 330,
+   "out": 0,
+   "func_name": "fused_image_resize_2",
+   "debug_name": "fused_image_resize_2",
+   "dtype": "float16",
+   "shape": [
+    1,
+    160,
+    50,
+    80
+   ],
+   "cosine": 0.9685075980985988
+  },
+  {
+   "lg": 331,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_5",
+   "debug_name": "/wrapped/cost_agg/conv3_up/resize/Resize",
+   "dtype": "int8",
+   "shape": [
+    1,
+    160,
+    50,
+    80
+   ],
+   "cosine": 0.965844569753462
+  },
+  {
+   "lg": 332,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_3",
+   "debug_name": "/wrapped/cost_agg/conv3_up/conv/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9655934747212253
+  },
+  {
+   "lg": 333,
+   "out": 0,
+   "func_name": "fused_multiply_81",
+   "debug_name": "fused_multiply_811",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9651446152355395
+  },
+  {
+   "lg": 334,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_4",
+   "debug_name": "/wrapped/cost_agg/cat_16/Concat",
+   "dtype": "int8",
+   "shape": [
+    1,
+    224,
+    50,
+    80
+   ],
+   "cosine": 0.9446998726715816
+  },
+  {
+   "lg": 335,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_4",
+   "debug_name": "/wrapped/cost_agg/agg_0/agg_0.0/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.9016846912101235
+  },
+  {
+   "lg": 336,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_3",
+   "debug_name": "/wrapped/cost_agg/agg_0/agg_0.1/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.8627600019868827
+  },
+  {
+   "lg": 337,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_3",
+   "debug_name": "/wrapped/cost_agg/agg_0/agg_0.2/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.8262856362892412
+  },
+  {
+   "lg": 338,
+   "out": 0,
+   "func_name": "fused_multiply_81",
+   "debug_name": "fused_multiply_812",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.857456404072715
+  },
+  {
+   "lg": 339,
+   "out": 0,
+   "func_name": "fused_multiply_80",
+   "debug_name": "/wrapped/cost_agg/feature_att_up_16/gate_mul/Mul",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    50,
+    80
+   ],
+   "cosine": 0.8497847333724388
+  },
+  {
+   "lg": 340,
+   "out": 0,
+   "func_name": "fused_image_resize_1",
+   "debug_name": "fused_image_resize_1",
+   "dtype": "float16",
+   "shape": [
+    1,
+    112,
+    100,
+    160
+   ],
+   "cosine": 0.8497847333724388
+  },
+  {
+   "lg": 341,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_3",
+   "debug_name": "/wrapped/cost_agg/conv2_up/resize/Resize",
+   "dtype": "int8",
+   "shape": [
+    1,
+    112,
+    100,
+    160
+   ],
+   "cosine": 0.8406566282484298
+  },
+  {
+   "lg": 342,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_2",
+   "debug_name": "/wrapped/cost_agg/conv2_up/conv/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.8199520191724871
+  },
+  {
+   "lg": 343,
+   "out": 0,
+   "func_name": "fused_multiply_79",
+   "debug_name": "fused_multiply_791",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.817295303059398
+  },
+  {
+   "lg": 344,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_2",
+   "debug_name": "/wrapped/cost_agg/cat_8/Concat",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    100,
+    160
+   ],
+   "cosine": 0.8994490395036404
+  },
+  {
+   "lg": 345,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_2",
+   "debug_name": "/wrapped/cost_agg/agg_1/agg_1.0/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.9495645119220594
+  },
+  {
+   "lg": 346,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447__1",
+   "debug_name": "/wrapped/cost_agg/agg_1/agg_1.2/block/block.2/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.8043635729837162
+  },
+  {
+   "lg": 347,
+   "out": 0,
+   "func_name": "fused_multiply_79",
+   "debug_name": "fused_multiply_792",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.8738999153086551
+  },
+  {
+   "lg": 348,
+   "out": 0,
+   "func_name": "fused_multiply_78",
+   "debug_name": "/wrapped/cost_agg/feature_att_up_8/gate_mul/Mul",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    100,
+    160
+   ],
+   "cosine": 0.8749827435414231
+  },
+  {
+   "lg": 349,
+   "out": 0,
+   "func_name": "fused_image_resize",
+   "debug_name": "fused_image_resize",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    200,
+    320
+   ],
+   "cosine": 0.8749827435414284
+  },
+  {
+   "lg": 350,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_1",
+   "debug_name": "/wrapped/cost_agg/conv1_up/resize/Resize",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    200,
+    320
+   ],
+   "cosine": 0.8573186263455619
+  },
+  {
+   "lg": 351,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip",
+   "debug_name": "/wrapped/cost_agg/conv1_up/conv/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    48,
+    200,
+    320
+   ],
+   "cosine": 0.8005430768987198
+  },
+  {
+   "lg": 352,
+   "out": 0,
+   "func_name": "fused_transpose_6",
+   "debug_name": "/wrapped/Transpose",
+   "dtype": "int8",
+   "shape": [
+    1,
+    320,
+    200,
+    48
+   ],
+   "cosine": 0.8005430768987198
+  },
+  {
+   "lg": 353,
+   "out": 0,
+   "func_name": "fused_nn_max_pool2d_clip_subtract_clip_lut",
+   "debug_name": "fused_nn_max_pool2d_clip_subtract_clip_lut",
+   "dtype": "float16",
+   "shape": [
+    1,
+    320,
+    200,
+    48
+   ],
+   "cosine": 0.5628678556676348
+  },
+  {
+   "lg": 354,
+   "out": 0,
+   "func_name": "fused_sum_divide",
+   "debug_name": "/wrapped/Softmax",
+   "dtype": "float16",
+   "shape": [
+    1,
+    320,
+    200,
+    48
+   ],
+   "cosine": 0.4574648244792872
+  },
+  {
+   "lg": 355,
+   "out": 0,
+   "func_name": "fused_transpose_5",
+   "debug_name": "fused_transpose_5",
+   "dtype": "float16",
+   "shape": [
+    1,
+    48,
+    200,
+    320
+   ],
+   "cosine": 0.4574648244792872
+  },
+  {
+   "lg": 356,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast",
+   "debug_name": "/wrapped/Transpose_1",
+   "dtype": "int8",
+   "shape": [
+    1,
+    48,
+    200,
+    320
+   ],
+   "cosine": 0.4579963742123483
+  },
+  {
+   "lg": 357,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_1495274288954743467_",
+   "debug_name": "/wrapped/base4_encoder/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    200,
+    320
+   ],
+   "cosine": 0.7981112750173904
+  },
+  {
+   "lg": 358,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_clip_multiply_round_right_shift_clip",
+   "debug_name": "fused_nn_insert_nn_conv2d_clip_multiply_round_right_shift_clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    400,
+    640
+   ],
+   "cosine": 0.0
+  },
+  {
+   "lg": 359,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_4",
+   "debug_name": "/wrapped/feature4_proj/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    200,
+    320
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 360,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_5",
+   "debug_name": "/wrapped/cost4_embed/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    200,
+    320
+   ],
+   "cosine": 0.6971549516194984
+  },
+  {
+   "lg": 361,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_10458825929624400297_",
+   "debug_name": "/wrapped/refine4/blocks/blocks.0/pw_act/Relu",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    200,
+    320
+   ],
+   "cosine": 0.32594741424456136
+  },
+  {
+   "lg": 362,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_14509333804400640565_",
+   "debug_name": "/wrapped/up4_to2/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    400,
+    640
+   ],
+   "cosine": 0.477179179634726
+  },
+  {
+   "lg": 363,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_6",
+   "debug_name": "/wrapped/feature2_proj/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    400,
+    640
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 364,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_4703923513021028514_",
+   "debug_name": "/wrapped/refine2/blocks/blocks.1/pw/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    12,
+    400,
+    640
+   ],
+   "cosine": 0.29780203621266255
+  },
+  {
+   "lg": 365,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_add_multiply_round_r_10196337748108489212_",
+   "debug_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_add_multiply_round_r_10196337748108489212_",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    800,
+    1280
+   ],
+   "cosine": 0.25916227342005255
+  },
+  {
+   "lg": 366,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_clip_nn_conv2d_nn_bias_add_multiply_round_right_shift__17777703923679792786_",
+   "debug_name": "/wrapped/up2_to1/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    800,
+    1280
+   ],
+   "cosine": 0.36529942224478257
+  },
+  {
+   "lg": 367,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_7",
+   "debug_name": "/wrapped/feature1_proj/block/block.0/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    800,
+    1280
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 368,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_3373970609083139045_",
+   "debug_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_3373970609083139045_",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    800,
+    1280
+   ],
+   "cosine": 0.2638353540443493
+  },
+  {
+   "lg": 369,
+   "out": 0,
+   "func_name": "fused_multiply_77",
+   "debug_name": "fused_multiply_77",
+   "dtype": "float16",
+   "shape": [
+    1,
+    1,
+    800,
+    1280
+   ],
+   "cosine": 0.26384302583965025
+  }
+ ],
+ "diag": {
+  "median": 0.9999999999999999,
+  "first_below_0.99": 322,
+  "first_below_0.90": 327,
+  "verdict": "\u65ad\u5d16:lg327(fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_5)\u9aa4\u964d,\u7279\u5b9a\u7b97\u5b50\u7f3a\u9677\u5acc\u7591"
+ }
+}

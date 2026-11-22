@@ -1,0 +1,2418 @@
+{
+ "rows": [
+  {
+   "lg": 0,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_3",
+   "debug_name": "Conv_0",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    64,
+    32
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 1,
+   "out": 0,
+   "func_name": "fused_multiply_52",
+   "debug_name": "fused_multiply_52",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    64,
+    32
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 2,
+   "out": 0,
+   "func_name": "fused_nn_instance_norm_11",
+   "debug_name": "InstanceNormalization_1",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    64,
+    32
+   ],
+   "cosine": 0.9999986121017604
+  },
+  {
+   "lg": 3,
+   "out": 0,
+   "func_name": "fused_nn_relu_23",
+   "debug_name": "fused_nn_relu_23",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    64,
+    32
+   ],
+   "cosine": 0.9999991343267464
+  },
+  {
+   "lg": 4,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_10",
+   "debug_name": "Relu_2",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    64,
+    32
+   ],
+   "cosine": 0.999956207751204
+  },
+  {
+   "lg": 5,
+   "out": 0,
+   "func_name": "fused_nn_max_pool2d_clip",
+   "debug_name": "MaxPool_3",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.999963735712969
+  },
+  {
+   "lg": 6,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_5",
+   "debug_name": "Relu_5",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9998618470959045
+  },
+  {
+   "lg": 7,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__2",
+   "debug_name": "Relu_8",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9997728554693782
+  },
+  {
+   "lg": 8,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_50",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9998420654743004
+  },
+  {
+   "lg": 9,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_13",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999383
+  },
+  {
+   "lg": 10,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_14",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9998418876820759
+  },
+  {
+   "lg": 11,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_9765591645272664320_",
+   "debug_name": "Relu_22",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9998115375207227
+  },
+  {
+   "lg": 12,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_501",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9996093540716735
+  },
+  {
+   "lg": 13,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_27",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999383
+  },
+  {
+   "lg": 14,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_28",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9996094563524611
+  },
+  {
+   "lg": 15,
+   "out": 0,
+   "func_name": "fused_add_19",
+   "debug_name": "Add_29",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9998196437068959
+  },
+  {
+   "lg": 16,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_10264736873713217113_",
+   "debug_name": "Relu_38",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.999835581037833
+  },
+  {
+   "lg": 17,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_502",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9996201483532896
+  },
+  {
+   "lg": 18,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_43",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999383
+  },
+  {
+   "lg": 19,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_44",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9996192826430578
+  },
+  {
+   "lg": 20,
+   "out": 0,
+   "func_name": "fused_add_19",
+   "debug_name": "Add_45",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9998178217164722
+  },
+  {
+   "lg": 21,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_14745913955635417115_",
+   "debug_name": "Relu_57",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9999143178937921
+  },
+  {
+   "lg": 22,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_503",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.999721221766295
+  },
+  {
+   "lg": 23,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_62",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999383
+  },
+  {
+   "lg": 24,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_63",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9997209830984172
+  },
+  {
+   "lg": 25,
+   "out": 0,
+   "func_name": "fused_add_19",
+   "debug_name": "fused_add_192",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.999823497219846
+  },
+  {
+   "lg": 26,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_9",
+   "debug_name": "Add_64",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9993179527561342
+  },
+  {
+   "lg": 27,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_2",
+   "debug_name": "Conv_65",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9987491596021061
+  },
+  {
+   "lg": 28,
+   "out": 0,
+   "func_name": "fused_multiply_51",
+   "debug_name": "fused_multiply_51",
+   "dtype": "float16",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9987491290326163
+  },
+  {
+   "lg": 29,
+   "out": 0,
+   "func_name": "fused_nn_instance_norm_10",
+   "debug_name": "fused_nn_instance_norm_10",
+   "dtype": "float16",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.995305082238005
+  },
+  {
+   "lg": 30,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_8",
+   "debug_name": "InstanceNormalization_66",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9950848561360106
+  },
+  {
+   "lg": 31,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_add_multiply_round_r_12407541499012029986__2",
+   "debug_name": "Relu_69",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9944965990980057
+  },
+  {
+   "lg": 32,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_4",
+   "debug_name": "Relu_71",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9969699968374798
+  },
+  {
+   "lg": 33,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__2",
+   "debug_name": "Relu_74",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.998394582859678
+  },
+  {
+   "lg": 34,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_504",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.998565414529759
+  },
+  {
+   "lg": 35,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_79",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999938
+  },
+  {
+   "lg": 36,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_80",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9985654991981874
+  },
+  {
+   "lg": 37,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_9765591645272664320_",
+   "debug_name": "Relu_88",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9996966118439401
+  },
+  {
+   "lg": 38,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_505",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9992327531089306
+  },
+  {
+   "lg": 39,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_93",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999938
+  },
+  {
+   "lg": 40,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_94",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9992323099866433
+  },
+  {
+   "lg": 41,
+   "out": 0,
+   "func_name": "fused_add_19",
+   "debug_name": "Add_95",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9989746027223398
+  },
+  {
+   "lg": 42,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_10264736873713217113_",
+   "debug_name": "Relu_104",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9995015286797952
+  },
+  {
+   "lg": 43,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_506",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9986813371489888
+  },
+  {
+   "lg": 44,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_109",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999938
+  },
+  {
+   "lg": 45,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_110",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.998679988087308
+  },
+  {
+   "lg": 46,
+   "out": 0,
+   "func_name": "fused_add_19",
+   "debug_name": "Add_111",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9991355411217956
+  },
+  {
+   "lg": 47,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_14745913955635417115_",
+   "debug_name": "Relu_123",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9997556456145068
+  },
+  {
+   "lg": 48,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_507",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9995624114733834
+  },
+  {
+   "lg": 49,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534_",
+   "debug_name": "Sigmoid_128",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999938
+  },
+  {
+   "lg": 50,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "Mul_129",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9995623729883683
+  },
+  {
+   "lg": 51,
+   "out": 0,
+   "func_name": "fused_add_19",
+   "debug_name": "fused_add_195",
+   "dtype": "float16",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9993743875417814
+  },
+  {
+   "lg": 52,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_7",
+   "debug_name": "Add_130",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    32,
+    16
+   ],
+   "cosine": 0.9991591702294468
+  },
+  {
+   "lg": 53,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_2",
+   "debug_name": "Conv_131",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9988085668715418
+  },
+  {
+   "lg": 54,
+   "out": 0,
+   "func_name": "fused_multiply_48",
+   "debug_name": "fused_multiply_48",
+   "dtype": "float16",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.998808570912625
+  },
+  {
+   "lg": 55,
+   "out": 0,
+   "func_name": "fused_nn_instance_norm_10",
+   "debug_name": "fused_nn_instance_norm_101",
+   "dtype": "float16",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9944881601376154
+  },
+  {
+   "lg": 56,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_6",
+   "debug_name": "InstanceNormalization_132",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9931774337287104
+  },
+  {
+   "lg": 57,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_add_multiply_round_right_shift_clip_nn_rel_1709426323896354375_",
+   "debug_name": "Relu_134",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    32,
+    16
+   ],
+   "cosine": 0.9925788969476764
+  },
+  {
+   "lg": 58,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_sum__9896394326745445115_",
+   "debug_name": "AveragePool_138",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    16,
+    8
+   ],
+   "cosine": 0.9937538551537045
+  },
+  {
+   "lg": 59,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_3",
+   "debug_name": "Relu_140",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9956581965476232
+  },
+  {
+   "lg": 60,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_143",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.99875037724757
+  },
+  {
+   "lg": 61,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_47",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9997466096784791
+  },
+  {
+   "lg": 62,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_148",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999583
+  },
+  {
+   "lg": 63,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_149",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9997466150075672
+  },
+  {
+   "lg": 64,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_154",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9966922284948226
+  },
+  {
+   "lg": 65,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_157",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998169844135338
+  },
+  {
+   "lg": 66,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_471",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998310512542901
+  },
+  {
+   "lg": 67,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_162",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999584
+  },
+  {
+   "lg": 68,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_163",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998747004359514
+  },
+  {
+   "lg": 69,
+   "out": 0,
+   "func_name": "fused_add_18",
+   "debug_name": "Add_164",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998582152050659
+  },
+  {
+   "lg": 70,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_167",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9973067101069635
+  },
+  {
+   "lg": 71,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_170",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9988423751988256
+  },
+  {
+   "lg": 72,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_173",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998871313778632
+  },
+  {
+   "lg": 73,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_472",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.99992612182465
+  },
+  {
+   "lg": 74,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_178",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999690840826
+  },
+  {
+   "lg": 75,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_179",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9999636958370831
+  },
+  {
+   "lg": 76,
+   "out": 0,
+   "func_name": "fused_add_18",
+   "debug_name": "Add_180",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9999273694105768
+  },
+  {
+   "lg": 77,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_183",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9972506469090632
+  },
+  {
+   "lg": 78,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_186",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9989438850139686
+  },
+  {
+   "lg": 79,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_189",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9991758860134708
+  },
+  {
+   "lg": 80,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_192",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998539862490312
+  },
+  {
+   "lg": 81,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_473",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9995448827415188
+  },
+  {
+   "lg": 82,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_197",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999581
+  },
+  {
+   "lg": 83,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_198",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9995446684098275
+  },
+  {
+   "lg": 84,
+   "out": 0,
+   "func_name": "fused_add_18",
+   "debug_name": "fused_add_182",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9999250401012725
+  },
+  {
+   "lg": 85,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_5",
+   "debug_name": "Add_199",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998191313349835
+  },
+  {
+   "lg": 86,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "Conv_200",
+   "dtype": "int8",
+   "shape": [
+    1,
+    384,
+    16,
+    8
+   ],
+   "cosine": 0.9907186005068263
+  },
+  {
+   "lg": 87,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_add_multiply_round_r_12407541499012029986__1",
+   "debug_name": "Relu_203",
+   "dtype": "int8",
+   "shape": [
+    1,
+    384,
+    16,
+    8
+   ],
+   "cosine": 0.9920748729278144
+  },
+  {
+   "lg": 88,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_2",
+   "debug_name": "Relu_205",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9907096766646984
+  },
+  {
+   "lg": 89,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_208",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9962053878149071
+  },
+  {
+   "lg": 90,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_474",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.994221547239238
+  },
+  {
+   "lg": 91,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_213",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999587
+  },
+  {
+   "lg": 92,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_214",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9942211566485242
+  },
+  {
+   "lg": 93,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_219",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9958462250888122
+  },
+  {
+   "lg": 94,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_222",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9995405525931781
+  },
+  {
+   "lg": 95,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_475",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9980500627225516
+  },
+  {
+   "lg": 96,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_227",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999587
+  },
+  {
+   "lg": 97,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_228",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9980486505387192
+  },
+  {
+   "lg": 98,
+   "out": 0,
+   "func_name": "fused_add_18",
+   "debug_name": "Add_229",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9953820981197554
+  },
+  {
+   "lg": 99,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_232",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9964206496614241
+  },
+  {
+   "lg": 100,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_235",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9963659139589038
+  },
+  {
+   "lg": 101,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_238",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9998331270590072
+  },
+  {
+   "lg": 102,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_476",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.999501272278502
+  },
+  {
+   "lg": 103,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_243",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999587
+  },
+  {
+   "lg": 104,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_244",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9995008313788069
+  },
+  {
+   "lg": 105,
+   "out": 0,
+   "func_name": "fused_add_18",
+   "debug_name": "Add_245",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9967168156835572
+  },
+  {
+   "lg": 106,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_248",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9956120511610097
+  },
+  {
+   "lg": 107,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_251",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.995906681981674
+  },
+  {
+   "lg": 108,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_254",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9946161891780092
+  },
+  {
+   "lg": 109,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978__1",
+   "debug_name": "Relu_257",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9996668310489049
+  },
+  {
+   "lg": 110,
+   "out": 0,
+   "func_name": "fused_multiply_47",
+   "debug_name": "fused_multiply_477",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9992963245006808
+  },
+  {
+   "lg": 111,
+   "out": 0,
+   "func_name": "fused_nn_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multip_11617805514617368534__1",
+   "debug_name": "Sigmoid_262",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999587
+  },
+  {
+   "lg": 112,
+   "out": 0,
+   "func_name": "fused_multiply_46",
+   "debug_name": "Mul_263",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9992961723857402
+  },
+  {
+   "lg": 113,
+   "out": 0,
+   "func_name": "fused_add_18",
+   "debug_name": "fused_add_185",
+   "dtype": "float16",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9979073316630095
+  },
+  {
+   "lg": 114,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_4",
+   "debug_name": "Add_264",
+   "dtype": "int8",
+   "shape": [
+    1,
+    96,
+    16,
+    8
+   ],
+   "cosine": 0.9978133383521764
+  },
+  {
+   "lg": 115,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_1",
+   "debug_name": "Conv_265",
+   "dtype": "int8",
+   "shape": [
+    1,
+    384,
+    16,
+    8
+   ],
+   "cosine": 0.9980047395141581
+  },
+  {
+   "lg": 116,
+   "out": 0,
+   "func_name": "fused_multiply_45",
+   "debug_name": "fused_multiply_45",
+   "dtype": "float16",
+   "shape": [
+    1,
+    384,
+    16,
+    8
+   ],
+   "cosine": 0.9980047857349692
+  },
+  {
+   "lg": 117,
+   "out": 0,
+   "func_name": "fused_nn_instance_norm_9",
+   "debug_name": "fused_nn_instance_norm_9",
+   "dtype": "float16",
+   "shape": [
+    1,
+    384,
+    16,
+    8
+   ],
+   "cosine": 0.9972530211621836
+  },
+  {
+   "lg": 118,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_3",
+   "debug_name": "InstanceNormalization_266",
+   "dtype": "int8",
+   "shape": [
+    1,
+    384,
+    16,
+    8
+   ],
+   "cosine": 0.9970315073310614
+  },
+  {
+   "lg": 119,
+   "out": 0,
+   "func_name": "fused_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv2d_nn_bias_add_mul_9178158199349459389_",
+   "debug_name": "AveragePool_272",
+   "dtype": "int8",
+   "shape": [
+    1,
+    384,
+    8,
+    4
+   ],
+   "cosine": 0.9908855938280089
+  },
+  {
+   "lg": 120,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_1",
+   "debug_name": "Relu_274",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9925056215597646
+  },
+  {
+   "lg": 121,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978_",
+   "debug_name": "Relu_277",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9981938962517383
+  },
+  {
+   "lg": 122,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_43",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9986347903136447
+  },
+  {
+   "lg": 123,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_282",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999969
+  },
+  {
+   "lg": 124,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_283",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9986353232758974
+  },
+  {
+   "lg": 125,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_9765591645272664320__1",
+   "debug_name": "Relu_291",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9998418323275208
+  },
+  {
+   "lg": 126,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_431",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9993975265844707
+  },
+  {
+   "lg": 127,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_296",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999969
+  },
+  {
+   "lg": 128,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_297",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9993975509737518
+  },
+  {
+   "lg": 129,
+   "out": 0,
+   "func_name": "fused_add_17",
+   "debug_name": "Add_298",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9988711673946461
+  },
+  {
+   "lg": 130,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_10264736873713217113__1",
+   "debug_name": "Relu_307",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9997483472231428
+  },
+  {
+   "lg": 131,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_432",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9992476767505317
+  },
+  {
+   "lg": 132,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_312",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999969
+  },
+  {
+   "lg": 133,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_313",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.999247006846789
+  },
+  {
+   "lg": 134,
+   "out": 0,
+   "func_name": "fused_add_17",
+   "debug_name": "Add_314",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9989181150987728
+  },
+  {
+   "lg": 135,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_14745913955635417115__1",
+   "debug_name": "Relu_326",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9998748595848028
+  },
+  {
+   "lg": 136,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_433",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9997149623709803
+  },
+  {
+   "lg": 137,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_331",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.999999999999969
+  },
+  {
+   "lg": 138,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_332",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9997155666133513
+  },
+  {
+   "lg": 139,
+   "out": 0,
+   "func_name": "fused_add_17",
+   "debug_name": "fused_add_172",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9991530353711926
+  },
+  {
+   "lg": 140,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_2",
+   "debug_name": "Add_333",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9990645270443854
+  },
+  {
+   "lg": 141,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip",
+   "debug_name": "Conv_334",
+   "dtype": "int8",
+   "shape": [
+    1,
+    512,
+    8,
+    4
+   ],
+   "cosine": 0.9991460969073407
+  },
+  {
+   "lg": 142,
+   "out": 0,
+   "func_name": "fused_multiply_44",
+   "debug_name": "fused_multiply_44",
+   "dtype": "float16",
+   "shape": [
+    1,
+    512,
+    8,
+    4
+   ],
+   "cosine": 0.9991461728799182
+  },
+  {
+   "lg": 143,
+   "out": 0,
+   "func_name": "fused_nn_instance_norm_8",
+   "debug_name": "fused_nn_instance_norm_8",
+   "dtype": "float16",
+   "shape": [
+    1,
+    512,
+    8,
+    4
+   ],
+   "cosine": NaN
+  },
+  {
+   "lg": 144,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_1",
+   "debug_name": "InstanceNormalization_335",
+   "dtype": "int8",
+   "shape": [
+    1,
+    512,
+    8,
+    4
+   ],
+   "cosine": 0.8741311590821204
+  },
+  {
+   "lg": 145,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_add_multiply_round_r_12407541499012029986_",
+   "debug_name": "Relu_338",
+   "dtype": "int8",
+   "shape": [
+    1,
+    512,
+    8,
+    4
+   ],
+   "cosine": 0.776743123201418
+  },
+  {
+   "lg": 146,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip",
+   "debug_name": "Relu_340",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.7073014053112
+  },
+  {
+   "lg": 147,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_5205302778992201978_",
+   "debug_name": "Relu_343",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9781514588981544
+  },
+  {
+   "lg": 148,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_434",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9872619139007565
+  },
+  {
+   "lg": 149,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_348",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.9999998398406695
+  },
+  {
+   "lg": 150,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_349",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9882958854183507
+  },
+  {
+   "lg": 151,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_9765591645272664320__1",
+   "debug_name": "Relu_357",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.994102868452869
+  },
+  {
+   "lg": 152,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_435",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9929171062799709
+  },
+  {
+   "lg": 153,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_362",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.9999981580726007
+  },
+  {
+   "lg": 154,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_363",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.991816832007514
+  },
+  {
+   "lg": 155,
+   "out": 0,
+   "func_name": "fused_add_17",
+   "debug_name": "Add_364",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9947046347425088
+  },
+  {
+   "lg": 156,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_10264736873713217113__1",
+   "debug_name": "Relu_373",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9911514292760859
+  },
+  {
+   "lg": 157,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_436",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9616022044176686
+  },
+  {
+   "lg": 158,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_378",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.9999997646679639
+  },
+  {
+   "lg": 159,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_379",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9535443882084004
+  },
+  {
+   "lg": 160,
+   "out": 0,
+   "func_name": "fused_add_17",
+   "debug_name": "Add_380",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9942906790553346
+  },
+  {
+   "lg": 161,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_r_14745913955635417115__1",
+   "debug_name": "Relu_392",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9994969365119662
+  },
+  {
+   "lg": 162,
+   "out": 0,
+   "func_name": "fused_multiply_43",
+   "debug_name": "fused_multiply_437",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.995011188449707
+  },
+  {
+   "lg": 163,
+   "out": 0,
+   "func_name": "fused_nn_global_sum_pool2d_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_6836112734852069850_",
+   "debug_name": "Sigmoid_397",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    1,
+    1
+   ],
+   "cosine": 0.9999999999999689
+  },
+  {
+   "lg": 164,
+   "out": 0,
+   "func_name": "fused_multiply_42",
+   "debug_name": "Mul_398",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9950133453703027
+  },
+  {
+   "lg": 165,
+   "out": 0,
+   "func_name": "fused_add_17",
+   "debug_name": "fused_add_175",
+   "dtype": "float16",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9943295351052088
+  },
+  {
+   "lg": 166,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast",
+   "debug_name": "Add_399",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    8,
+    4
+   ],
+   "cosine": 0.9942845511723611
+  },
+  {
+   "lg": 167,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_add_multiply_round_r_12904151506550008718_",
+   "debug_name": "GlobalAveragePool_405",
+   "dtype": "int8",
+   "shape": [
+    1,
+    512,
+    1,
+    1
+   ],
+   "cosine": 0.8387650976455571
+  },
+  {
+   "lg": 168,
+   "out": 0,
+   "func_name": "fused_nn_batch_matmul_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "__TyQuant_519_nn_bias_add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    512,
+    1
+   ],
+   "cosine": 0.771949821935995
+  },
+  {
+   "lg": 169,
+   "out": 0,
+   "func_name": "fused_multiply_41",
+   "debug_name": "__TyQuant_522_multiply",
+   "dtype": "float16",
+   "shape": [
+    1,
+    512,
+    1,
+    1
+   ],
+   "cosine": 0.7754601963652589
+  },
+  {
+   "lg": 170,
+   "out": 0,
+   "func_name": "fused_add_16",
+   "debug_name": "BatchNormalization_413",
+   "dtype": "float16",
+   "shape": [
+    1,
+    512,
+    1,
+    1
+   ],
+   "cosine": 0.7470634470711502
+  },
+  {
+   "lg": 171,
+   "out": 0,
+   "func_name": "fused_nn_relu_22",
+   "debug_name": "fused_nn_relu_22",
+   "dtype": "float16",
+   "shape": [
+    1,
+    512,
+    1,
+    1
+   ],
+   "cosine": 0.813990396460128
+  }
+ ],
+ "diag": {
+  "median": NaN,
+  "first_below_0.99": 144,
+  "first_below_0.90": 144,
+  "verdict": "\u65ad\u5d16:lg144(fused_multiply_round_clip_cast_1)\u9aa4\u964d,\u7279\u5b9a\u7b97\u5b50\u7f3a\u9677\u5acc\u7591"
+ }
+}

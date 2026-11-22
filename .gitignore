@@ -4,3 +4,11 @@ __pycache__/
 *.pyc
 .pytest_cache/
 nohup.out
+# NPUP_DUMP_TIR 误落 cwd 的散落 TIR dump(2026-11-20,10766 个)
+*_ir.cc
+# 逐层归因实验:保留 layerwise.json/md 结论,忽略大体积原始数据
+experiments/layerwise_*/ref*/
+experiments/layerwise_*/*.npz
+experiments/layerwise_*/SubfunctionRunner*/
+experiments/layerwise_*/input_probe/*.npy
+experiments/osnet_layerwise/

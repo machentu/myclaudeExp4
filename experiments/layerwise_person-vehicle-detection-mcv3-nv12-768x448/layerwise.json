@@ -1,0 +1,1214 @@
+{
+ "rows": [
+  {
+   "lg": 0,
+   "out": 0,
+   "func_name": "fused_cast_19",
+   "debug_name": "fused_cast_19",
+   "dtype": "float16",
+   "shape": [
+    1,
+    1,
+    448,
+    768
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 1,
+   "out": 0,
+   "func_name": "fused_cast_18",
+   "debug_name": "fused_cast_18",
+   "dtype": "float32",
+   "shape": [
+    1,
+    1,
+    448,
+    768
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 2,
+   "out": 0,
+   "func_name": "fused_cast_17",
+   "debug_name": "fused_cast_17",
+   "dtype": "float16",
+   "shape": [
+    1,
+    1,
+    448,
+    768
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 3,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast",
+   "debug_name": "/model.0/Cast",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    448,
+    768
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 4,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip",
+   "debug_name": "/model.0/conv_y/conv/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    8,
+    224,
+    384
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 5,
+   "out": 0,
+   "func_name": "fused_cast_22",
+   "debug_name": "fused_cast_22",
+   "dtype": "float16",
+   "shape": [
+    1,
+    1,
+    224,
+    768
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 6,
+   "out": 0,
+   "func_name": "fused_cast_21",
+   "debug_name": "fused_cast_21",
+   "dtype": "float32",
+   "shape": [
+    1,
+    1,
+    224,
+    768
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 7,
+   "out": 0,
+   "func_name": "fused_cast_20",
+   "debug_name": "fused_cast_20",
+   "dtype": "float16",
+   "shape": [
+    1,
+    1,
+    224,
+    768
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 8,
+   "out": 0,
+   "func_name": "fused_multiply_round_clip_cast_1",
+   "debug_name": "/model.0/Cast_1",
+   "dtype": "int8",
+   "shape": [
+    1,
+    1,
+    224,
+    768
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 9,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_add_mul_7819530775810984125_",
+   "debug_name": "/model.2/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    112,
+    192
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 10,
+   "out": 0,
+   "func_name": "fused_strided_slice_35",
+   "debug_name": "__TyQuant_14_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    112,
+    192
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 11,
+   "out": 0,
+   "func_name": "fused_strided_slice_36",
+   "debug_name": "__TyQuant_15_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    112,
+    192
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 12,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16104645361687777645_",
+   "debug_name": "/model.2/m.0/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    16,
+    112,
+    192
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 13,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_10458825929624400297_",
+   "debug_name": "/model.4/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    56,
+    96
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 14,
+   "out": 0,
+   "func_name": "fused_strided_slice_31",
+   "debug_name": "__TyQuant_33_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 15,
+   "out": 0,
+   "func_name": "fused_strided_slice_37",
+   "debug_name": "__TyQuant_34_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 16,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16104645361687777645__1",
+   "debug_name": "/model.4/m.0/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 17,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16104645361687777645__1",
+   "debug_name": "/model.4/m.1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 18,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__1",
+   "debug_name": "/model.4/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 19,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_3558968173600307352_",
+   "debug_name": "/model.6/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 20,
+   "out": 0,
+   "func_name": "fused_strided_slice_34",
+   "debug_name": "__TyQuant_61_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 21,
+   "out": 0,
+   "func_name": "fused_strided_slice_38",
+   "debug_name": "__TyQuant_62_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 22,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16104645361687777645__2",
+   "debug_name": "/model.6/m.0/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 23,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_3",
+   "debug_name": "fused_multiply_round_right_shift_clip_3",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 24,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16104645361687777645__3",
+   "debug_name": "/model.6/m.1/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 25,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__4",
+   "debug_name": "/model.6/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 26,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16475908594998717153__1",
+   "debug_name": "/model.7/cv2/conv/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 27,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_1",
+   "debug_name": "/model.8/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 28,
+   "out": 0,
+   "func_name": "fused_strided_slice_33",
+   "debug_name": "__TyQuant_89_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 29,
+   "out": 0,
+   "func_name": "fused_strided_slice_39",
+   "debug_name": "__TyQuant_90_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 30,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_4",
+   "debug_name": "fused_multiply_round_right_shift_clip_4",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 31,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_2",
+   "debug_name": "/model.8/m.0/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 32,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_add_mul_14912714419889372644_",
+   "debug_name": "/model.8/m.0/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 33,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_4897290752622605345_",
+   "debug_name": "/model.9/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 34,
+   "out": 0,
+   "func_name": "fused_nn_max_pool2d_multiply_round_right_shift_clip",
+   "debug_name": "/model.9/m/MaxPool",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 35,
+   "out": 0,
+   "func_name": "fused_nn_max_pool2d_multiply_round_right_shift_clip",
+   "debug_name": "/model.9/m_1/MaxPool",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 36,
+   "out": 0,
+   "func_name": "fused_nn_max_pool2d_multiply_round_right_shift_clip",
+   "debug_name": "/model.9/m_2/MaxPool",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 37,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__3",
+   "debug_name": "/model.9/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    14,
+    24
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 38,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_clip_1",
+   "debug_name": "/model.11/Resize",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    28,
+    48
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 39,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_2",
+   "debug_name": "/model.12/Concat",
+   "dtype": "int8",
+   "shape": [
+    1,
+    384,
+    28,
+    48
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 40,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip",
+   "debug_name": "/model.13/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 41,
+   "out": 0,
+   "func_name": "fused_strided_slice_32",
+   "debug_name": "__TyQuant_117_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 42,
+   "out": 0,
+   "func_name": "fused_strided_slice_40",
+   "debug_name": "__TyQuant_118_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 43,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447_",
+   "debug_name": "/model.13/m.0/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 44,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__2",
+   "debug_name": "/model.13/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 45,
+   "out": 0,
+   "func_name": "fused_nn_insert_nn_conv2d_clip",
+   "debug_name": "/model.14/Resize",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    56,
+    96
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 46,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__1",
+   "debug_name": "/model.16/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 47,
+   "out": 0,
+   "func_name": "fused_strided_slice_31",
+   "debug_name": "__TyQuant_134_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 48,
+   "out": 0,
+   "func_name": "fused_strided_slice_37",
+   "debug_name": "__TyQuant_135_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 49,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447__1",
+   "debug_name": "/model.16/m.0/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    32,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 50,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201_",
+   "debug_name": "/model.16/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    56,
+    96
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 51,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16475908594998717153_",
+   "debug_name": "/model.23/one2one_cv2.0/one2one_cv2.0.1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    56,
+    96
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 52,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_4703923513021028514_",
+   "debug_name": "/model.23/one2one_cv3.0/one2one_cv3.0.2/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    2,
+    56,
+    96
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 53,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_1",
+   "debug_name": "fused_multiply_round_right_shift_clip_1",
+   "dtype": "int8",
+   "shape": [
+    1,
+    6,
+    5376,
+    1
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 54,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_3",
+   "debug_name": "/model.17/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 55,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__6",
+   "debug_name": "/model.19/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 56,
+   "out": 0,
+   "func_name": "fused_strided_slice_34",
+   "debug_name": "__TyQuant_174_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 57,
+   "out": 0,
+   "func_name": "fused_strided_slice_38",
+   "debug_name": "__TyQuant_175_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 58,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447__2",
+   "debug_name": "/model.19/m.0/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 59,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__5",
+   "debug_name": "/model.19/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    28,
+    48
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 60,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16475908594998717153__2",
+   "debug_name": "/model.23/one2one_cv2.1/one2one_cv2.1.1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 61,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_4703923513021028514__1",
+   "debug_name": "/model.23/one2one_cv3.1/one2one_cv3.1.2/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    2,
+    28,
+    48
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 62,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16475908594998717153__4",
+   "debug_name": "/model.20/cv2/conv/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 63,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__7",
+   "debug_name": "/model.22/cv1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 64,
+   "out": 0,
+   "func_name": "fused_strided_slice_33",
+   "debug_name": "__TyQuant_216_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 65,
+   "out": 0,
+   "func_name": "fused_strided_slice_39",
+   "debug_name": "__TyQuant_217_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 0.9999999999999999
+  },
+  {
+   "lg": 66,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447__3",
+   "debug_name": "/model.22/m.0/cv1/cv1.1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 67,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_lut_nn_conv2d_nn_bia_125001940373038109_",
+   "debug_name": "/model.22/m.0/cv1/cv1.3/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 68,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_add_mul_14912714419889372644__1",
+   "debug_name": "/model.22/m.0/Add",
+   "dtype": "int8",
+   "shape": [
+    1,
+    128,
+    14,
+    24
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 69,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_nn_conv2d_nn_bias_add_multiply_round_right_3416957862010001201__7",
+   "debug_name": "/model.22/cv2/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    256,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 70,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_16475908594998717153__3",
+   "debug_name": "/model.23/one2one_cv2.2/one2one_cv2.2.1/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    14,
+    24
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 71,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_12862059868392032447__4",
+   "debug_name": "/model.23/one2one_cv3.2/one2one_cv3.2.0/one2one_cv3.2.0.1/act/Clip",
+   "dtype": "int8",
+   "shape": [
+    1,
+    64,
+    14,
+    24
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 72,
+   "out": 0,
+   "func_name": "fused_nn_conv2d_nn_bias_add_multiply_round_right_shift_clip_nn_relu_clip_nn_conv_18009052489305239361_",
+   "debug_name": "/model.23/one2one_cv3.2/one2one_cv3.2.2/Conv",
+   "dtype": "int8",
+   "shape": [
+    1,
+    2,
+    14,
+    24
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 73,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip_5",
+   "debug_name": "fused_multiply_round_right_shift_clip_5",
+   "dtype": "int8",
+   "shape": [
+    1,
+    6,
+    336,
+    1
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 74,
+   "out": 0,
+   "func_name": "fused_concatenate_35",
+   "debug_name": "fused_concatenate_35",
+   "dtype": "int8",
+   "shape": [
+    1,
+    6,
+    7056,
+    1
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 75,
+   "out": 0,
+   "func_name": "fused_multiply_round_right_shift_clip",
+   "debug_name": "/model.23/Concat_3",
+   "dtype": "int8",
+   "shape": [
+    1,
+    6,
+    7056,
+    1
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 76,
+   "out": 0,
+   "func_name": "fused_strided_slice_30",
+   "debug_name": "__TyQuant_261_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    4,
+    7056,
+    1
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 77,
+   "out": 0,
+   "func_name": "fused_strided_slice_29",
+   "debug_name": "/model.23/Slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 78,
+   "out": 0,
+   "func_name": "fused_multiply_50",
+   "debug_name": "fused_multiply_50",
+   "dtype": "float16",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 79,
+   "out": 0,
+   "func_name": "fused_subtract_2",
+   "debug_name": "/model.23/Sub",
+   "dtype": "float16",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 0.9999999999999998
+  },
+  {
+   "lg": 80,
+   "out": 0,
+   "func_name": "fused_strided_slice_multiply_round_right_shift_clip_add_multiply_round_right_shi_11929950097671029413_",
+   "debug_name": "/model.23/Add_1",
+   "dtype": "int8",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 81,
+   "out": 0,
+   "func_name": "fused_multiply_51",
+   "debug_name": "fused_multiply_51",
+   "dtype": "float16",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 1.0000000000000002
+  },
+  {
+   "lg": 82,
+   "out": 0,
+   "func_name": "fused_multiply_49",
+   "debug_name": "/model.23/Mul_2",
+   "dtype": "float16",
+   "shape": [
+    1,
+    4,
+    7056,
+    1
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 83,
+   "out": 0,
+   "func_name": "fused_cast_16",
+   "debug_name": "fused_cast_16",
+   "dtype": "float32",
+   "shape": [
+    1,
+    4,
+    7056,
+    1
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 84,
+   "out": 0,
+   "func_name": "fused_strided_slice_41",
+   "debug_name": "__TyQuant_268_strided_slice",
+   "dtype": "int8",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 1.0
+  },
+  {
+   "lg": 85,
+   "out": 0,
+   "func_name": "fused_lut",
+   "debug_name": "/model.23/Sigmoid",
+   "dtype": "float16",
+   "shape": [
+    1,
+    2,
+    7056,
+    1
+   ],
+   "cosine": 0.999986694228668
+  }
+ ],
+ "diag": {
+  "median": 1.0,
+  "first_below_0.99": null,
+  "first_below_0.90": null,
+  "verdict": "\u5168\u7a0b \u22650.90:\u53d1\u6563\u975e\u5355\u5c42\u9aa4\u964d,\u503e\u5411\u590d\u5408\u820d\u5165\u7684\u7f13\u6162\u7d2f\u79ef"
+ }
+}

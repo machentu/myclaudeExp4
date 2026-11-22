@@ -64,6 +64,21 @@ def run(ctx: Ctx = None) -> Ctx:
     finally:
         _bm.tvm.build_config = real_build_config
         tvm.build_config = real_build_config
+        # dump_pass_ir 的 DumpIR 会全局猴补丁 ir_pass/ScheduleOps(build_module.py:80-113),
+        # enter/exit 的 scope_level 在嵌套 config 下会失衡(enter 早退/exit 多减),
+        # 导致 s4 之后同进程任何 relay.build(s8 的 eval_relay、逐层脚本 C 阶段)
+        # 都继续往当时 cwd 喷 <N>_<pass>_ir.cc(root 曾泄漏 2.5 万个)。
+        # 这里强制恢复原函数并清零 scope,不改厂商代码。(2026-11-22)
+        try:
+            from tvm.build_module import BuildConfig as _BCfg, DumpIR as _DIR
+            _di = _BCfg._dump_ir
+            while _DIR.scope_level > 1:
+                _di.exit()
+            _di.exit()                      # scope<=1 时执行真正的函数恢复(幂等)
+            _DIR.scope_level = 0
+            _di._recover_list = []          # 防 recover 闭包跨次累积(厂商侧 latent)
+        except Exception as _e:             # 防御:任何异常不阻断主流程
+            print(f"  [s4] DumpIR 复位跳过: {_e}")
         os.chdir(cwd)
 
     with open(os.path.join(d, "graph.json"), "w") as f:

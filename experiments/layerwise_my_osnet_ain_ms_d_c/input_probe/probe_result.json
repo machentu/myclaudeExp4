@@ -1,0 +1,6 @@
+{
+ "baseline_cos_iss_vs_cpu": 0.8115642184157684,
+ "cos_iss_trunc_vs_cpu_trunc": 0.8538969560654128,
+ "cos_iss_round_vs_cpu_trunc": 0.850452312034309,
+ "verdict": "trunc \u53d8\u4f53\u672a\u8fbe 0.99:\u8f93\u5165\u820d\u5165\u4e0d\u662f(\u552f\u4e00)\u4e3b\u56e0,\u9700\u7ee7\u7eed\u6df1\u6316"
+}

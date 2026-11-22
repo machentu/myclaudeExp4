@@ -1,0 +1,94 @@
+# osnet 逐层归因(ISS save ddr128 vs CPU eval_relay,nnp318p)
+
+- 判定:全程 ≥0.90:发散非单层骤降,倾向复合舍入的缓慢累积
+- median cosine=1.0000,首破 0.99:lgNone,首破 0.90:lgNone
+- 整模型基线见 s8_sim/compare.txt;逐层数据 layerwise.json
+
+| lg | out | debug_name | dtype | shape | cosine |
+|---|---|---|---|---|---|
+| 0 | 0 | fused_cast_19 | float16 | [1, 1, 448, 768] | 1.000000 |
+| 1 | 0 | fused_cast_18 | float32 | [1, 1, 448, 768] | 1.000000 |
+| 2 | 0 | fused_cast_17 | float16 | [1, 1, 448, 768] | 1.000000 |
+| 3 | 0 | /model.0/Cast | int8 | [1, 1, 448, 768] | 1.000000 |
+| 4 | 0 | /model.0/conv_y/conv/Conv | int8 | [1, 8, 224, 384] | 1.000000 |
+| 5 | 0 | fused_cast_22 | float16 | [1, 1, 224, 768] | 1.000000 |
+| 6 | 0 | fused_cast_21 | float32 | [1, 1, 224, 768] | 1.000000 |
+| 7 | 0 | fused_cast_20 | float16 | [1, 1, 224, 768] | 1.000000 |
+| 8 | 0 | /model.0/Cast_1 | int8 | [1, 1, 224, 768] | 1.000000 |
+| 9 | 0 | /model.2/cv1/act/Clip | int8 | [1, 32, 112, 192] | 1.000000 |
+| 10 | 0 | __TyQuant_14_strided_slice | int8 | [1, 16, 112, 192] | 1.000000 |
+| 11 | 0 | __TyQuant_15_strided_slice | int8 | [1, 16, 112, 192] | 1.000000 |
+| 12 | 0 | /model.2/m.0/Add | int8 | [1, 16, 112, 192] | 1.000000 |
+| 13 | 0 | /model.4/cv1/act/Clip | int8 | [1, 64, 56, 96] | 1.000000 |
+| 14 | 0 | __TyQuant_33_strided_slice | int8 | [1, 32, 56, 96] | 1.000000 |
+| 15 | 0 | __TyQuant_34_strided_slice | int8 | [1, 32, 56, 96] | 1.000000 |
+| 16 | 0 | /model.4/m.0/Add | int8 | [1, 32, 56, 96] | 1.000000 |
+| 17 | 0 | /model.4/m.1/Add | int8 | [1, 32, 56, 96] | 1.000000 |
+| 18 | 0 | /model.4/cv2/act/Clip | int8 | [1, 64, 56, 96] | 1.000000 |
+| 19 | 0 | /model.6/cv1/act/Clip | int8 | [1, 128, 28, 48] | 1.000000 |
+| 20 | 0 | __TyQuant_61_strided_slice | int8 | [1, 64, 28, 48] | 1.000000 |
+| 21 | 0 | __TyQuant_62_strided_slice | int8 | [1, 64, 28, 48] | 1.000000 |
+| 22 | 0 | /model.6/m.0/Add | int8 | [1, 64, 28, 48] | 1.000000 |
+| 23 | 0 | fused_multiply_round_right_shift_clip_3 | int8 | [1, 64, 28, 48] | 1.000000 |
+| 24 | 0 | /model.6/m.1/Add | int8 | [1, 64, 28, 48] | 1.000000 |
+| 25 | 0 | /model.6/cv2/act/Clip | int8 | [1, 128, 28, 48] | 1.000000 |
+| 26 | 0 | /model.7/cv2/conv/Conv | int8 | [1, 256, 14, 24] | 1.000000 |
+| 27 | 0 | /model.8/cv1/act/Clip | int8 | [1, 256, 14, 24] | 1.000000 |
+| 28 | 0 | __TyQuant_89_strided_slice | int8 | [1, 128, 14, 24] | 1.000000 |
+| 29 | 0 | __TyQuant_90_strided_slice | int8 | [1, 128, 14, 24] | 1.000000 |
+| 30 | 0 | fused_multiply_round_right_shift_clip_4 | int8 | [1, 128, 14, 24] | 1.000000 |
+| 31 | 0 | /model.8/m.0/cv1/act/Clip | int8 | [1, 64, 14, 24] | 1.000000 |
+| 32 | 0 | /model.8/m.0/Add | int8 | [1, 128, 14, 24] | 1.000000 |
+| 33 | 0 | /model.9/cv1/act/Clip | int8 | [1, 128, 14, 24] | 1.000000 |
+| 34 | 0 | /model.9/m/MaxPool | int8 | [1, 128, 14, 24] | 1.000000 |
+| 35 | 0 | /model.9/m_1/MaxPool | int8 | [1, 128, 14, 24] | 1.000000 |
+| 36 | 0 | /model.9/m_2/MaxPool | int8 | [1, 128, 14, 24] | 1.000000 |
+| 37 | 0 | /model.9/cv2/act/Clip | int8 | [1, 256, 14, 24] | 1.000000 |
+| 38 | 0 | /model.11/Resize | int8 | [1, 256, 28, 48] | 1.000000 |
+| 39 | 0 | /model.12/Concat | int8 | [1, 384, 28, 48] | 1.000000 |
+| 40 | 0 | /model.13/cv1/act/Clip | int8 | [1, 64, 28, 48] | 1.000000 |
+| 41 | 0 | __TyQuant_117_strided_slice | int8 | [1, 32, 28, 48] | 1.000000 |
+| 42 | 0 | __TyQuant_118_strided_slice | int8 | [1, 32, 28, 48] | 1.000000 |
+| 43 | 0 | /model.13/m.0/cv2/act/Clip | int8 | [1, 32, 28, 48] | 1.000000 |
+| 44 | 0 | /model.13/cv2/act/Clip | int8 | [1, 64, 28, 48] | 1.000000 |
+| 45 | 0 | /model.14/Resize | int8 | [1, 64, 56, 96] | 1.000000 |
+| 46 | 0 | /model.16/cv1/act/Clip | int8 | [1, 64, 56, 96] | 1.000000 |
+| 47 | 0 | __TyQuant_134_strided_slice | int8 | [1, 32, 56, 96] | 1.000000 |
+| 48 | 0 | __TyQuant_135_strided_slice | int8 | [1, 32, 56, 96] | 1.000000 |
+| 49 | 0 | /model.16/m.0/cv2/act/Clip | int8 | [1, 32, 56, 96] | 1.000000 |
+| 50 | 0 | /model.16/cv2/act/Clip | int8 | [1, 64, 56, 96] | 1.000000 |
+| 51 | 0 | /model.23/one2one_cv2.0/one2one_cv2.0.1/Conv | int8 | [1, 4, 56, 96] | 1.000000 |
+| 52 | 0 | /model.23/one2one_cv3.0/one2one_cv3.0.2/Conv | int8 | [1, 2, 56, 96] | 1.000000 |
+| 53 | 0 | fused_multiply_round_right_shift_clip_1 | int8 | [1, 6, 5376, 1] | 1.000000 |
+| 54 | 0 | /model.17/act/Clip | int8 | [1, 64, 28, 48] | 1.000000 |
+| 55 | 0 | /model.19/cv1/act/Clip | int8 | [1, 128, 28, 48] | 1.000000 |
+| 56 | 0 | __TyQuant_174_strided_slice | int8 | [1, 64, 28, 48] | 1.000000 |
+| 57 | 0 | __TyQuant_175_strided_slice | int8 | [1, 64, 28, 48] | 1.000000 |
+| 58 | 0 | /model.19/m.0/cv2/act/Clip | int8 | [1, 64, 28, 48] | 1.000000 |
+| 59 | 0 | /model.19/cv2/act/Clip | int8 | [1, 128, 28, 48] | 1.000000 |
+| 60 | 0 | /model.23/one2one_cv2.1/one2one_cv2.1.1/Conv | int8 | [1, 4, 28, 48] | 1.000000 |
+| 61 | 0 | /model.23/one2one_cv3.1/one2one_cv3.1.2/Conv | int8 | [1, 2, 28, 48] | 1.000000 |
+| 62 | 0 | /model.20/cv2/conv/Conv | int8 | [1, 128, 14, 24] | 1.000000 |
+| 63 | 0 | /model.22/cv1/act/Clip | int8 | [1, 256, 14, 24] | 1.000000 |
+| 64 | 0 | __TyQuant_216_strided_slice | int8 | [1, 128, 14, 24] | 1.000000 |
+| 65 | 0 | __TyQuant_217_strided_slice | int8 | [1, 128, 14, 24] | 1.000000 |
+| 66 | 0 | /model.22/m.0/cv1/cv1.1/act/Clip | int8 | [1, 256, 14, 24] | 1.000000 |
+| 67 | 0 | /model.22/m.0/cv1/cv1.3/act/Clip | int8 | [1, 128, 14, 24] | 1.000000 |
+| 68 | 0 | /model.22/m.0/Add | int8 | [1, 128, 14, 24] | 1.000000 |
+| 69 | 0 | /model.22/cv2/act/Clip | int8 | [1, 256, 14, 24] | 1.000000 |
+| 70 | 0 | /model.23/one2one_cv2.2/one2one_cv2.2.1/Conv | int8 | [1, 4, 14, 24] | 1.000000 |
+| 71 | 0 | /model.23/one2one_cv3.2/one2one_cv3.2.0/one2one_cv3.2.0.1/act/Clip | int8 | [1, 64, 14, 24] | 1.000000 |
+| 72 | 0 | /model.23/one2one_cv3.2/one2one_cv3.2.2/Conv | int8 | [1, 2, 14, 24] | 1.000000 |
+| 73 | 0 | fused_multiply_round_right_shift_clip_5 | int8 | [1, 6, 336, 1] | 1.000000 |
+| 74 | 0 | fused_concatenate_35 | int8 | [1, 6, 7056, 1] | 1.000000 |
+| 75 | 0 | /model.23/Concat_3 | int8 | [1, 6, 7056, 1] | 1.000000 |
+| 76 | 0 | __TyQuant_261_strided_slice | int8 | [1, 4, 7056, 1] | 1.000000 |
+| 77 | 0 | /model.23/Slice | int8 | [1, 2, 7056, 1] | 1.000000 |
+| 78 | 0 | fused_multiply_50 | float16 | [1, 2, 7056, 1] | 1.000000 |
+| 79 | 0 | /model.23/Sub | float16 | [1, 2, 7056, 1] | 1.000000 |
+| 80 | 0 | /model.23/Add_1 | int8 | [1, 2, 7056, 1] | 1.000000 |
+| 81 | 0 | fused_multiply_51 | float16 | [1, 2, 7056, 1] | 1.000000 |
+| 82 | 0 | /model.23/Mul_2 | float16 | [1, 4, 7056, 1] | 1.000000 |
+| 83 | 0 | fused_cast_16 | float32 | [1, 4, 7056, 1] | 1.000000 |
+| 84 | 0 | __TyQuant_268_strided_slice | int8 | [1, 2, 7056, 1] | 1.000000 |
+| 85 | 0 | /model.23/Sigmoid | float16 | [1, 2, 7056, 1] | 0.999987 |

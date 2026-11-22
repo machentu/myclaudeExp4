@@ -1,9 +1,0 @@
-produce T_clip {
-  parallel (i0.i1.fused, 0, 512) {
-    for (i2, 0, 8) {
-      for (i3, 0, 4) {
-        T_clip[(((i0.i1.fused*32) + (i2*4)) + i3)] = max(min(placeholder[(((i0.i1.fused*32) + (i2*4)) + i3)], 127.000000h), -128.000000h)
-      }
-    }
-  }
-}

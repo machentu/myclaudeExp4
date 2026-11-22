@@ -20,6 +20,7 @@
 """
 import os
 import re
+import json
 import numpy as np
 
 from stages.common import Ctx, stage_banner, stage_dir, ensure, TARGET
@@ -43,6 +44,26 @@ def run(ctx: Ctx = None) -> Ctx:
 
     # 1) 对 lib 重跑 linker(保留 ISS 所需中间件;net_bin 打包时会清理)
     func_names, out_func_names, in_func_names = nnp_func_names(graph)
+    # host 侧节点(__copy 纯 DMA、fused_subtract 等 device!=NNP 的 tvm_op)无
+    # NPU kernel 标签,整图 LTO generate_nodes(lto.py:644)会 KeyError。
+    # net_bin 分块路径只收 device==nnp300.device_type 的节点天然排除之
+    # (nnp3_net_bin.py:200+);而 nnp_func_names 对无 dedsp 图返回空列表 →
+    # generate_nodes 的 len>0 过滤失效 → host 节点放行 → 崩(v010 实测两种:
+    # __copy_kernel0 与 fused_subtract_5_kernel0)。对齐分块语义:按 device 过滤。
+    gj = json.loads(graph)
+    import tvm as _tvm
+    nnp_dev = _tvm.target.create("nnp300").device_type
+    di = gj["attrs"]["device_index"][1]
+    di = [x[0] if isinstance(x, list) else x for x in di]
+    host_nodes = [n["name"] for i, n in enumerate(gj["nodes"])
+                  if n["op"] == "tvm_op" and di[i] != nnp_dev]
+    if host_nodes:
+        nnp_names = [n["name"] for i, n in enumerate(gj["nodes"])
+                     if n["op"] == "tvm_op" and di[i] == nnp_dev]
+        func_names = nnp_names if not func_names else \
+            [nm for nm in func_names if nm not in set(host_nodes)]
+        print(f"  [s8] host 侧节点 {host_nodes}(device!={nnp_dev})不入 LTO,"
+              f"func_names 过滤为 {len(nnp_names)} 个 NNP 节点(对齐 net_bin 分块路径)")
     weight_second_handle(graph, params)
     asm_idx = next(i for i, m in enumerate(lib.imported_modules)
                    if "nnp" in m.type_key or "asm" in m.type_key)
@@ -55,7 +76,20 @@ def run(ctx: Ctx = None) -> Ctx:
             in_func_names=in_func_names, args_map=lib.get_source(), target=sub)
 
         # 2) ISS 仿真(输入按声明顺序拼接;输出形状从 relay 函数签名推断,支持多输出)
-        in_list = [infer[n] for n in infer]
+        # 输入必须按图声明 dtype 喂 ISS —— 原版 golden.py:624 astype(in_dtype) 语义。
+        # osnet/v61 教训(2026-11-22):float32 直喂 uint8 图 → NPU 按
+        # model_input_buf_size 只读 float 字节流前 1/4 当图像 → 垃圾输入
+        # (osnet 0.812 / v61 0.051 的主因;mcv3 等 uint8 输入模型不受影响)。
+        in_dtypes = {n["name"]: dt for n, dt in zip(gj["nodes"], gj["attrs"]["dltype"][1])
+                     if n["op"] == "null" and isinstance(dt, str)}
+        in_list = []
+        for n in infer:
+            a = np.asarray(infer[n])
+            dt = in_dtypes.get(n)
+            if dt is not None and a.dtype != np.dtype(dt):
+                print(f"  [s8] 输入 {n}: {a.dtype} → {dt}(图声明 dtype,对齐 golden.py in_dtype)")
+                a = a.astype(dt)
+            in_list.append(a)
         ret = relay_int8.ret_type
         if hasattr(ret, "fields"):                # TupleType(多输出)
             out_shape = [tuple(int(s) for s in t.shape) for t in ret.fields]

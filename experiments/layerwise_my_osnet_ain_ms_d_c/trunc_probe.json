@@ -1,0 +1,62 @@
+[
+ {
+  "lg": 0,
+  "debug_name": "Conv_0",
+  "cos_trunc_feed": 0.447480882718104,
+  "cos_float_feed_prev": 0.7461423419262717
+ },
+ {
+  "lg": 1,
+  "debug_name": "fused_multiply_52",
+  "cos_trunc_feed": 0.4474828360355703,
+  "cos_float_feed_prev": 0.7461378839118037
+ },
+ {
+  "lg": 2,
+  "debug_name": "InstanceNormalization_1",
+  "cos_trunc_feed": 0.60240919769046,
+  "cos_float_feed_prev": 0.6385324931158051
+ },
+ {
+  "lg": 3,
+  "debug_name": "fused_nn_relu_23",
+  "cos_trunc_feed": 0.7023137024991968,
+  "cos_float_feed_prev": 0.7292247711901838
+ },
+ {
+  "lg": 4,
+  "debug_name": "Relu_2",
+  "cos_trunc_feed": 0.7016113972672583,
+  "cos_float_feed_prev": 0.728592797557791
+ },
+ {
+  "lg": 5,
+  "debug_name": "MaxPool_3",
+  "cos_trunc_feed": 0.9310764794064416,
+  "cos_float_feed_prev": 0.9313200404425548
+ },
+ {
+  "lg": 6,
+  "debug_name": "Relu_5",
+  "cos_trunc_feed": 0.8294118096609456,
+  "cos_float_feed_prev": 0.8320911470424729
+ },
+ {
+  "lg": 7,
+  "debug_name": "Relu_8",
+  "cos_trunc_feed": 0.7785355879289101,
+  "cos_float_feed_prev": 0.7747812090471405
+ },
+ {
+  "lg": 8,
+  "debug_name": "fused_multiply_50",
+  "cos_trunc_feed": 0.7946251086532655,
+  "cos_float_feed_prev": 0.8128517471566188
+ },
+ {
+  "lg": 171,
+  "debug_name": "fused_nn_relu_22",
+  "cos_trunc_feed": 0.8538969560654128,
+  "cos_float_feed_prev": 0.8115642184157684
+ }
+]
