@@ -1,0 +1,41 @@
+system: vocabulary loaded (1082074 nodes, 971815 words)
+Net use yolo-fastest
+system: YoloDetector loaded (../../Thirdparty/YOLO/yolo-fastest-xl.cfg)
+system: viewer on (NGD_VIEWER=0 to disable)
+-------
+Start processing sequence ... 827 images
+frame 50  state=1  KFs=8 MPs=667  maskYolo=90799  OF=1
+frame 100  state=1  KFs=10 MPs=749  maskYolo=75801  OF=1
+frame 150  state=1  KFs=14 MPs=840  maskYolo=45297  OF=1
+frame 200  state=1  KFs=23 MPs=1135  maskYolo=40765  OF=1
+frame 250  state=1  KFs=26 MPs=1254  maskYolo=0  OF=1
+frame 300  state=1  KFs=32 MPs=1326  maskYolo=0  OF=1
+frame 350  state=1  KFs=34 MPs=1374  maskYolo=0  OF=1
+frame 400  state=1  KFs=39 MPs=1614  maskYolo=63068  OF=1
+frame 450  state=1  KFs=42 MPs=1921  maskYolo=14118  OF=1
+frame 500  state=1  KFs=43 MPs=1639  maskYolo=41589  OF=1
+frame 550  state=1  KFs=44 MPs=1761  maskYolo=65290  OF=1
+frame 600  state=1  KFs=43 MPs=1843  maskYolo=100004  OF=1
+frame 650  state=1  KFs=44 MPs=1799  maskYolo=66344  OF=1
+frame 700  state=1  KFs=45 MPs=1731  maskYolo=87146  OF=1
+frame 750  state=1  KFs=47 MPs=1831  maskYolo=102378  OF=1
+frame 800  state=1  KFs=48 MPs=1922  maskYolo=97737  OF=1
+system: trajectory saved to CameraTrajectory.txt (827 frames)
+system: keyframe trajectory saved to KeyFrameTrajectory.txt (48 KFs)
+system: pose covariance saved to PoseCovariance.txt (827/827 frames valid)
+-------
+median tracking time: 0.0404 s
+mean tracking time: 0.0829 s
+tracked 827/827 frames
+------- stage timing (frames=827, KFs created=57, sum=68170 ms) -------
+stage         total(ms)  per-frm(ms)      calls    share
+yolo            15578.4       18.837        827    22.9%
+mask             8995.8       10.878        826    13.2%
+of               1978.3        2.392        824     2.9%
+orb             33145.5       40.079        180    48.6%
+track             634.5        0.767        180     0.9%
+lm               3249.2        3.929         57     4.8%
+lc                  1.0        0.001         57     0.0%
+view             4587.2        5.547        827     6.7%
+sum             68169.8       82.430
+(per-frm = total/nFrames, amortized across all frames; lm/lc run only on created-KF frames, track/orb on KF-branch frames)

@@ -1,0 +1,147 @@
+/* main.cpp — rgbd_tum-equivalent driver (zero-OpenCV variant).
+ *
+ * Usage: rgbd_tum_app_v8seg_full <vocab> <settings> <sequence> <association> [yolo_dir]
+ *   yolo_dir defaults to ../../models (relative to build/Release).
+ * Single-threaded. Uses stb_image for PNG loading, ONNX Runtime for YOLO inference.
+ */
+#include "ngd_app/system.h"
+#include "stb_image.h"
+
+#include <chrono>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+static void LoadImages(const std::string &strAssociationFilename,
+                       std::vector<std::string> &vstrImageFilenamesRGB,
+                       std::vector<std::string> &vstrImageFilenamesD,
+                       std::vector<double> &vTimestamps)
+{
+    std::ifstream fAssociation(strAssociationFilename.c_str());
+    std::string s;
+    while (std::getline(fAssociation, s)) {
+        if (s.empty()) continue;
+        std::stringstream ss(s);
+        double t; std::string sRGB, sD;
+        ss >> t; vTimestamps.push_back(t);
+        ss >> sRGB; vstrImageFilenamesRGB.push_back(sRGB);
+        ss >> t; ss >> sD; vstrImageFilenamesD.push_back(sD);
+    }
+}
+
+int maintest(int argc, char **argv)
+{
+    if (argc < 5 || argc > 6) {
+        std::fprintf(stderr, "Usage: %s path_to_vocabulary path_to_settings path_to_sequence path_to_association [yolo_dir]\n", argv[0]);
+        return 1;
+    }
+    const std::string strVoc = argv[1];
+    const std::string strSettings = argv[2];
+    const std::string strSequence = argv[3];
+    const std::string strAssociation = argv[4];
+    const std::string strYoloDir = (argc >= 6) ? argv[5] : "../../models";
+
+    std::vector<std::string> vstrImageFilenamesRGB, vstrImageFilenamesD;
+    std::vector<double> vTimestamps;
+    LoadImages(strAssociation, vstrImageFilenamesRGB, vstrImageFilenamesD, vTimestamps);
+    const int nImages = (int)vstrImageFilenamesRGB.size();
+    if (nImages == 0) { std::fprintf(stderr, "No images found in %s\n", strAssociation.c_str()); return 1; }
+    if ((int)vstrImageFilenamesD.size() != nImages) { std::fprintf(stderr, "RGB/depth count mismatch\n"); return 1; }
+
+    ngd_app_system SLAM;
+    if (!ngd_app_system_init(&SLAM, strVoc.c_str(), strSettings.c_str(), strYoloDir.c_str())) {
+        std::fprintf(stderr, "System init failed\n");
+        return 1;
+    }
+    const float depthMapFactor = SLAM.cfg.depthMapFactor;
+
+    std::vector<float> vTimesTrack(nImages, 0.0f);
+    std::fprintf(stderr, "-------\nStart processing sequence ... %d images\n", nImages);
+
+    /* pre-allocate depth buffer (reused per frame to avoid malloc/free churn) */
+    float *depth_buf = nullptr;
+    int depth_buf_sz = 0;
+
+    int nTracked = 0;
+    for (int ni = 0; ni < nImages; ++ni) {
+        const std::string pathRGB = strSequence + "/" + vstrImageFilenamesRGB[ni];
+        const std::string pathD   = strSequence + "/" + vstrImageFilenamesD[ni];
+        const double tframe = vTimestamps[ni];
+
+        /* load RGB (forced to 3-channel BGR) */
+        int w, h, ch;
+        uint8_t *rgb = stbi_load(pathRGB.c_str(), &w, &h, &ch, 3);
+        if (!rgb) { std::fprintf(stderr, "Failed to load %s\n", pathRGB.c_str()); continue; }
+
+        /* load depth (16-bit PNG → float metres) */
+        int dw, dh, dch;
+        float *depth_m = nullptr;
+        if (stbi_is_16_bit(pathD.c_str())) {
+            unsigned short *raw16 = stbi_load_16(pathD.c_str(), &dw, &dh, &dch, 1);
+            if (raw16) {
+                int n = dw * dh;
+                if (n > depth_buf_sz) {
+                    free(depth_buf);
+                    depth_buf = (float*)malloc((size_t)n * sizeof(float));
+                    depth_buf_sz = n;
+                }
+                float inv = 1.0f / depthMapFactor;
+                for (int i = 0; i < n; ++i)
+                    depth_buf[i] = (float)raw16[i] * inv;
+                stbi_image_free(raw16);
+                depth_m = depth_buf;
+            }
+        }
+        if (!depth_m) {
+            stbi_image_free(rgb);
+            std::fprintf(stderr, "Failed to load %s\n", pathD.c_str());
+            continue;
+        }
+
+        auto t1 = std::chrono::steady_clock::now();
+        int ok = ngd_app_system_track_rgbd(&SLAM, rgb, depth_m, w, h, tframe);
+        auto t2 = std::chrono::steady_clock::now();
+        const double ttrack = std::chrono::duration<double>(t2 - t1).count();
+        vTimesTrack[ni] = (float)ttrack;
+        if (ok) ++nTracked;
+
+        /* free frame data */
+        stbi_image_free(rgb);
+        /* depth_m is reused, not freed */
+
+        // double T = 0;
+        // if (ni < nImages - 1) T = vTimestamps[ni + 1] - tframe;
+        // else if (ni > 0)      T = tframe - vTimestamps[ni - 1];
+//         if (ttrack < T) {
+// #ifdef _WIN32
+//             Sleep((DWORD)((T - ttrack) * 1e3));
+// #else
+//             usleep((useconds_t)((T - ttrack) * 1e6));
+// #endif
+//         }
+    }
+
+    free(depth_buf);
+
+    ngd_app_system_save_trajectory_tum(&SLAM, "CameraTrajectory.txt");
+    ngd_app_system_save_keyframe_trajectory_tum(&SLAM, "KeyFrameTrajectory.txt");
+    ngd_app_system_save_pose_covariance(&SLAM, "PoseCovariance.txt");
+
+    std::sort(vTimesTrack.begin(), vTimesTrack.end());
+    double total = 0; for (int i = 0; i < nImages; ++i) total += vTimesTrack[i];
+    std::fprintf(stderr, "-------\nmedian tracking time: %.4f s\nmean tracking time: %.4f s\n",
+                 vTimesTrack[nImages / 2], total / nImages);
+    std::fprintf(stderr, "tracked %d/%d frames\n", nTracked, nImages);
+
+    ngd_app_system_print_timing(&SLAM, nImages);
+    ngd_app_system_shutdown(&SLAM);
+    return 0;
+}
