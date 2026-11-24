@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BuildTarget tool="xtensa" version="1.0">
+    <BuildSettings>
+        <BaseSettings path="project">
+            <PreprocessorOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>Includes</key>
+                        <value flag="-I" inheritance="prepend">
+                            <ListEntry>${workspace_loc:TileManager/inc}</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+            </PreprocessorOptions>
+            <CompilerOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>CompilerAdditionalOptions</key>
+                        <value flag="" inheritance="append">
+                            <ListEntry>-Wall -Werror -ffunction-sections -mlongcalls -fno-unsafe-math-optimizations</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+            </CompilerOptions>
+        </BaseSettings>
+    </BuildSettings>
+</BuildTarget>

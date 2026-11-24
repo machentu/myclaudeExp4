@@ -1,0 +1,1090 @@
+Archive member included to satisfy reference by file (symbol)
+
+/tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                              /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o (idma_sleep_i)
+/tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                              /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o) (idma_register_interrupts)
+/tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+                              /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o) (g_idma_cntrl)
+
+Linker script and memory map
+
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+LOAD /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+LOAD /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a
+
+.text           0x00000000    0x1f1c3
+ *(.literal .text)
+ .text          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+ .literal       0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .text          0x00000000     0x6dbb /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+                0x00000000                xvInitIdma
+                0x00000064                xvInitTileManager
+                0x000000c4                xvResetTileManager
+                0x00000134                xvFreeAllBuffers
+                0x00000194                xvInitMemAllocator
+                0x00000274                xvAllocateBuffer
+                0x00000394                xvFreeBuffer
+                0x00000424                xvAllocateFrame
+                0x000004a8                xvFreeFrame
+                0x00000540                xvFreeAllFrames
+                0x0000056c                xvAllocateTile
+                0x000005e8                xvFreeTile
+                0x00000688                xvFreeAllTiles
+                0x000006b8                xvCreateTileManager
+                0x00000868                xvCreateFrame
+                0x00000998                xvCreateTile
+                0x00000d70                xvAddIdmaRequest
+                0x00000f24                xvReqTileTransferIn
+                0x0000291c                xvReqTileTransferInFast
+                0x00002f08                xvReqTileTransferInFast16
+                0x00002f20                xvReqTileTransferOut
+                0x0000323c                xvReqTileTransferOutFast
+                0x00003418                xvReqTileTransferOutFast16
+                0x00003430                xvCheckForIdmaIndex
+                0x000034a8                xvCheckTileReady
+                0x00003af0                xvPadEdges
+                0x0000679c                xvPadEdges16
+                0x000067b0                xvCheckInputTileFree
+                0x000068a8                xvWaitForTile
+                0x000069a4                xvSleepForTile
+                0x00006ae0                xvWaitForiDMA
+                0x00006b4c                xvSleepForiDMA
+                0x00006c30                xvWaitForTileFast
+                0x00006ca4                xvSleepForTileFast
+                0x00006da0                xvGetErrorInfo
+ *fill*         0x00006dbb        0x1 
+ .literal       0x00006dbc        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ *fill*         0x00006dbc        0x4 
+ .text          0x00006dc0      0xb99 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+                0x00006dc0                xvmem_init
+                0x00006edc                xvmem_find_msbit
+                0x00006eec                xvmem_compute_new_size
+                0x00006f1c                leading_zero_count
+                0x00006fdc                xvmem_toggle_bitvec
+                0x0000706c                xvmem_alloc
+                0x00007314                xvmem_add_block_to_free_list
+                0x00007500                xvmem_free
+                0x00007570                xvCopyBufferEdgeDataH
+                0x00007770                xvCopyBufferEdgeDataV
+ *fill*         0x00007959        0x3 
+ .literal       0x0000795c        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .text          0x0000795c     0x19f4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+                0x0000795c                xvSetupFrame
+                0x00007a08                xvSetupTile
+                0x00007bfc                xvRegisterTile
+                0x00007eac                xvBufferCheckPointRestore
+                0x00007f0c                xvBufferCheckPointSave
+                0x00007f28                xvTileManagerContextSave
+                0x00007f8c                xvTileManagerContextRestore
+                0x00007ff0                xvCheckPointSave
+                0x00008094                xvCheckPointRestore
+                0x00008168                xvGetArgParamsContext
+                0x0000882c                xvExecuteFullImageKernel
+                0x00008918                xvProcessTileWiseFast
+                0x0000894c                xvMemCpy
+                0x00008990                xvProcessTileWiseFastParallel
+                0x00008f3c                xvProcessTileWiseFastSequential
+ .literal       0x00009350        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .text          0x00009350      0x112 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+                0x00009350                InitTM
+                0x00009374                main
+ *fill*         0x00009462        0x2 
+ .text          0x00009464       0x61 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+                0x00009464                deviceInit
+                0x000094b0                DspInit
+ *fill*         0x000094c5        0x3 
+ .literal       0x000094c8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .text          0x000094c8      0x819 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+                0x000094c8                brief_kernel
+                0x000097a4                brief_patch_bbox
+                0x000097f8                brief_full
+                0x0000982c                brief_full_opt
+ *fill*         0x00009ce1        0x3 
+ .literal       0x00009ce4        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ *fill*         0x00009ce4        0xc 
+ .text          0x00009cf0     0x18ed /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+                0x00009cf0                brief_int_scalar_kernel
+                0x0000a0f8                brief_int_build_lut
+                0x0000a18c                brief_int_vp6_process
+                0x0000b428                brief_int_vp6_release
+                0x0000b460                brief_int_vp6_timing_report
+ *fill*         0x0000b5dd        0x3 
+ .literal       0x0000b5e0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .text          0x0000b5e0     0x1801 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+                0x0000b5e0                brief_vp6_process
+                0x0000c740                brief_vp6_release
+                0x0000c780                brief_vp6_timing_report
+ *fill*         0x0000cde1        0x3 
+ .literal       0x0000cde4        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ *fill*         0x0000cde4        0xc 
+ .text          0x0000cdf0      0xb79 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+                0x0000cdf0                dsp_distribute_octtree
+ *fill*         0x0000d969        0x3 
+ .literal       0x0000d96c        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ *fill*         0x0000d96c        0x4 
+ .text          0x0000d970      0xf89 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+                0x0000d970                dsp_orb_vp6_extract
+                0x0000e754                dsp_orb_vp6_timing_report
+ *fill*         0x0000e8f9        0x3 
+ .literal       0x0000e8fc        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ *fill*         0x0000e8fc        0x4 
+ .text          0x0000e900     0x1150 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+                0x0000e900                fast9_score_kernel
+                0x0000f604                fast9_detect_kernel
+                0x0000f978                fast9_tile_source_bbox
+                0x0000f9e0                fast9_full
+ .literal       0x0000fa50        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .text          0x0000fa50      0xc2d /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+                0x0000fa50                fast9_build_scoremap
+                0x00010310                fast9_collect_cell
+ *fill*         0x0001067d        0x3 
+ .literal       0x00010680        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .text          0x00010680     0x1601 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+                0x00010680                fast9_scoremap_kernel_ivp
+                0x00011770                fast9_scoremap_vp6_build
+                0x00011c58                fast9_scoremap_vp6_release
+ *fill*         0x00011c81        0x3 
+ .literal       0x00011c84        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .text          0x00011c84      0x5d9 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+                0x00011c84                fast9_vp6_process
+ *fill*         0x0001225d        0x3 
+ .literal       0x00012260        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .text          0x00012260      0xb57 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+                0x00012260                ic_fast_atan2
+                0x000123c4                ic_angle_init_umax
+                0x000124e8                ic_angle_kernel
+                0x000129dc                ic_angle_patch_bbox
+                0x00012a30                ic_angle_full
+                0x00012a60                ic_angle_full_opt
+ *fill*         0x00012db7        0x1 
+ .literal       0x00012db8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ *fill*         0x00012db8        0x8 
+ .text          0x00012dc0      0xe41 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+                0x00012dc0                ic_angle_vp6_process
+                0x00013bd8                ic_angle_vp6_release
+ *fill*         0x00013c01        0x3 
+ .literal       0x00013c04        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ *fill*         0x00013c04        0xc 
+ .text          0x00013c10     0x11b8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+                0x00013c10                match_hamming
+                0x00013d88                match_best_kernel
+                0x00014488                match_tile_kernel
+                0x00014c4c                match_hamming_full
+ .literal       0x00014dc8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ *fill*         0x00014dc8        0x8 
+ .text          0x00014dd0      0x3e8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+                0x00014dd0                match_vp6_process
+ .literal       0x000151b8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ *fill*         0x000151b8        0x8 
+ .text          0x000151c0     0x1460 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+                0x000151c0                orb_blur_kernel
+                0x00015b08                orb_blur_tile_source_bbox
+                0x00015b70                orb_blur_full
+                0x00015be8                orb_blur_full_opt
+ .literal       0x00016620        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .text          0x00016620     0x18b2 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+                0x00016620                orb_blur_vp6_process
+                0x00017a08                orb_blur_vp6_release
+ *fill*         0x00017ed2        0x2 
+ .literal       0x00017ed4        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ *fill*         0x00017ed4        0xc 
+ .text          0x00017ee0      0x934 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+                0x00017ee0                orb_resize_precompute_h
+                0x0001801c                orb_resize_precompute_v
+                0x00018158                orb_resize_tile_source_bbox
+                0x000182ac                orb_resize_kernel
+                0x00018520                orb_resize_full
+ .literal       0x00018814        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ *fill*         0x00018814        0xc 
+ .text          0x00018820     0x1070 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+                0x00018820                orb_resize_strip_vp6_release
+                0x00018878                orb_resize_strip_vp6
+ .literal       0x00019890        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .text          0x00019890      0x80e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+                0x00019890                orb_resize_vp6_process
+ *fill*         0x0001a09e        0x2 
+ .literal       0x0001a0a0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .text          0x0001a0a0       0xb5 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+                0x0001a0a0                orb_tile_manager_init
+ *fill*         0x0001a155        0x3 
+ .literal       0x0001a158        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .text          0x0001a158      0x8b2 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+                0x0001a158                dsp_orb_extract
+ *fill*         0x0001aa0a        0x2 
+ .literal       0x0001aa0c        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ *fill*         0x0001aa0c        0x4 
+ .text          0x0001aa10     0x4358 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+                0x0001aa10                ngd_orb_init
+                0x0001ad74                ngd_orb_extract
+ .literal       0x0001ed68        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .text          0x0001ed68      0x45b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+                0x0001ed68                loadgolden
+                0x0001ef0c                testgolden
+ .text          0x0001f1c3        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .text          0x0001f1c3        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .text          0x0001f1c3        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.literal.queue_task
+                0x00000000        0x0
+ .literal.queue_task
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_init_i
+                0x00000000        0x0
+ .literal.idma_init_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_stop_i
+                0x00000000        0x0
+ .literal.idma_stop_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_pause_i
+                0x00000000        0x0
+ .literal.idma_pause_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_init_task_i
+                0x00000000        0x0
+ .literal.idma_init_task_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_schedule_task
+                0x00000000        0x0
+ .literal.idma_schedule_task
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_copy_task_i
+                0x00000000        0x0
+ .literal.idma_copy_task_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_copy_2d_task_i
+                0x00000000        0x0
+ .literal.idma_copy_2d_task_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_process_tasks_i
+                0x00000000        0x0
+ .literal.idma_process_tasks_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_abort_tasks_i
+                0x00000000        0x0
+ .literal.idma_abort_tasks_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_init_loop_i
+                0x00000000        0x0
+ .literal.idma_init_loop_i
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_loop_done_intr_handler
+                0x00000000        0x0
+ .literal.idma_loop_done_intr_handler
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_task_done_intr_handler
+                0x00000000        0x0
+ .literal.idma_task_done_intr_handler
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_task_err_intr_handler
+                0x00000000        0x0
+ .literal.idma_task_err_intr_handler
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.text.queue_task
+                0x00000000      0x19f
+ .text.queue_task
+                0x00000000      0x19f /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                queue_task
+
+.text.idma_enable_i
+                0x00000000       0x1a
+ .text.idma_enable_i
+                0x00000000       0x1a /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_enable_i
+
+.text.idma_log_handler
+                0x00000000        0x5
+ .text.idma_log_handler
+                0x00000000        0x5 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_log_handler
+
+.text.idma_init_i
+                0x00000000      0x1e3
+ .text.idma_init_i
+                0x00000000      0x1e3 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_init_i
+
+.text.idma_stop_i
+                0x00000000       0x86
+ .text.idma_stop_i
+                0x00000000       0x86 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_stop_i
+
+.text.idma_resume_i
+                0x00000000       0x1a
+ .text.idma_resume_i
+                0x00000000       0x1a /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_resume_i
+
+.text.idma_get_state_i
+                0x00000000       0x17
+ .text.idma_get_state_i
+                0x00000000       0x17 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_get_state_i
+
+.text.idma_pause_i
+                0x00000000       0x86
+ .text.idma_pause_i
+                0x00000000       0x86 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_pause_i
+
+.text.idma_sleep_i
+                0x00000000       0x9e
+ .text.idma_sleep_i
+                0x00000000       0x9e /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_sleep_i
+
+.text.idma_init_task_i
+                0x00000000       0x58
+ .text.idma_init_task_i
+                0x00000000       0x58 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_init_task_i
+
+.text.idma_schedule_task
+                0x00000000       0x12
+ .text.idma_schedule_task
+                0x00000000       0x12 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_schedule_task
+
+.text.idma_copy_task_i
+                0x00000000       0xc2
+ .text.idma_copy_task_i
+                0x00000000       0xc2 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_copy_task_i
+
+.text.idma_copy_2d_task_i
+                0x00000000       0xe5
+ .text.idma_copy_2d_task_i
+                0x00000000       0xe5 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_copy_2d_task_i
+
+.text.idma_process_tasks_i
+                0x00000000       0x12
+ .text.idma_process_tasks_i
+                0x00000000       0x12 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_process_tasks_i
+
+.text.idma_task_processing_i
+                0x00000000      0x34c
+ .text.idma_task_processing_i
+                0x00000000      0x34c /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.text.idma_error_details_i
+                0x00000000       0x1a
+ .text.idma_error_details_i
+                0x00000000       0x1a /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_error_details_i
+
+.text.idma_buffer_check_errors_i
+                0x00000000       0xda
+ .text.idma_buffer_check_errors_i
+                0x00000000       0xda /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_buffer_check_errors_i
+
+.text.idma_abort_tasks_i
+                0x00000000      0x14d
+ .text.idma_abort_tasks_i
+                0x00000000      0x14d /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_abort_tasks_i
+
+.text.idma_init_loop_i
+                0x00000000      0x14d
+ .text.idma_init_loop_i
+                0x00000000      0x14d /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_init_loop_i
+
+.text.idma_loop_done_intr_handler
+                0x00000000       0x27
+ .text.idma_loop_done_intr_handler
+                0x00000000       0x27 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.text.idma_loop_err_intr_handler
+                0x00000000       0xa2
+ .text.idma_loop_err_intr_handler
+                0x00000000       0xa2 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.text.idma_buffer_status_i
+                0x00000000       0xe8
+ .text.idma_buffer_status_i
+                0x00000000       0xe8 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                idma_buffer_status_i
+
+.text.schedule_thread_buffer
+                0x00000000       0x92
+ .text.schedule_thread_buffer
+                0x00000000       0x92 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+                0x00000000                schedule_thread_buffer
+
+.text.idma_task_done_intr_handler
+                0x00000000       0x10
+ .text.idma_task_done_intr_handler
+                0x00000000       0x10 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.text.idma_task_err_intr_handler
+                0x00000000       0x10
+ .text.idma_task_err_intr_handler
+                0x00000000       0x10 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+
+.literal.idma_register_interrupts
+                0x00000000        0x0
+ .literal.idma_register_interrupts
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+
+.text.idma_register_interrupts
+                0x00000000       0x75
+ .text.idma_register_interrupts
+                0x00000000       0x75 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_register_interrupts
+
+.text.idma_disable_interrupts
+                0x00000000       0x18
+ .text.idma_disable_interrupts
+                0x00000000       0x18 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_disable_interrupts
+
+.text.idma_enable_interrupts
+                0x00000000       0x1a
+ .text.idma_enable_interrupts
+                0x00000000       0x1a /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_enable_interrupts
+
+.text.idma_thread_id
+                0x00000000        0x7
+ .text.idma_thread_id
+                0x00000000        0x7 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_thread_id
+
+.text.idma_thread_block
+                0x00000000        0x8
+ .text.idma_thread_block
+                0x00000000        0x8 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_thread_block
+
+.text.idma_thread_unblock
+                0x00000000        0x5
+ .text.idma_thread_unblock
+                0x00000000        0x5 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_thread_unblock
+
+.text.idma_chan_buf_set
+                0x00000000       0x15
+ .text.idma_chan_buf_set
+                0x00000000       0x15 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_chan_buf_set
+
+.text.idma_chan_buf_get
+                0x00000000       0x25
+ .text.idma_chan_buf_get
+                0x00000000       0x25 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+                0x00000000                idma_chan_buf_get
+
+.rodata.str1.1  0x00000000      0x514
+ .rodata.str1.1
+                0x00000000       0x1d /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .rodata.str1.1
+                0x0000001d       0xdb /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .rodata.str1.1
+                0x000000f8      0x10b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .rodata.str1.1
+                0x00000203      0x130 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .rodata.str1.1
+                0x00000333       0x44 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .rodata.str1.1
+                0x00000377      0x19d /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+
+.rodata         0x00000000     0x21c0
+ .rodata        0x00000000     0x1000 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+                0x00000000                brief_bit_pattern_31
+ .rodata        0x00001000       0x80 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+                0x00001000                fast9_circle
+ .rodata        0x00001080       0x80 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .rodata        0x00001100        0xe /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+                0x00001100                orb_blur_gauss7
+ *fill*         0x0000110e        0x2 
+ .rodata        0x00001110        0x8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ *fill*         0x00001118       0x28 
+ .rodata        0x00001140     0x1080 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+
+.data           0x00000000        0x0
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .data          0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .data          0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .data          0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .data          0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.dram0.data     0x00000000    0x1f800
+ .dram0.data    0x00000000    0x1f800 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+
+.dram1.data     0x00000000    0x1fcb4
+ .dram1.data    0x00000000    0x1fc50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ *fill*         0x0001fc50       0x30 
+ .dram1.data    0x0001fc80       0x34 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+                0x0001fc80                g_idma_cntrl
+                0x0001fcb0                g_idma_buf_ptr
+
+.bss            0x00000000     0x15c0
+ *(.dynsbss)
+ *(.sbss)
+ *(.scommon)
+ *(.dynbss)
+ *(.bss)
+ .bss           0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+ .bss           0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .bss           0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .bss           0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .bss           0x00000000     0x13f8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+                0x00000000                g_tm
+ .bss           0x000013f8       0x20 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+                0x000013f8                info_address
+                0x000013fc                out_address
+                0x00001400                result_address
+                0x00001404                pInputInfo
+                0x00001408                pInputInfoWarp
+                0x0000140c                graphic_address
+ .bss           0x00001418        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ *fill*         0x00001418        0x8 
+ .bss           0x00001420       0x3c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+                0x00001420                brief_int_vp6_cycles
+                0x00001438                brief_int_vp6_kps
+ *fill*         0x0000145c       0x24 
+ .bss           0x00001480       0x4c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+                0x00001480                brief_vp6_cycles
+                0x000014a8                brief_vp6_kps
+ .bss           0x000014cc        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ *fill*         0x000014cc       0x34 
+ .bss           0x00001500       0x50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+                0x00001500                dsp_orb_vp6_cycles
+                0x00001548                dsp_orb_vp6_calls
+ .bss           0x00001550        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .bss           0x00001550        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .bss           0x00001550       0x10 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .bss           0x00001560        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .bss           0x00001560        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .bss           0x00001560       0x10 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .bss           0x00001570        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .bss           0x00001570        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .bss           0x00001570        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .bss           0x00001570       0x2c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .bss           0x0000159c        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .bss           0x0000159c       0x24 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .bss           0x000015c0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .bss           0x000015c0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .bss           0x000015c0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .bss           0x000015c0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .bss           0x000015c0        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .bss           0x000015c0        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .bss           0x000015c0        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .bss           0x000015c0        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+ *(COMMON)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_ranges   0x00000000     0x4858
+ *(.debug_ranges)
+ .debug_ranges  0x00000000     0x1570 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_ranges  0x00001570       0x98 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_ranges  0x00001608      0x110 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_ranges  0x00001718       0x70 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_ranges  0x00001788      0x2e8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_ranges  0x00001a70      0x388 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_ranges  0x00001df8      0x240 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_ranges  0x00002038      0x108 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_ranges  0x00002140      0x218 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_ranges  0x00002358      0x140 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_ranges  0x00002498      0x1d8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_ranges  0x00002670       0xc8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_ranges  0x00002738      0x1e8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_ranges  0x00002920      0x350 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_ranges  0x00002c70      0x140 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_ranges  0x00002db0       0x18 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_ranges  0x00002dc8      0x3f8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_ranges  0x000031c0      0x3e8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_ranges  0x000035a8      0x118 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_ranges  0x000036c0      0x190 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_ranges  0x00003850      0x100 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_ranges  0x00003950      0x100 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_ranges  0x00003a50      0x860 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_ranges  0x000042b0       0x50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_ranges  0x00004300      0x4f8 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_ranges  0x000047f8       0x60 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000    0x25cf6
+ *(.debug_info)
+ .debug_info    0x00000000     0x9cd1 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_info    0x00009cd1      0xd98 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_info    0x0000aa69     0x1946 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_info    0x0000c3af      0xbd8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .debug_info    0x0000cf87      0x150 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .debug_info    0x0000d0d7      0x7ba /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_info    0x0000d891     0x1a44 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_info    0x0000f2d5     0x1eb4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_info    0x00011189      0xa8f /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_info    0x00011c18     0x1492 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_info    0x000130aa      0x692 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_info    0x0001373c      0x542 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_info    0x00013c7e     0x14a4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_info    0x00015122      0xf9a /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_info    0x000160bc      0x6bd /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_info    0x00016779     0x17a1 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_info    0x00017f1a      0x39e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_info    0x000182b8      0xb7e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_info    0x00018e36      0x743 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_info    0x00019579     0x18ab /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_info    0x0001ae24      0x879 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_info    0x0001b69d     0x1621 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_info    0x0001ccbe     0x104c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_info    0x0001dd0a      0xa02 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .debug_info    0x0001e70c      0x78e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_info    0x0001ee9a     0x238a /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_info    0x00021224      0xe90 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_info    0x000220b4     0x34e8 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_info    0x0002559c      0x444 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .debug_info    0x000259e0      0x316 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.debug_abbrev   0x00000000     0x3c34
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x384 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_abbrev  0x00000384      0x21d /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_abbrev  0x000005a1      0x28c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_abbrev  0x0000082d      0x1e8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .debug_abbrev  0x00000a15       0xb2 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .debug_abbrev  0x00000ac7      0x171 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_abbrev  0x00000c38      0x309 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_abbrev  0x00000f41      0x314 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_abbrev  0x00001255      0x1da /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_abbrev  0x0000142f      0x293 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_abbrev  0x000016c2      0x116 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_abbrev  0x000017d8      0x11f /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_abbrev  0x000018f7      0x2cb /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_abbrev  0x00001bc2      0x20d /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_abbrev  0x00001dcf      0x150 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_abbrev  0x00001f1f      0x26f /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_abbrev  0x0000218e      0x136 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_abbrev  0x000022c4      0x19e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_abbrev  0x00002462      0x172 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_abbrev  0x000025d4      0x2c2 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_abbrev  0x00002896      0x158 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_abbrev  0x000029ee      0x2dd /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_abbrev  0x00002ccb      0x210 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_abbrev  0x00002edb      0x1b7 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .debug_abbrev  0x00003092      0x144 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_abbrev  0x000031d6      0x304 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_abbrev  0x000034da      0x20f /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_abbrev  0x000036e9      0x2dc /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_abbrev  0x000039c5      0x1a3 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .debug_abbrev  0x00003b68       0xcc /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.debug_line     0x00000000    0x18d40
+ *(.debug_line)
+ .debug_line    0x00000000     0x5edc /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_line    0x00005edc      0xc13 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_line    0x00006aef     0x13c5 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_line    0x00007eb4      0x368 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .debug_line    0x0000821c      0x13c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .debug_line    0x00008358      0x6f6 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_line    0x00008a4e     0x122b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_line    0x00009c79     0x1251 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_line    0x0000aeca      0xb30 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_line    0x0000b9fa      0xb64 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_line    0x0000c55e      0x6ed /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_line    0x0000cc4b      0x776 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_line    0x0000d3c1      0xdaf /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_line    0x0000e170      0x3d0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_line    0x0000e540      0x7c3 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_line    0x0000ed03      0xad7 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_line    0x0000f7da      0x9ea /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_line    0x000101c4      0x3ff /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_line    0x000105c3      0x91c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_line    0x00010edf      0xe49 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_line    0x00011d28      0x762 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_line    0x0001248a      0xbf3 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_line    0x0001307d      0x628 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_line    0x000136a5      0x2aa /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .debug_line    0x0001394f      0x7c4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_line    0x00014113     0x2431 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_line    0x00016544      0x578 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_line    0x00016abc     0x1cd1 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_line    0x0001878d      0x40d /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .debug_line    0x00018b9a      0x1a6 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.debug_frame    0x00000000      0xfb4
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x2e4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_frame   0x000002e4       0xdc /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_frame   0x000003c0      0x140 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_frame   0x00000500       0x3c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .debug_frame   0x0000053c       0x3c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .debug_frame   0x00000578       0x64 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_frame   0x000005dc       0x78 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_frame   0x00000654       0x64 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_frame   0x000006b8       0x50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_frame   0x00000708       0x3c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_frame   0x00000744       0x64 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_frame   0x000007a8       0x50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_frame   0x000007f8       0x78 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_frame   0x00000870       0x28 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_frame   0x00000898       0x8c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_frame   0x00000924       0x3c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_frame   0x00000960       0x64 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_frame   0x000009c4       0x28 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_frame   0x000009ec       0x78 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_frame   0x00000a64       0x64 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_frame   0x00000ac8       0x78 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_frame   0x00000b40       0x50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_frame   0x00000b90       0x28 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_frame   0x00000bb8       0x50 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .debug_frame   0x00000c08       0x28 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_frame   0x00000c30       0x8c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_frame   0x00000cbc       0x3c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_frame   0x00000cf8      0x208 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_frame   0x00000f00       0xb4 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+
+.debug_str      0x00000000     0xedaf
+ *(.debug_str)
+ .debug_str     0x00000000     0x18fe /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_str     0x000018fe      0x6fa /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_str     0x00001ff8      0xc7b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_str     0x00002c73      0x961 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .debug_str     0x000035d4      0x1b3 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .debug_str     0x00003787      0x258 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_str     0x000039df      0xcee /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_str     0x000046cd      0xd0e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_str     0x000053db      0x33b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_str     0x00005716      0xc90 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_str     0x000063a6      0x288 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_str     0x0000662e      0x232 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_str     0x00006860      0xaca /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_str     0x0000732a      0x9d6 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_str     0x00007d00      0x294 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_str     0x00007f94      0xb91 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_str     0x00008b25      0x1fa /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_str     0x00008d1f      0x911 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_str     0x00009630      0x2aa /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_str     0x000098da      0xbf3 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_str     0x0000a4cd      0x275 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_str     0x0000a742      0xb95 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_str     0x0000b2d7      0xa2e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_str     0x0000bd05      0x8dd /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .debug_str     0x0000c5e2      0x39a /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_str     0x0000c97c      0x76c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_str     0x0000d0e8      0xa24 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_str     0x0000db0c      0xbd9 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_str     0x0000e6e5      0x371 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .debug_str     0x0000ea56      0x359 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.debug_loc      0x00000000    0x1edfa
+ *(.debug_loc)
+ .debug_loc     0x00000000     0xb06e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .debug_loc     0x0000b06e      0xf4a /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .debug_loc     0x0000bfb8     0x181f /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .debug_loc     0x0000d7d7      0x1a5 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .debug_loc     0x0000d97c       0x26 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .debug_loc     0x0000d9a2      0x8e6 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .debug_loc     0x0000e288      0xa62 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .debug_loc     0x0000ecea     0x11d6 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .debug_loc     0x0000fec0      0xd90 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .debug_loc     0x00010c50      0xb20 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .debug_loc     0x00011770      0x8c9 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .debug_loc     0x00012039      0x771 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .debug_loc     0x000127aa      0xa4b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .debug_loc     0x000131f5      0x6ef /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .debug_loc     0x000138e4      0x65b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .debug_loc     0x00013f3f      0xa8a /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .debug_loc     0x000149c9      0x35b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .debug_loc     0x00014d24      0x2f9 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .debug_loc     0x0001501d      0x5ac /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .debug_loc     0x000155c9     0x1393 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .debug_loc     0x0001695c      0x78e /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .debug_loc     0x000170ea      0x883 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .debug_loc     0x0001796d      0x7d9 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .debug_loc     0x00018146       0x8b /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .debug_loc     0x000181d1      0x6c2 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .debug_loc     0x00018893     0x2968 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .debug_loc     0x0001b1fb      0x513 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .debug_loc     0x0001b70e     0x357b /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .debug_loc     0x0001ec89      0x171 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.xt.insn
+ *(.xt.insn)
+ *(.gnu.linkonce.x.*)
+
+.xt.prop        0x00000000     0x6378
+ *(.xt.prop)
+ .xt.prop       0x00000000     0x14f4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .xt.prop       0x000014f4      0x528 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .xt.prop       0x00001a1c      0x75c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .xt.prop       0x00002178       0xa8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .xt.prop       0x00002220       0x6c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .xt.prop       0x0000228c      0x234 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .xt.prop       0x000024c0      0x270 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .xt.prop       0x00002730      0x4b0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .xt.prop       0x00002be0      0x408 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .xt.prop       0x00002fe8      0x264 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .xt.prop       0x0000324c      0x15c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .xt.prop       0x000033a8      0x1b0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .xt.prop       0x00003558      0x264 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .xt.prop       0x000037bc       0xa8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .xt.prop       0x00003864      0x228 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .xt.prop       0x00003a8c      0x1c8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .xt.prop       0x00003c54       0xe4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .xt.prop       0x00003d38       0xfc /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .xt.prop       0x00003e34      0x228 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .xt.prop       0x0000405c      0x39c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .xt.prop       0x000043f8      0x168 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .xt.prop       0x00004560      0x210 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .xt.prop       0x00004770       0xe4 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .xt.prop       0x00004854       0x84 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .xt.prop       0x000048d8      0x1f8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .xt.prop       0x00004ad0      0xb70 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .xt.prop       0x00005640      0x15c /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .xt.prop       0x0000579c      0xa5c /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .xt.prop       0x000061f8      0x174 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .xt.prop       0x0000636c        0xc /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+ *(.xt.prop.*)
+ *(.gnu.linkonce.prop.*)
+
+.xt.lit
+ *(.xt.lit)
+ *(.xt.lit.*)
+ *(.gnu.linkonce.p.*)
+
+.xtensa.info    0x00000000      0x1e8
+ *(.xtensa.info)
+ .xtensa.info   0x00000000      0x1e8 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .xtensa.info   0x000001e8        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .xtensa.info   0x000001e8        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .xtensa.info   0x000001e8        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .xtensa.info   0x000001e8        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.debug.xt.callgraph
+ *(.debug.xt.callgraph .debug.xt.callgraph.* .gnu.linkonce.xt.callgraph.*)
+
+.comment        0x00000000      0x4f7
+ *(.comment)
+ .comment       0x00000000       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+ .comment       0x00000029       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .comment       0x00000052       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .comment       0x0000007b       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .comment       0x000000a4       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .comment       0x000000cd       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .comment       0x000000f6       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .comment       0x0000011f       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .comment       0x00000148       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .comment       0x00000171       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .comment       0x0000019a       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .comment       0x000001c3       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .comment       0x000001ec       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .comment       0x00000215       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .comment       0x0000023e       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .comment       0x00000267       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .comment       0x00000290       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .comment       0x000002b9       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .comment       0x000002e2       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .comment       0x0000030b       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .comment       0x00000334       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .comment       0x0000035d       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .comment       0x00000386       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .comment       0x000003af       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .comment       0x000003d8       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .comment       0x00000401       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .comment       0x0000042a       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .comment       0x00000453       0x29 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .comment       0x0000047c       0x29 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .comment       0x000004a5       0x29 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .comment       0x000004ce       0x29 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+
+.note.GNU-stack
+                0x00000000        0x0
+ *(.note.GNU-stack)
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/idmaEmulate.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tileManager.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManager/src/tmUtils.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/TileManager_P6/TileManagerFIK/src/tileManager_FIK.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/main.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/print_dsp.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_core.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_int_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/brief_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_octtree.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/dsp_orb_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_core.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_scoremap_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/fast9_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_core.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/ic_angle_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_core.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/match_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_core.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_blur_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_core.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_strip_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_resize_vp6.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp/orb_tile_manager.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/dsp_orb.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/src/orb.o
+ .note.GNU-stack
+                0x00000000        0x0 /home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/test/dsp_orb_golden_sim_test.o
+ .note.GNU-stack
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma.xtos.o)
+ .note.GNU-stack
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(idma_xtos.o)
+ .note.GNU-stack
+                0x00000000        0x0 /tools/xtensa/XtDevTools/install/builds/RI-2022.10-linux/fy01_202210/xtensa-elf/lib//libidma-xtos.a(data.o)
+OUTPUT(/home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/bin/fy01_202210/Release/HelloWorld.minsize elf32-xtensa-le)
+
+Memory Configuration
+
+Name             Origin          Length          Used            Unused          Attributes
+*default*        0x00000000      0xffffffff      

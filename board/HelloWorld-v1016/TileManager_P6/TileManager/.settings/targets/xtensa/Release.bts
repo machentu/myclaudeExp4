@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BuildTarget tool="xtensa" version="1.0">
+    <BuildSettings>
+        <BaseSettings path="project">
+            <PreprocessorOptions>
+                <KeyValueListMapOptions>
+                    <KeyValueListMapEntry>
+                        <key>Defines</key>
+                        <value flag="-D" inheritance="append">
+                            <ListEntry key="XV_ERROR_LEVEL" value="XV_ERROR_LEVEL_NO_ERROR"/>
+                        </value>
+                    </KeyValueListMapEntry>
+                </KeyValueListMapOptions>
+            </PreprocessorOptions>
+            <CompilerOptions>
+                <SingleFlagMapOptions>
+                    <SingleFlagMapEntry>
+                        <key>CompilerVariant</key>
+                        <value flag="xt-clang" use="true"/>
+                    </SingleFlagMapEntry>
+                </SingleFlagMapOptions>
+                <FlagValueMapOptions>
+                    <FlagValueMapEntry>
+                        <key>Optimization</key>
+                        <value level="3" flag="-O" use="true"/>
+                    </FlagValueMapEntry>
+                </FlagValueMapOptions>
+            </CompilerOptions>
+        </BaseSettings>
+    </BuildSettings>
+</BuildTarget>

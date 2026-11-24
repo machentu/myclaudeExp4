@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BuildTarget tool="xtensa" version="1.0">
+    <BuildSettings>
+        <BaseSettings path="project">
+            <PreprocessorOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>Includes</key>
+                        <value flag="-I" inheritance="prepend">
+                            <ListEntry>${workspace_loc:TileManager/inc}</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                    <StringListMapEntry>
+                        <key>UnDefines</key>
+                        <value flag="-U" inheritance="prepend">
+                            <ListEntry>BIG_ENDIAN</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+                <KeyValueListMapOptions>
+                    <KeyValueListMapEntry>
+                        <key>Defines</key>
+                        <value flag="-D" inheritance="append">
+                            <ListEntry key="LITTLE_ENDIAN" value="TRUE"/>
+                            <ListEntry key="USE_COM_PORT_AS_CONSOLE" value="0"/>
+                            <ListEntry key="USE_TH_PRINTF" value="0"/>
+                        </value>
+                    </KeyValueListMapEntry>
+                </KeyValueListMapOptions>
+            </PreprocessorOptions>
+            <CompilerOptions>
+                <SingleFlagMapOptions>
+                    <SingleFlagMapEntry>
+                        <key>ISOStandard</key>
+                        <value flag="-std=c11" use="true"/>
+                    </SingleFlagMapEntry>
+                    <SingleFlagMapEntry>
+                        <key>CompilerVariant</key>
+                        <value flag="xt-clang" use="true"/>
+                    </SingleFlagMapEntry>
+                </SingleFlagMapOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>CompilerAdditionalOptions</key>
+                        <value flag="" inheritance="append">
+                            <ListEntry>-pedantic -Wall -Werror -mlongcalls -Wextra -Wunused -Wcast-qual -Wstrict-prototypes -Wpointer-arith -Wformat-security -Wmissing-prototypes -Wsign-compare -Wundef -Wunreachable-code-aggressive -Wduplicate-enum -Wcompare-distinct-pointer-types -Warray-bounds-pointer-arithmetic -Wvla -Wshadow-all -MD</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+            </CompilerOptions>
+        </BaseSettings>
+    </BuildSettings>
+</BuildTarget>

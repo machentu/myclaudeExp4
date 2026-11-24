@@ -1,0 +1,780 @@
+
+#include "TileMemMgr.h"
+
+#if 0
+//#define ERROR_CALLBACK_TEST
+typedef struct intrCallbackDataStruct
+{
+  int32_t intrCount;
+} intrCbDataStruct;
+
+// Memory banks, used by tile manager's memory allocator
+uint8_t ALIGN64 pBankBuffPool0[POOL_SIZE0] _LOCAL_DRAM0_;
+uint8_t ALIGN64 pBankBuffPool1[POOL_SIZE1] _LOCAL_DRAM1_;
+
+xvTileManager xvTMobj _LOCAL_DRAM1_;
+#define XVTM_RAISE_EXCEPTION() (&xvTMobj)->idmaErrorFlag = XV_ERROR_IDMA;
+#define XVTM_RESET_EXCEPTION() (&xvTMobj)->idmaErrorFlag = XV_ERROR_SUCCESS;
+#define XVTM_IS_TRANSFER_SUCCESS(pxvTM) (((pxvTM)->idmaErrorFlag == XV_ERROR_SUCCESS) ? 1 : 0)
+
+IDMA_BUFFER_DEFINE(idmaObjBuff, DMA_DESCR_CNT, IDMA_2D_DESC);
+//extern IDMA_DRAM idma_buffer_t idmaObjBuff[];
+
+intrCbDataStruct cbData _LOCAL_DRAM0_;
+
+// IDMA error callback function
+void errCallbackFunc(const idma_error_details_t* data)
+{
+  printf("ERROR CALLBACK: iDMA in Error\n");
+  // To handle iDMA errors, XVTM_RAISE_EXCEPTION() must be called in error callback function.
+  XVTM_RAISE_EXCEPTION();
+//#ifndef XV_EMULATE_DMA
+//  printf("COPY FAILED, Error %d at desc:%p, PIF src/dst=%x/%x\n", data->err_type, (void *) data->currDesc, data->srcAddr, data->dstAddr);
+//#endif
+  return;
+}
+
+// IDMA Interrupt callback function
+void intrCallbackFunc(void *pCallBackStr)
+{
+  //printf("INTERRUPT CALLBACK : processing iDMA interrupt\n");
+  ((intrCbDataStruct *) pCallBackStr)->intrCount++;
+
+  return;
+}
+#endif
+
+xvTileManager *pxvTM = &xvTMObj;
+
+/////////////////////////////
+/** Defines and Globals
+ */
+#define RESIZE_W_EXT 		0		///< Width edge pixels: 2 for bilinear resize
+#define RESIZE_H_EXT 		0		///< Height edge pixels: 2 for bilinear resize
+
+/////////////////////////
+/**
+ * @brief Resize image using xiResizeBilinear()
+ *
+ * - xiResizeBilinear2_U8_Q13_18() is used.
+ * - CNN runtime library is used for DMA thus edge handling is embedded in this layer now
+ */
+//typedef struct TileDMATransferStruct {
+//	xvTile *itile;
+//	uint8_t *isrc_ptr;
+//	uint8_t *idst_ptr;
+//	size_t irow_size;
+//	int isrc_pitch;
+//	int idst_pitch;
+//	size_t inum_rows;
+//	int is_left;
+//	int is_right;
+//	int is_top;
+//	int is_bottom;
+//	xvTile *otile;
+//	uint8_t *osrc_ptr;
+//	uint8_t *odst_ptr;
+//	size_t orow_size;
+//	int osrc_pitch;
+//	int odst_pitch;
+//	size_t onum_rows;
+//} tdma, *ptdma;
+//
+//typedef struct {
+//	tdma *tdmas;
+//	int32_t num_loop;
+//	int32_t x_scale;
+//	int32_t y_scale;
+//} Context;
+
+/*
+ * Pad the tile edges.
+ */
+ void PadTile(tdma* p_tdma)
+{
+	xvpTile tile = p_tdma->itile;//xi_pTile
+	int width = XV_TILE_GET_WIDTH(tile);
+	int height = XV_TILE_GET_HEIGHT(tile);
+	int edge_width = XV_TILE_GET_EDGE_WIDTH(tile);
+	int edge_height = XV_TILE_GET_EDGE_HEIGHT(tile);
+	int ext_width = width + 2 * edge_width;
+	int ext_height = height + 2 * edge_height;
+
+	// pad left
+	int i;
+	if (p_tdma->is_left && edge_width > 0) {
+		uint8_t *ptr = (uint8_t*)XV_TILE_GET_BUFF_PTR(tile);
+		for ( i = 0; i < ext_height; i++) {
+			xb_vec2Nx8 vec = (xb_vec2Nx8) ptr[edge_width];
+			valign align = IVP_ZALIGN();
+			IVP_SAV2NX8_XP(vec, align, (xb_vec2Nx8*)ptr, edge_width);
+			IVP_SAPOS_FP(align, (xb_vec2Nx8*)ptr);
+			ptr += ext_width - edge_width;
+		}
+	}
+
+	// pad right
+	if (p_tdma->is_right && edge_width > 0) {
+		uint8_t *ptr = (uint8_t*)XV_TILE_GET_BUFF_PTR(tile) + edge_width + width;
+		for ( i = 0; i < ext_height; i++) {
+			xb_vec2Nx8 vec = (xb_vec2Nx8)ptr[-1];
+			valign align = IVP_ZALIGN();
+			IVP_SAV2NX8_XP(vec, align, (xb_vec2Nx8*)ptr, edge_width);
+			IVP_SAPOS_FP(align, (xb_vec2Nx8*)ptr);
+			ptr += ext_width - edge_width;
+		}
+	}
+
+	// pad top
+	if (p_tdma->is_top && edge_height > 0) {
+		for ( i = 0; i < edge_height; i++) {
+			uint8_t * __restrict pSrc = (uint8_t*)XV_TILE_GET_DATA_PTR(tile) - edge_width;
+			uint8_t * __restrict pDst = (uint8_t*)XV_TILE_GET_BUFF_PTR(tile) + i * ext_width;
+			valign va0 = IVP_LA2NX8U_PP((xb_vec2Nx8U*)pSrc);
+			valign va1 = IVP_ZALIGN();
+			xb_vec2Nx8U vecLoad;
+			int j;
+			for (j = 0; j < ext_width - 2*XCHAL_IVPN_SIMD_WIDTH; j += 2*XCHAL_IVPN_SIMD_WIDTH) {
+				IVP_LA2NX8U_IP(vecLoad, va0, (xb_vec2Nx8U*)pSrc);
+				IVP_SA2NX8U_IP(vecLoad, va1, (xb_vec2Nx8U*)pDst);
+			}
+			int rem = ext_width - j;
+			IVP_LAV2NX8U_XP(vecLoad, va0, (xb_vec2Nx8U*)pSrc, rem);
+			IVP_SAV2NX8U_XP(vecLoad, va1, (xb_vec2Nx8U*)pDst, rem);
+			IVP_SAPOS2NX8U_FP(va1, (xb_vec2Nx8U*)pDst);
+		}
+	}
+
+	// pad bottom
+	if (p_tdma->is_bottom && edge_height > 0) {
+		for ( i = 0; i < edge_height; i++) {
+			uint8_t * __restrict pSrc = (uint8_t*)XV_TILE_GET_BUFF_PTR(tile) + (height + edge_height - 1) * ext_width;
+			uint8_t * __restrict pDst = (uint8_t*)pSrc + (i + 1) * ext_width;
+			valign va0 = IVP_LA2NX8U_PP((xb_vec2Nx8U*)pSrc);
+			valign va1 = IVP_ZALIGN();
+			xb_vec2Nx8U vecLoad;
+			int j;
+			for (j = 0; j < ext_width - 2*XCHAL_IVPN_SIMD_WIDTH; j += 2*XCHAL_IVPN_SIMD_WIDTH) {
+				IVP_LA2NX8U_IP(vecLoad, va0, (xb_vec2Nx8U*)pSrc);
+				IVP_SA2NX8U_IP(vecLoad, va1, (xb_vec2Nx8U*)pDst);
+			}
+			int rem = ext_width - j;
+			IVP_LAV2NX8U_XP(vecLoad, va0, (xb_vec2Nx8U*)pSrc, rem);
+			IVP_SAV2NX8U_XP(vecLoad, va1, (xb_vec2Nx8U*)pDst, rem);
+			IVP_SAPOS2NX8U_FP(va1, (xb_vec2Nx8U*)pDst);
+		}
+	}
+}
+
+/*
+ * Initialize for resize kernel.
+ */
+ void Initialize(Context *ctx, xvFrame *inFrame, xvFrame *outFrame,
+		float scalex,float scaley)
+{
+	int width1 = inFrame->frameWidth;
+	int height1 = inFrame->frameHeight;
+	int pitch1 = inFrame->framePitch;
+	int planeSize1 = height1*width1;
+
+	int width2 = outFrame->frameWidth;
+	int height2 = outFrame->frameHeight;
+	int pitch2 = outFrame->framePitch;
+	int planeSize2 = height2*width2;
+//	int planeSize = 0;//tzg
+
+//	 printf_dsp("input res: %d %d %d %d %d %d\n", width1, height1, width2, height2, pitch1, pitch2);
+
+	// output tile size
+//	int outTileWidth = 160, outTileHeight = 120, outTilePitch = outTileWidth;
+//	int outTileWidth = 120, outTileHeight = 160, outTilePitch = outTileWidth;
+//	int outTileWidth = 96, outTileHeight = 96, outTilePitch = outTileWidth;
+	int outTileWidth = 64, outTileHeight = 64, outTilePitch = outTileWidth;
+//	int outTileWidth = 48, outTileHeight = 48, outTilePitch = outTileWidth;
+//	int outTileWidth = 24, outTileHeight = 24, outTilePitch = outTileWidth;
+
+	//me
+//	int outTileWidth = 400, outTileHeight = 400, outTilePitch = outTileWidth;
+
+	int hTiles = (outFrame->frameWidth + outTileWidth - 1) / outTileWidth;
+	int vTiles = (outFrame->frameHeight + outTileHeight - 1) / outTileHeight;
+	int numTiles = hTiles * vTiles;
+	// printf("numTiles = %d %d %d %d\n", numTiles, hTiles, vTiles, outTileHeight);
+
+	// input tile size, scale calculation in Q13.18
+//	ctx->x_scale = ctx->y_scale = (int32_t)(1.0f / scale * (1 << 18));
+	ctx->x_scale = (int32_t)(1.0f / scalex * (1 << 18));
+	ctx->y_scale = (int32_t)(1.0f / scaley * (1 << 18));
+
+	int32_t inTileWidth = (outTileWidth * ctx->x_scale + (1 << 17)) >> 18;
+	int32_t inTileHeight = (outTileHeight * ctx->y_scale + (1 << 17)) >> 18;
+	int32_t inTilePitch = inTileWidth + 2 * RESIZE_H_EXT;
+
+	int32_t num_ch = inFrame->numChannels;//inFrame->pixelPackFormat;
+	ctx->num_loop = num_ch * numTiles;
+
+//	 printf("intilewidth: %d %d %d %d %d\n",
+//	 		inTileWidth, inTileHeight, inTilePitch,
+//	 		num_ch, ctx->num_loop);
+
+	// buffer allocation
+	tdma *p_tdma;
+	void *otile_buffs[2];
+	void *itile_buffs[2];
+	int32_t otile_buff_size = outTileWidth * outTileHeight;
+	int32_t itile_buff_size = (inTileWidth + (2 * RESIZE_W_EXT)) * (inTileHeight + (2 * RESIZE_H_EXT));
+
+	xvTile *otiles;
+	xvTile *itiles;
+	int32_t tdmas_size = ctx->num_loop * sizeof(tdma);
+	int32_t otiles_size = ctx->num_loop * sizeof(xvTile);
+	int32_t itiles_size = ctx->num_loop * sizeof(xvTile);
+
+//	 printf("otile_buff_size: %d %d %d %d\n", otile_buff_size, itile_buff_size,
+//	 		otile_buff_size * 2 + otiles_size + tdmas_size,
+//	 		itile_buff_size * 2 + itiles_size);
+//	uint32_t dramSize0, dramSize1;
+//	arena_bank_free_space(0, &dramSize0);
+//	arena_bank_free_space(1, &dramSize1);
+
+//	xvTileManager *pxvTM = &xvTMObj;
+//	int tileSize0 = pxvTM->memBankMgr[0]._free_bytes &(-63);//& (~(ALIGNMENT-1));
+//	int tileSize1 = pxvTM->memBankMgr[1]._free_bytes &(-63);//& (~(ALIGNMENT-1));
+//	printf("free: %d %d %d %d\n", dramSize0, dramSize1, tileSize0, tileSize1);
+
+#if 1
+	int tileSize = 0;
+
+	otile_buff_size = ALIGN_UP(otile_buff_size, ALIGNMENT);
+	itile_buff_size = ALIGN_UP(itile_buff_size, ALIGNMENT);
+	tdmas_size = ALIGN_UP(tdmas_size, ALIGNMENT);
+	otiles_size = ALIGN_UP(otiles_size, ALIGNMENT);
+	itiles_size = ALIGN_UP(itiles_size, ALIGNMENT);
+
+	// printf("otile_buff_size: %d %d %d %d\n", otile_buff_size, itile_buff_size,
+	// 		otile_buff_size * 2 + otiles_size + tdmas_size,
+	// 		itile_buff_size * 2 + itiles_size);
+
+	int size0 = otile_buff_size + itile_buff_size + otiles_size + tdmas_size;
+	int size1 = otile_buff_size + itile_buff_size + itiles_size;
+
+	uint8_t *pBank0 = pBankBuffPool0;
+	uint8_t *pBank1 = pBankBuffPool1;
+
+//	uint8_t *pBank0 = (uint8_t *)(uint8_t *)xvAllocateBuffer(pxvTM,
+//			/* size0 */size0, 0, 64);//otile_buff_size * 2 + otiles_size + tdmas_size
+//	uint8_t *pBank1 = (uint8_t *)(uint8_t *)xvAllocateBuffer(pxvTM,
+//			/* size1 */size1, 1, 64);//itile_buff_size * 2 + itiles_size
+
+//	tileSize = ALIGN_UP(otile_buff_size, ALIGNMENT);
+	otile_buffs[0] = pBank0;pBank0+=otile_buff_size;//otile_buff_size;
+	otile_buffs[1] = pBank1;pBank1+=otile_buff_size;//otile_buff_size;
+
+//	tileSize = ALIGN_UP(itile_buff_size, ALIGNMENT);
+	itile_buffs[0] = pBank0;pBank0+=itile_buff_size;//itile_buff_size;
+	itile_buffs[1] = pBank1;pBank1+=itile_buff_size;//itile_buff_size;
+
+//	tileSize = ALIGN_UP(tdmas_size, ALIGNMENT);
+	ctx->tdmas = (tdma*)pBank0;pBank0 +=tdmas_size;//tdmas_size;
+//	tileSize = ALIGN_UP(otiles_size, ALIGNMENT);
+	otiles = (xvTile*)pBank0; pBank0+=otiles_size;//otiles_size;
+
+//	tileSize = ALIGN_UP(itiles_size, ALIGNMENT);
+	itiles = (xvTile*)pBank1; pBank1 += itiles_size;//itiles_size;
+#else
+	XI_CHECK_RESULT(arena_init_two_banks_split(
+		/* size0 */otile_buff_size * 2 + otiles_size + tdmas_size, /* max_alignment0 */64,
+		/* size1 */itile_buff_size * 2 + itiles_size, /* max_alignment1 */64));
+
+	printf("after arena_init_two_banks_split\n");
+
+	XI_CHECK_RESULT(arena_alloc((void**)(&(otile_buffs[0])), /* bank */0, otile_buff_size, 64));
+	XI_CHECK_RESULT(arena_alloc((void**)(&(otile_buffs[1])), /* bank */1, otile_buff_size, 64));
+	XI_CHECK_RESULT(arena_alloc((void**)(&(itile_buffs[0])), /* bank */0, itile_buff_size, 64));
+	XI_CHECK_RESULT(arena_alloc((void**)(&(itile_buffs[1])), /* bank */1, itile_buff_size, 64));
+
+	XI_CHECK_RESULT(arena_alloc((void**)(&ctx->tdmas), /* bank */0, tdmas_size, 64));
+	XI_CHECK_RESULT(arena_alloc((void**)(&otiles), /* bank */0, otiles_size, 64));
+	XI_CHECK_RESULT(arena_alloc((void**)(&itiles), /* bank */1, itiles_size, 64));
+
+	printf("Initialize 1\n");
+#endif
+
+	// generic tile initialization with ping-pong control
+	int pingpong = 0;
+	int i;
+	for ( i = 0; i < ctx->num_loop; i++) {
+		p_tdma = &(ctx->tdmas[i]);
+		p_tdma->otile = &(otiles[i]);
+		p_tdma->itile = &(itiles[i]);
+
+//		printf("SETUP_TILE_old\n");
+		// setup output tile
+		SETUP_TILE(p_tdma->otile, otile_buffs[pingpong], otile_buff_size, outFrame, outTileWidth,
+				outTileHeight, outTilePitch, XV_U8, 0, 0, 0, 0, TILE_UNALIGNED);//XI_TILE_U8
+		XV_TILE_SET_BUFF_SIZE(p_tdma->otile, otile_buff_size);
+
+		// printf("aa %d %d\n",XV_TILE_GET_HEIGHT(p_tdma->otile), outTileHeight);
+
+		// setup input tile
+		SETUP_TILE(p_tdma->itile, itile_buffs[pingpong], itile_buff_size, inFrame, inTileWidth,
+				inTileHeight, inTilePitch, XV_U8, RESIZE_W_EXT, RESIZE_H_EXT, 0, 0, TILE_UNALIGNED);//XI_TILE_U8
+		XV_TILE_SET_BUFF_SIZE(p_tdma->itile, itile_buff_size);
+
+		pingpong ^= 1;
+	}
+
+	// printf("2\n");
+
+	// DMA calculation
+	p_tdma = ctx->tdmas;
+	// loop for channels
+	int k, y, x;
+	for ( k = 0; k < num_ch; k++) {
+		// frame buffer pointers for RGB channels
+		void *icur_frame = (uint8_t*)inFrame->pFrameData + k * planeSize1;//planeSize;
+		void *ocur_frame = (uint8_t*)outFrame->pFrameData + k * planeSize2;//planeSize;
+
+		// loop for output frame height
+		for ( y = 0; y < outFrame->frameHeight; y += outTileHeight) {
+			// loop for output frame width
+			for ( x = 0; x < outFrame->frameWidth; x += outTileWidth) {
+				// set y coordinate
+				XV_TILE_SET_Y_COORD(p_tdma->otile, y);
+				int inputY = (y * ctx->y_scale + (ctx->y_scale >> 1) - (1 << 17) + 4) >> 18;
+				XV_TILE_SET_Y_COORD(p_tdma->itile, inputY);
+
+				// check if tile row is top or bottom
+				p_tdma->is_top = (y == 0) ? 1 : 0;
+				p_tdma->is_bottom = ((outFrame->frameHeight - y) < outTileHeight) ? 1 : 0;
+
+				// printf("is_bottom: %d\n", p_tdma->is_bottom);
+
+				// Bottom tile
+				if (p_tdma->is_bottom) {
+					XV_TILE_SET_HEIGHT(p_tdma->otile, outFrame->frameHeight - y);
+					XV_TILE_SET_HEIGHT(p_tdma->itile, inFrame->frameHeight - inputY);
+				}
+
+				// set x coordinate
+				XV_TILE_SET_X_COORD(p_tdma->otile, x);
+				int inputX = (x * ctx->x_scale + (ctx->x_scale >> 1) - (1 << 17)) >> 18;
+				XV_TILE_SET_X_COORD(p_tdma->itile, inputX);
+
+				// check if tile is left or right boundary
+				p_tdma->is_left = (x == 0) ? 1 : 0;
+				p_tdma->is_right = ((outFrame->frameWidth - x) < outTileWidth) ? 1 : 0;
+
+				if (p_tdma->is_right) {
+					XV_TILE_SET_WIDTH(p_tdma->otile, outFrame->frameWidth - x);
+					XV_TILE_SET_PITCH(p_tdma->otile, XV_TILE_GET_WIDTH(p_tdma->otile));
+					XV_TILE_SET_WIDTH(p_tdma->itile, inFrame->frameWidth - inputX);
+					XV_TILE_SET_PITCH(p_tdma->itile, XV_TILE_GET_WIDTH(p_tdma->itile) + 2*RESIZE_W_EXT);
+				}
+
+				// input tile transfer calculation here
+				// Source is frame
+				p_tdma->isrc_ptr = (uint8_t*)icur_frame + XV_TILE_GET_X_COORD(p_tdma->itile)
+						+ XV_TILE_GET_Y_COORD(p_tdma->itile) * inFrame->framePitch
+						- XV_TILE_GET_EDGE_WIDTH(p_tdma->itile)
+						- XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile) * inFrame->framePitch;
+				if (p_tdma->is_top) {
+//					p_tdma->isrc_ptr += XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile) * inFrame->framePitch;
+					p_tdma->isrc_ptr = (uint8_t*)p_tdma->isrc_ptr + XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile) * inFrame->framePitch;
+				}
+				if (p_tdma->is_left) {
+					p_tdma->isrc_ptr += XV_TILE_GET_EDGE_WIDTH(p_tdma->itile);
+				}
+
+				// Destination is tile
+				p_tdma->idst_ptr = (uint8_t*)XV_TILE_GET_DATA_PTR(p_tdma->itile) - XV_TILE_GET_EDGE_WIDTH(p_tdma->itile)                              // to left edge
+						- XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile) * XV_TILE_GET_PITCH(p_tdma->itile);
+				if (p_tdma->is_top) {
+					p_tdma->idst_ptr += XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile) * XV_TILE_GET_PITCH(p_tdma->itile);
+				}
+				if (p_tdma->is_left) {
+					p_tdma->idst_ptr += XV_TILE_GET_EDGE_WIDTH(p_tdma->itile);  // cancel left edge
+				}
+
+				// Row size of Left/Right only has one edge
+				p_tdma->irow_size = XV_TILE_GET_WIDTH(p_tdma->itile) + 2 * XV_TILE_GET_EDGE_WIDTH(p_tdma->itile);
+				if (p_tdma->is_left) {
+					p_tdma->irow_size -= XV_TILE_GET_EDGE_WIDTH(p_tdma->itile); // cancel one edge
+				}
+				if (p_tdma->is_right) {
+					p_tdma->irow_size -= XV_TILE_GET_EDGE_WIDTH(p_tdma->itile); // cancel one edge
+				}
+
+				// Pitches are always fixed
+				p_tdma->isrc_pitch = inFrame->framePitch;
+				p_tdma->idst_pitch = XV_TILE_GET_PITCH(p_tdma->itile);
+
+				// Row number of Top/Bottom only has one edge
+				p_tdma->inum_rows = XV_TILE_GET_HEIGHT(p_tdma->itile) + 2 * XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile);
+				if (p_tdma->is_top || p_tdma->is_bottom) {
+					p_tdma->inum_rows -= XV_TILE_GET_EDGE_HEIGHT(p_tdma->itile);  // cancel one edge
+				}
+
+				// output tile transfer parameters
+				p_tdma->osrc_ptr = (uint8_t*)XV_TILE_GET_DATA_PTR(p_tdma->otile);   // output source is tile
+				p_tdma->odst_ptr = (uint8_t*)ocur_frame + XV_TILE_GET_X_COORD(p_tdma->otile)
+						+ XV_TILE_GET_Y_COORD(p_tdma->otile) * outFrame->framePitch; // adjust y coordinate
+				p_tdma->orow_size = XV_TILE_GET_WIDTH(p_tdma->otile);     // row size is tile width
+				p_tdma->osrc_pitch = XV_TILE_GET_PITCH(p_tdma->otile);    // source pitch is tile pitch
+				p_tdma->odst_pitch = outFrame->framePitch;                // dest pitch if frame width
+				p_tdma->onum_rows = XV_TILE_GET_HEIGHT(p_tdma->otile);    // num_rows is tile height
+
+				// printf("hh %d\n",XV_TILE_GET_HEIGHT(p_tdma->otile));
+				// printf("otile: %d, %d, %d, %d, %d\n", p_tdma->otile->x, p_tdma->otile->y,
+				// 		p_tdma->otile->width, p_tdma->otile->height, p_tdma->otile->pitch);
+
+				p_tdma++;
+			}
+		}
+	}
+
+	// printf("3\n");
+
+//	return XI_ERROR_STATUS();
+}
+
+//void copyTile(xvTile* pInTile, xvTile* pOutTile)
+//{
+////	printf("copyTile\n");
+//
+//	int32_t indx, indy, index, width, height, pitch;
+//	int32_t widthOut, heightOut, pitchOut;
+//	uint8_t *pSrc, *pDst;
+////	XV_TILE_SET_WIDTH(pOutTile, XV_TILE_GET_WIDTH(pInTile));
+////	XV_TILE_SET_PITCH(pOutTile, XV_TILE_GET_PITCH(pInTile));
+////	XV_TILE_SET_HEIGHT(pOutTile, XV_TILE_GET_HEIGHT(pInTile));
+////	XV_TILE_SET_X_COORD(pOutTile, XV_TILE_GET_X_COORD(pInTile));
+////	XV_TILE_SET_Y_COORD(pOutTile, XV_TILE_GET_Y_COORD(pInTile));
+//
+//	width  = XV_TILE_GET_WIDTH(pInTile);
+//	height = XV_TILE_GET_HEIGHT(pInTile);
+//	pitch  = XV_TILE_GET_PITCH(pInTile);
+//
+//	widthOut  = XV_TILE_GET_WIDTH(pOutTile);
+//	heightOut = XV_TILE_GET_HEIGHT(pOutTile);
+//	pitchOut  = XV_TILE_GET_PITCH(pOutTile);
+//
+////	printf("copy size: %d %d %d %d\n", width, height, widthOut, heightOut);
+//
+//	pSrc = (uint8_t *) XV_TILE_GET_DATA_PTR(pInTile);
+//	pDst = (uint8_t *) XV_TILE_GET_DATA_PTR(pOutTile);
+//
+//#if 1
+//	int indypitch, indypitchOut;
+//	for (indy = 0; indy < height; indy++)
+//	{
+//		indypitch = indy * pitch;
+//		indypitchOut = indy * pitchOut;
+//		for (indx = 0; indx < width; indx++)
+//		{
+//			index       = indypitch + indx;
+//			pDst[indypitchOut + indx] = pSrc[index];
+//		}
+//	}
+//#else
+//	//need check
+//	xb_vec2Nx8U * __restrict pvecIn1 = (xb_vec2Nx8U *) pSrc;
+//	xb_vec2Nx8U * __restrict pvecOut = (xb_vec2Nx8U *) pDst;
+//	xb_vec2Nx8U vecIn1, vecOut;
+//	int loopsize = (width * height) / 2 / XCHAL_IVPN_SIMD_WIDTH;
+//
+//	int i;
+//	for (i = 0; i < (width * height) / 2 / XCHAL_IVPN_SIMD_WIDTH; i++)
+//	{
+//		vecIn1     = *pvecIn1++;
+//		*pvecOut++ = vecIn1;
+//	}
+//#endif
+//
+//
+//}
+/*
+ * Resize an image with the scale.
+ */
+static void processCurrent(tdma *pCur, int32_t x_scale, int32_t y_scale)
+{
+	int32_t onev = 1<<18;
+	
+//	printf("processCurrent\n");
+
+//	if(abs(x_scale-onev) < 0.00001 && abs(x_scale-onev) < 0.00001)
+//	{
+//		copyTile(pCur->itile, pCur->otile);
+//	}
+//	else
+//	{
+//		xiResizeBilinear2_U8_Q13_18(pCur->itile, pCur->otile, x_scale, y_scale, 0, 0);
+//
+//	}
+
+}
+
+XI_ERR_TYPE ResizeMain(xvFrame *inFrame, xvFrame *outFrame, float scalex,float scaley)//, int planeSize)
+{
+//	printf_dsp("ResizeMain entering %f %f\n", scalex, scaley);
+//	xvTileManager *pxvTM = &xvTMObj;
+
+	// initialize
+	Context ctx;
+//	uint32_t cycleStart = _time_stamp();
+	Initialize(&ctx, inFrame, outFrame, scalex, scaley);//, planeSize);
+//	uint32_t cycles = _time_stamp() - cycleStart;
+//	printf_dsp("Initialize cycles = %d\n", cycles);
+//	printf_dsp("init done\n");
+
+	// schedule the first input DMA
+	tdma *pCur = &ctx.tdmas[0];
+//	dma_2d_sys2loc(pCur->isrc_ptr, pCur->idst_ptr, pCur->irow_size, pCur->isrc_pitch,
+//			pCur->idst_pitch, pCur->inum_rows);
+//	dma_barrier();
+
+	int dmaIdx;
+    dmaIdx = xvAddIdmaRequest(pxvTM,        //ptr to tile manager
+    		pCur->idst_ptr,                //dst
+			pCur->isrc_ptr,                //src
+			pCur->irow_size,   //row bytes
+			pCur->inum_rows,                //number of rows
+			pCur->isrc_pitch,              //src_pitch
+			pCur->idst_pitch,              //dst_pitch
+            0);
+    xvWaitForiDMA(pxvTM, dmaIdx);
+
+	PadTile(pCur);
+
+//	printf("resize 1\n");
+
+
+	// loop for tiles
+	int i;
+	for ( i = 0; i < ctx.num_loop - 1; i++, pCur++) {
+		// pre-schedule next input DMA
+		tdma* pNext = pCur + 1;
+//		dma_2d_sys2loc(pNext->isrc_ptr, pNext->idst_ptr, pNext->irow_size,
+//				pNext->isrc_pitch, pNext->idst_pitch, pNext->inum_rows);
+	    dmaIdx = xvAddIdmaRequest(pxvTM,        //ptr to tile manager
+	    		pNext->idst_ptr,                //dst
+				pNext->isrc_ptr,                //src
+				pNext->irow_size,   //row bytes
+				pNext->inum_rows,                //number of rows
+				pNext->isrc_pitch,              //src_pitch
+				pNext->idst_pitch,              //dst_pitch
+	            0);
+		// run resize kernel
+	    processCurrent(pCur, ctx.x_scale, ctx.y_scale);
+//		if(bResize > 0)
+//		{
+//			xiResizeBilinear2_U8_Q13_18(pCur->itile, pCur->otile, ctx.x_scale, ctx.y_scale, 0, 0);
+//		}else
+//		{
+//			xiCopyTile(pCur->itile, pCur->otile, 1);
+//		}
+//		dma_barrier();
+//	    printf("after process\n");
+
+	    xvWaitForiDMA(pxvTM, dmaIdx);
+
+		// schedule output DMA
+		//printf("OutDMA: %d, %d, %d, %d\n", pCur->orow_size, pCur->onum_rows, pCur->osrc_pitch, pCur->odst_pitch);
+//		dma_2d_loc2sys(pCur->osrc_ptr, pCur->odst_ptr, pCur->orow_size,
+//				pCur->osrc_pitch, pCur->odst_pitch, pCur->onum_rows);
+	    dmaIdx = xvAddIdmaRequest(pxvTM,        //ptr to tile manager
+	    		pCur->odst_ptr,                //dst
+				pCur->osrc_ptr,                //src
+				pCur->orow_size,   //row bytes
+				pCur->onum_rows,                //number of rows
+				pCur->osrc_pitch,              //src_pitch
+				pCur->odst_pitch,              //dst_pitch
+	            0);
+		// padding for next tile
+		PadTile(pNext);
+	}
+
+//	printf_dsp("resize 2\n");
+
+	// run resize kernel for the last tile
+	processCurrent(pCur, ctx.x_scale, ctx.y_scale);
+//	if(bResize > 0)
+//	{
+//		xiResizeBilinear2_U8_Q13_18(pCur->itile, pCur->otile, ctx.x_scale, ctx.y_scale, 0, 0);
+//	}else
+//	{
+//		xiCopyTile(pCur->itile, pCur->otile, 1);
+//	}
+//	dma_2d_sys2loc(pCur->osrc_ptr, pCur->odst_ptr, pCur->orow_size,
+//			pCur->osrc_pitch, pCur->odst_pitch, pCur->onum_rows);
+//	dma_barrier();
+
+    dmaIdx = xvAddIdmaRequest(pxvTM,        //ptr to tile manager
+    		pCur->odst_ptr,                //dst
+			pCur->osrc_ptr,                //src
+			pCur->orow_size,   //row bytes
+			pCur->onum_rows,                //number of rows
+			pCur->osrc_pitch,              //src_pitch
+			pCur->odst_pitch,              //dst_pitch
+            0);
+    xvWaitForiDMA(pxvTM, dmaIdx);
+
+//	printf_dsp("resize 3\n");
+//
+//	tdma *p_tdma;
+//	for ( i = 0; i < ctx.num_loop; i++) {
+//			p_tdma = &(ctx.tdmas[i]);
+//
+//			xvFreeTile(pxvTM, p_tdma->otile);
+//			xvFreeTile(pxvTM, p_tdma->itile);
+//	}
+//	xvFreeBuffer(pxvTM, pBankBuffPool0);
+//	xvFreeBuffer(pxvTM, pBankBuffPool1);
+
+//	arena_reset();
+//	return XI_ERROR_STATUS();
+    return XI_ERR_OK;
+}
+
+
+int InitTileMrg()
+{
+//	xvTileManager *pxvTM = &xvTMObj;
+
+	int32_t retVal;
+	  void *buffPool[2] = {0};
+	  int32_t buffSize[2] = {0};
+
+	retVal = xvInitIdma(pxvTM, (idma_buffer_t *) idmaObjBuff, DMA_DESCR_CNT, MAX_BLOCK_16, MAX_PIF, (idma_err_callback_fn)errCallbackFunc, intrCallbackFunc, (void *) &cbData);
+	if (retVal == XVTM_ERROR)
+	{
+	  printf_dsp("xvInitIdma failed\n");
+	xvGetErrorInfo(pxvTM);
+	return(RET_ERROR);
+	}
+//	printf_dsp("run 2 aa\n");
+
+	// Initialize tile manager
+	retVal = xvInitTileManager(pxvTM, (void *) idmaObjBuff);
+	if (retVal == XVTM_ERROR)
+	{
+	  printf_dsp("xvInitTileManager failed\n");
+
+	xvGetErrorInfo(pxvTM);
+	return(RET_ERROR);
+	}
+//	printf_dsp("run 3\n");
+
+	// Initializing Memory allocator
+	buffPool[0] = pBankBuffPool0;
+	buffPool[1] = pBankBuffPool1;
+	buffSize[0] = POOL_SIZE0;
+	buffSize[1] = POOL_SIZE1;
+	retVal      = xvInitMemAllocator(pxvTM, 2, buffPool, buffSize);
+	if (retVal == XVTM_ERROR)
+	{
+	  printf_dsp("xvInitMemAllocator failed\n");
+	xvGetErrorInfo(pxvTM);
+	return(RET_ERROR);
+	}
+//	printf_dsp("run 4\n");
+
+	return 0;
+}
+//int ResizeImage(uint8_t *gSrc, uint8_t* gDst, int inputw, int inputh, int resw, int resh)
+//{
+////	  float scalex = (float)(IMAGE_WIDTH_ALPHA)/(IMAGE_WIDTH);
+////	  float scaley = (float)(IMAGE_HEIGHT_ALPHA)/(IMAGE_HEIGHT);
+//
+////	printf_dsp("ResizeImage entering\n");
+//
+////	printf_dsp("%d %d %d %d\n", inputw, inputh, resw, resh);
+//
+//	  float scalex = (float)(resw)/(inputw);
+//	  float scaley = (float)(resh)/(inputh);
+//
+////	  printf_dsp("%f %f\n", scalex, scaley);
+//
+//	  void *buffPool[2] = {0};
+//	  int32_t buffSize[2] = {0};
+////	  InitT2();
+//
+//
+//	  xvFrame *pInFrame[2];
+//
+////	  xvTileManager *pxvTM = &xvTMObj;
+//
+////	  xcvInitTileManager(pxvTM);
+////	  InitTile();
+//
+//	  int32_t retVal;
+//
+////	  printf_dsp("1\n");
+//
+//	  // Initialize DMA and tile manager objects
+//	  // Initialize the DMA
+//	  retVal = xvInitIdma(pxvTM, (idma_buffer_t *) idmaObjBuff, DMA_DESCR_CNT, MAX_BLOCK_16, MAX_PIF, (idma_err_callback_fn)errCallbackFunc, intrCallbackFunc, (void *) &cbData);
+//	  if (retVal == XVTM_ERROR)
+//	  {
+//		  printf_dsp("xvInitIdma failed\n");
+//	    xvGetErrorInfo(pxvTM);
+//	    return(RET_ERROR);
+//	  }
+////	  printf_dsp("run 2 aa\n");
+//
+//	  // Initialize tile manager
+//	  retVal = xvInitTileManager(pxvTM, (void *) idmaObjBuff);
+//	  if (retVal == XVTM_ERROR)
+//	  {
+//		  printf_dsp("xvInitTileManager failed\n");
+//
+//	    xvGetErrorInfo(pxvTM);
+//	    return(RET_ERROR);
+//	  }
+////	  printf_dsp("run 3\n");
+//
+//	  // Initializing Memory allocator
+//	  buffPool[0] = pBankBuffPool0;
+//	  buffPool[1] = pBankBuffPool1;
+//	  buffSize[0] = POOL_SIZE0;
+//	  buffSize[1] = POOL_SIZE1;
+//	  retVal      = xvInitMemAllocator(pxvTM, 2, buffPool, buffSize);
+//	  if (retVal == XVTM_ERROR)
+//	  {
+//		  printf_dsp("xvInitMemAllocator failed\n");
+//	    xvGetErrorInfo(pxvTM);
+//	    return(RET_ERROR);
+//	  }
+////	  printf_dsp("run 4\n");
+//
+//	  //////////////////
+//	  pInFrame[0]  = xvAllocateFrame(pxvTM);
+//	  pInFrame[1]  = xvAllocateFrame(pxvTM);
+//
+////	  printf_dsp("run 4.1\n");
+//
+//	  SETUP_FRAME(pInFrame[0], gSrc, inputw*inputh, inputw, inputh, inputw, 0, 0, 1, 1, FRAME_ZERO_PADDING, 0);
+//	  SETUP_FRAME(pInFrame[1], gDst, resw*resh, resw, resh, resw, 0, 0, 1, 1, FRAME_ZERO_PADDING, 0);
+//
+////	  printf_dsp("run 5\n");
+//
+////	  ResizeMain(pInFrame[0], pInFrame[1], scalex, scaley);
+//
+////	  printf_dsp("run 6\n");
+//
+//	  xvFreeFrame(pxvTM, pInFrame[0]);
+//	  xvFreeFrame(pxvTM, pInFrame[1]);
+//
+////	  xvFreeBuffer(pxvTM, buffPool[0]);
+////	  xvFreeBuffer(pxvTM, buffPool[1]);
+//
+//	  xvResetTileManager(pxvTM);
+//
+////	  printf_dsp("run 7\n");
+//
+//
+//	  return 0;
+//}
+
+
+

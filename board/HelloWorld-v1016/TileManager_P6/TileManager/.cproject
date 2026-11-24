@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+    	
+    <storageModule moduleId="org.eclipse.cdt.core.settings">
+        		
+        <buildSystem id="Xtensa.794597792">
+            			
+            <storageModule id="Xtensa.794597792" moduleId="org.eclipse.cdt.core.settings"/>
+            		
+        </buildSystem>
+        		
+        <cconfiguration id="Xtensa.794597792">
+            			
+            <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+                				
+                <configuration buildProperties="" description="" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GmakeErrorParser;com.tensilica.xide.cdt.XtLDErrorParser;org.eclipse.cdt.core.VCErrorParser;org.eclipse.cdt.core.CWDLocator;com.tensilica.xide.cdt.XCCErrorParser;com.tensilica.xide.cdt.TCErrorParser;com.tensilica.xide.cdt.FlexLmErrorParser" id="Xtensa.794597792" name="Xtensa" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+                    					
+                    <folderInfo id="Xtensa.794597792." name="/" resourcePath="">
+                        						
+                        <toolChain errorParsers="" id="org.eclipse.cdt.build.core.prefbase.toolchain.118291960" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
+                            							
+                            <targetPlatform binaryParser="com.tensilica.xide.cdt.XtensaELF" id="org.eclipse.cdt.build.core.prefbase.toolchain.118291960.1020679088" name=""/>
+                            							
+                            <builder command="${default_xttools_make_path}" enableAutoBuild="false" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.CWDLocator" id="org.eclipse.cdt.build.core.settings.default.builder.1925480347" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="org.eclipse.cdt.build.core.settings.default.builder">
+                                								
+                                <outputEntries>
+                                    									
+                                    <entry excluding="**/.genned|**/*.pstamp|**/*.props|**/*.d|**/objFiles.list|**/*.interlock|**/*.icmiss|**/*.dcmiss|**/*.icmiss_cyc|**/*.dcmiss_cyc|**/*.cc_miss|**/*.cc_miss_cyc|**/*.cyc|**/*.insn|**/*.bdelay" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="bin"/>
+                                    								
+                                </outputEntries>
+                                							
+                            </builder>
+                            							
+                            <tool errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.VCErrorParser" id="org.eclipse.cdt.build.core.settings.holder.libs.437176636" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs"/>
+                            							
+                            <tool errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.VCErrorParser" id="org.eclipse.cdt.build.core.settings.holder.749264873" name="Assembly" superClass="org.eclipse.cdt.build.core.settings.holder">
+                                								
+                                
+                                								
+                                
+                                								
+                                <inputType id="org.eclipse.cdt.build.core.settings.holder.inType.2012201133" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+                                							
+                            </tool>
+                            							
+                            <tool errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.VCErrorParser" id="org.eclipse.cdt.build.core.settings.holder.33388869" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder">
+                                								
+                                
+                                								
+                                
+                                								
+                                <inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1496337385" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+                                							
+                            </tool>
+                            							
+                            <tool errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.VCErrorParser" id="org.eclipse.cdt.build.core.settings.holder.885274857" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
+                                								
+                                
+                                								
+                                
+                                								
+                                <inputType id="org.eclipse.cdt.build.core.settings.holder.inType.394788707" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    				
+                </configuration>
+                			
+            </storageModule>
+            			
+            <storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="Xtensa.794597792" moduleId="org.eclipse.cdt.core.settings" name="Xtensa">
+                				
+                <externalSettings/>
+                				
+                <extensions>
+                    					
+                    <extension id="com.tensilica.xide.cdt.XtensaELF" point="org.eclipse.cdt.core.BinaryParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="com.tensilica.xide.cdt.TCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="com.tensilica.xide.cdt.XtLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="com.tensilica.xide.cdt.XCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="com.tensilica.xide.cdt.FlexLmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    				
+                </extensions>
+                			
+            </storageModule>
+            			
+            <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+            		
+        </cconfiguration>
+        	
+    </storageModule>
+    	
+    <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+        		
+        <project id="TileManager.null.631908300" name="TileManager"/>
+        	
+    </storageModule>
+    	
+    <storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+    	
+    <storageModule moduleId="scannerConfiguration">
+        		
+        <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+        		
+        <scannerConfigBuildInfo instanceId="Xtensa.794597792">
+            			
+            <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+            		
+        </scannerConfigBuildInfo>
+        	
+    </storageModule>
+    
+</cproject>

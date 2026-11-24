@@ -1,0 +1,82 @@
+
+ifeq ($(OS), Windows_NT)
+RMRF = del /s /q
+CP = copy
+FixPath = $(subst /,\,$1)
+GREP = FindStr
+EGREP = FindStr
+MAKE = xt-make
+CSTUB_ABS_PATH := $(subst /,\, $(realpath $(XTENSA_SYSTEM)\..\src\cstub))
+else
+RMRF = rm -rf
+CP = cp
+FixPath = $1
+GREP = grep
+EGREP = egrep
+MAKE = make
+MyList = $(subst /, ,  $(XTENSA_SYSTEM))
+NumWords = $(words $(MyList))
+Index = $(shell expr $(NumWords) - 0)
+RELEASE_NAME  = $(word  $(Index), $(MyList))
+CSTUB_ABS_PATH := $(realpath $(XTENSA_SYSTEM)/../../install/builds/$(RELEASE_NAME)/$(XTENSA_CORE)/src/cstub)
+endif    
+
+XCC ?= xt-clang
+XCCPLUS ?= xt-clang++
+AR=xt-ar
+
+GCC = gcc
+GPP = g++
+GAR = ar
+
+OPT_LEVEL ?= O3
+
+LIB_DEFAULT_FLAGS = -$(OPT_LEVEL) -Wall -Werror -ffunction-sections -mlongcalls -fno-unsafe-math-optimizations
+
+CSTUB_COMPILE_FLAGS = -$(OPT_LEVEL) -m32 -DGCC -fno-unsafe-math-optimizations -mfpmath=sse -msse2
+
+
+ifeq ($(USE_CSTUB),1)
+LIBBASE = TileManagerFIK.so
+else
+LIBBASE = TileManagerFIK.a
+endif
+
+all: $(LIBBASE)
+
+SRC_FILES = $(wildcard src/*.c)
+
+TILE_MANAGER_SRC_FILES = $(call FixPath, $(SRC_FILES))
+TILE_MANAGER_OBJ_FILES = $(TILE_MANAGER_SRC_FILES:.c=.o)
+TILE_MANAGER_CSTUB_OBJ_FILES = $(TILE_MANAGER_SRC_FILES:.c=.obj)
+
+INCLDIRS = -Iinc -I../TileManager/inc
+
+
+ifeq ($(USE_CSTUB),1)
+INCLDIRS +=  -I$(CSTUB_ABS_PATH)
+%.obj:%.c	
+	$(GPP)  $(CSTUB_COMPILE_FLAGS)  $(ADDITIONAL_COMPILE_FLAGS) $(INCLDIRS) -c -o $@ $<
+
+$(LIBBASE): $(TILE_MANAGER_CSTUB_OBJ_FILES)
+	$(GAR)  r $@ $(TILE_MANAGER_CSTUB_OBJ_FILES) 
+	$(GAR) -s  $@
+else
+%.o:%.c	
+	$(XCC) $(LIB_DEFAULT_FLAGS) $(ADDITIONAL_COMPILE_FLAGS) $(INCLDIRS) -c -o $@ $<
+
+$(LIBBASE): $(TILE_MANAGER_OBJ_FILES)
+	$(AR)  r $@ $(TILE_MANAGER_OBJ_FILES) 
+	$(AR) -s  $@
+
+endif
+
+ifeq ($(USE_CSTUB),1)
+clean:
+	-$(RMRF) $(TILE_MANAGER_CSTUB_OBJ_FILES)   $(LIBBASE)
+else
+clean:
+	-$(RMRF) $(TILE_MANAGER_OBJ_FILES)  $(LIBBASE) *.ipakeep *.s *.B *.i* *.M *.d *.a *.spin *.bc *.gcov    
+endif
+
+

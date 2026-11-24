@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BuildTarget tool="xtensa" version="1.0">
+    <BuildSettings>
+        <BaseSettings path="project">
+            <PreprocessorOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>Includes</key>
+                        <value flag="-I" inheritance="prepend">
+                            <ListEntry>/home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/TileManager_P6/TileManager/inc</ListEntry>
+                            <ListEntry>/home/frank.tu/workspace/xtensa_prj/workorb/HelloWorld/include</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+            </PreprocessorOptions>
+            <CompilerOptions>
+                <FlagValueMapOptions>
+                    <FlagValueMapEntry>
+                        <key>Debug</key>
+                        <value level="-3" flag="-g" use="true"/>
+                    </FlagValueMapEntry>
+                    <FlagValueMapEntry>
+                        <key>Optimization</key>
+                        <value level="2" flag="-O" use="true"/>
+                    </FlagValueMapEntry>
+                </FlagValueMapOptions>
+            </CompilerOptions>
+            <LinkerOptions>
+                <BooleanMapOptions>
+                    <BooleanMapEntry>
+                        <key>CreateMinsize</key>
+                        <value selected="true"/>
+                    </BooleanMapEntry>
+                    <BooleanMapEntry>
+                        <key>GenerateMapFile</key>
+                        <value selected="true"/>
+                    </BooleanMapEntry>
+                </BooleanMapOptions>
+                <StringListMapOptions>
+                    <StringListMapEntry>
+                        <key>Libraries</key>
+                        <value flag="-l" inheritance="prepend">
+                            <ListEntry>idma-xtos</ListEntry>
+                        </value>
+                    </StringListMapEntry>
+                </StringListMapOptions>
+                <LinkerSupport custom="true" key="-mlsp=" value="/home/frank.tu/workspace/trans/RI_LSP/mylsp-9f80"/>
+            </LinkerOptions>
+        </BaseSettings>
+    </BuildSettings>
+</BuildTarget>

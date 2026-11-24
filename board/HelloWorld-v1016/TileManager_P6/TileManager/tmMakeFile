@@ -1,0 +1,124 @@
+#
+# Copyright (c) 2021 by Cadence Design Systems, Inc.  ALL RIGHTS RESERVED.
+# These coded instructions, statements, and computer programs are the
+# copyrighted works and confidential proprietary information of
+# Cadence Design Systems Inc.  They may be adapted and modified by bona fide
+# purchasers for internal use, but neither the original nor any adapted
+# or modified version may be disclosed or distributed to third parties
+# in any manner, medium, or form, in whole or in part, without the prior
+# written consent of Cadence Design Systems Inc.  This software and its
+# derivatives are to be executed solely on products incorporating a Cadence
+# Design Systems processor.
+#
+
+### FLAGS for the $(CC)
+ifndef CSTUB_PATH
+OPT ?= -O3
+BUILD_MODE = RELEASE
+WFLAGS   = -Wall -Werror -Wextra -Wunused -Wstrict-prototypes -Wpointer-arith -Wformat-security -Wmissing-prototypes -Wsign-compare 
+
+WFLAGS += -Wundef -Wcast-qual -Wshadow-all -Wunreachable-code-aggressive -Wduplicate-enum -Wcompare-distinct-pointer-types -Warray-bounds-pointer-arithmetic -Wvla 
+WFLAGS += -ffunction-sections -Wconditional-uninitialized -Wbad-function-cast
+
+LIB_DEFAULT_FLAGS  = $(OPT) -MD  -pedantic  -mlongcalls -std=c11 $(TM_MODE)
+LIB_DEFAULT_FLAGS += $(WFLAGS) $(ADDITIONAL_COMPILE_FLAGS)
+
+ifdef ENABLE_SAFETY
+LIB_DEFAULT_FLAGS += -safety
+endif
+
+LIB_COMPILE_FLAGS = $(LIB_DEFAULT_FLAGS)
+
+# Commands
+LIB_CC        =  xt-ar
+CC            = xt-clang
+ISS = xt-run
+INCLDIRS   = -I. -I./inc
+
+TILE_MANAGER_SRCS = $(wildcard src/*.c)
+
+TILE_MANAGER_OBJS = $(TILE_MANAGER_SRCS:.c=.o)
+
+
+CUR_DIR_DMA := ${CURDIR}
+LIB_NAME := ${notdir $(CUR_DIR_DMA)}
+
+ifeq ($(OS), Windows_NT)
+RMRF = del /s /q
+else
+RMRF = rm -rf
+endif
+
+TILE_MANAGER_LIB = $(LIB_NAME).a
+OBJS = $(TILE_MANAGER_OBJS)
+
+%.o:%.c
+	$(CC) $(LIB_COMPILE_FLAGS) $(INCLDIRS) -c -o $@ $<
+
+ifeq ($(IPA), )
+$(TILE_MANAGER_LIB): $(OBJS)
+	$(LIB_CC) r $@ $(OBJS)
+	$(LIB_CC) -s $@
+else
+$(TILE_MANAGER_LIB): $(OBJS)
+	$(LIB_CC) r -keep $@ $(OBJS)
+	$(LIB_CC) -s $@
+endif
+
+all: $(TILE_MANAGER_LIB)
+	@echo ".: Done Library DMA make all"
+
+ifeq ($(OS), Windows_NT)
+clean:
+	del /s /q *.gcno *.gcda *.d *.o *.s *.gcov *.a *.ipakeep *.B *.i* *.M *.spin *.bc 	
+else
+clean:
+	$(RMRF) $(TILE_MANAGER_LIB) $(OBJS)  *.ipakeep *.s *.B *.i* *.M *.d *.a *.spin *.bc *.gcov    
+	find . -type f -name '*.gcno' -delete
+	find . -type f -name '*.gcda' -delete
+	find . -type f -name '*.d' -delete	
+endif
+
+
+else
+###################CSTUB BUILD #################################
+#
+LIB_CC        =   g++
+CC            =   g++
+INCLUDES =  -I ./inc   -I $(CSTUB_PATH)
+LIB_DEFINES = -m32 $(ADDITIONAL_COMPILE_FLAGS)
+
+ifeq ($(OS), Windows_NT)
+RMRF = del /s /q
+else
+RMRF = rm -rf
+endif
+
+CUR_DIR_DMA := $(shell pwd)
+LIB_NAME = $(shell basename $(CUR_DIR_DMA))
+
+TILE_MANAGER_LIB = $(LIB_NAME).so
+
+TILE_MANAGER_SRCS = $(wildcard src/*.c)
+
+TILE_MANAGER_OBJS = $(TILE_MANAGER_SRCS:.c=.o)
+OBJS = $(TILE_MANAGER_OBJS)
+
+
+%.o:%.c
+	$(CC) $(INCLUDES)  $(LIB_DEFINES) -c $< -o $@
+
+$(TILE_MANAGER_LIB): $(OBJS)
+	$(LIB_CC) -m32 -shared -o $@ $^
+
+
+all: $(TILE_MANAGER_LIB)
+	@echo ".: Done Library DMA make all"
+
+clean:
+	-$(RMRF) $(TILE_MANAGER_LIB) $(OBJS)  *.ipakeep *.s *.B *.i* *.M *.a *.spin src/*.d *.d src/*.o ../idma/idma.o
+
+endif
+
+
+.PHONY: all clean

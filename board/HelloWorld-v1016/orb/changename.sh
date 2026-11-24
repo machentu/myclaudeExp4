@@ -1,0 +1,1 @@
+mv sram_all.bin sram-9f80-800x480-1.8.0.6.bin

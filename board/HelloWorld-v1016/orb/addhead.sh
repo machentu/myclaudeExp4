@@ -1,0 +1,1 @@
+./vdsp_sram_header_gen-v2 -r 800 480 -a 0x9f800000 -m 16 -v 1806 -p sram.bin
